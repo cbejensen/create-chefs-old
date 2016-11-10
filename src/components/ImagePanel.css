@@ -1,0 +1,23 @@
+.ImagePanel-container {
+  height: 400px;
+}
+
+.ImagePanel-img-container,
+.ImagePanel-text-container,
+.ImagePanel-img  {
+  height: 100%;
+}
+
+.ImagePanel-text-container {
+  margin: 0 40px;
+}
+
+.ImagePanel-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ImagePanel-text > .h2 {
+  margin-top: 0
+}
