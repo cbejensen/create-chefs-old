@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from '../../images/chef-logo.png';
-import './Header.css'
+import './index.css'
 
 export default function Header(props) {
   return (

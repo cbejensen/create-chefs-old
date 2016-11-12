@@ -1,18 +1,21 @@
 import React from 'react';
 import ImagePanelImage from './ImagePanelImage';
 import ImagePanelText from './ImagePanelText';
-import { Row, Col, Image } from 'react-bootstrap';
-import './ImagePanel.css'
+import { Col } from 'react-bootstrap';
+import './index.css'
 
 export default function ImagePanel(props) {
-  const img = <ImagePanelImage src={props.src}
-    alt={props.alt} />
+  // const img = <ImagePanelImage src={props.src}
+  //   alt={props.alt} />
   const text = <ImagePanelText heading={props.heading}
     text={props.children} />
   const panelArray = [{
-    component: img,
+    // component: img,
     style: {
-      padding: 0
+      padding: 0,
+      backgroundImage: 'url(' + props.src + ')',
+      backgroundSize: 'cover',
+      backgroundPosition: '50% 50%'
     }
   }, {
     component: text,
@@ -27,7 +30,7 @@ export default function ImagePanel(props) {
     panelArray[1] = panelImg;
   }
   return (
-    <div className="ImagePanel-container">
+    <div>
       <Col xs={6}
         style={panelArray[0].style}
         className="ImagePanel-left">

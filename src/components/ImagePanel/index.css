@@ -7,15 +7,6 @@
   text-align: right;
 }
 
-.ImagePanelImage {
-  width: 100%;
-  margin-top: -50%;
-}
-
-.ImagePanel-container-right {
-  padding-right: 0;
-}
-
 .ImagePanelText-container {
   position: relative;
   top: 50%;

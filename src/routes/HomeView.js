@@ -10,7 +10,6 @@ import './index.css';
 export default function HomeView(props) {
   return (
     <Grid fluid className="HomeView-container">
-
       <Row className="HomeView-row">
         <ImagePanel heading='What?' src={cinnamonRolls} >
           We'll have a fun little activity, learn cooking & baking tips, and each student will take home a sampling of all items made!
