@@ -1,0 +1,30 @@
+.ImagePanel-left, .ImagePanel-right {
+  height: 300px;
+  overflow: hidden;
+}
+
+.ImagePanel-left {
+  text-align: right;
+}
+
+.ImagePanel-img {
+  padding: 0;
+}
+
+.ImagePanelImage {
+  width: 100%;
+}
+
+.ImagePanel-container-right {
+  padding-right: 0;
+}
+
+.ImagePanelText-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ImagePanelText-container > .h2 {
+  margin-top: 0
+}

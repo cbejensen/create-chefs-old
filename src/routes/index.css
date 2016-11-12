@@ -1,0 +1,8 @@
+.HomeView-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.HomeView-row:nth-child(even) {
+  background-color: red;
+}
