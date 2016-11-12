@@ -10,27 +10,33 @@ import './index.css';
 export default function HomeView(props) {
   return (
     <Grid fluid className="HomeView-container">
+
       <Row className="HomeView-row">
-        <Col xs={12} className="HomeView-header">
-          <img src={createLogo} alt="CREATE"/>
-        </Col>
+        <ImagePanel heading='What?' src={cinnamonRolls} >
+          We'll have a fun little activity, learn cooking & baking tips, and each student will take home a sampling of all items made!
+        </ImagePanel>
       </Row>
-      <ImagePanel heading='What?' src={cinnamonRolls} className="HomeView-row">
-        We'll have a fun little activity, learn cooking & baking tips, and each student will take home a sampling of all items made!
-      </ImagePanel>
-      <ImagePanel imgRight heading='When?' src={cinnamonRolls} className="HomeView-row">
-        Mondays & Thursdays from 4-5 PM.
-        Fridays from 1-2 PM.
-      </ImagePanel>
-      <ImagePanel heading='Who?' src={chocPbCookies} className="HomeView-row">
-        Anyobdy who is interested in cooking and loves delicious food!
-      </ImagePanel>
-      <ImagePanel imgRight heading='Where?' src={pumpkinChocChipMuffins} className="HomeView-row">
-        Taylorsville, UT
-      </ImagePanel>
-      <ImagePanel heading='How?' src={pumpkinChocChipMuffins} className="HomeView-row">
-        Click here to register!
-      </ImagePanel>
+      <Row className="HomeView-row">
+        <ImagePanel imgRight heading='When?' src={pumpkinChocChipMuffins} >
+          Mondays & Thursdays from 4-5 PM.
+          Fridays from 1-2 PM.
+        </ImagePanel>
+      </Row>
+      <Row className="HomeView-row">
+        <ImagePanel heading='Who?' src={cinnamonRolls} >
+          Anyobdy who is interested in cooking and loves delicious food!
+        </ImagePanel>
+      </Row>
+      <Row className="HomeView-row">
+        <ImagePanel imgRight heading='Where?' src={pumpkinChocChipMuffins} >
+          Taylorsville, UT
+        </ImagePanel>
+      </Row>
+      <Row className="HomeView-row">
+        <ImagePanel heading='How?' src={cinnamonRolls} >
+          Click here to register!
+        </ImagePanel>
+      </Row>
     </Grid>
   );
 }

@@ -7,12 +7,9 @@
   text-align: right;
 }
 
-.ImagePanel-img {
-  padding: 0;
-}
-
 .ImagePanelImage {
   width: 100%;
+  margin-top: -50%;
 }
 
 .ImagePanel-container-right {

@@ -6,11 +6,9 @@ import './ImagePanel.css'
 
 export default function ImagePanel(props) {
   const img = <ImagePanelImage src={props.src}
-    alt={props.alt}
-    className="ImagePanel-img" />
+    alt={props.alt} />
   const text = <ImagePanelText heading={props.heading}
-    text={props.children}
-    className="ImagePanel-text" />
+    text={props.children} />
   const panelArray = [{
     component: img,
     style: {
@@ -29,17 +27,17 @@ export default function ImagePanel(props) {
     panelArray[1] = panelImg;
   }
   return (
-    <Row>
-      <Col mdOffset={2} md={4} xs={6}
+    <div className="ImagePanel-container">
+      <Col xs={6}
         style={panelArray[0].style}
         className="ImagePanel-left">
         {panelArray[0].component}
       </Col>
-      <Col md={4} xs={6}
+      <Col xs={6}
         style={panelArray[1].style}
         className="ImagePanel-right">
         {panelArray[1].component}
       </Col>
-    </Row>
+    </div>
   );
 }
