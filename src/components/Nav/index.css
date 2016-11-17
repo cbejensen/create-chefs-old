@@ -1,0 +1,34 @@
+nav {
+  height: 80px;
+  background-color: #a1daff;
+}
+
+.Nav-row, nav > div  {
+  height: 100%;
+}
+
+.Nav-row > div {
+  text-align: center;
+  height: 100%;
+}
+
+.Nav-row img {
+  height: 70px;
+}
+
+.Nav-row > div > a {
+  color: white;
+  font-size: 2em;
+  line-height: 80px;
+}
+
+.NavImage-container {
+  height: 90%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.NavImage-container img {
+  height: 100%;
+}

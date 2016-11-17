@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
 import ChildInputGroup from './ChildInputGroup';
 import ParentInputGroup from './ParentInputGroup';
 import ContactInputGroup from './ContactInputGroup';

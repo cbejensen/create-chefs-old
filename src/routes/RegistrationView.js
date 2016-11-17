@@ -1,7 +1,6 @@
 import React from 'react';
 import { RegistrationForm } from '../components/Form/Registration';
 import { Grid, Row, Col } from 'react-bootstrap';
-import logoChef from '../images/logo-chef.png';
 import logoCreate from '../images/logo-create.png';
 
 export default function (props) {
