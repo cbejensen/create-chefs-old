@@ -1,9 +1,7 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row } from 'react-bootstrap';
 import { ImagePanel } from '../components/ImagePanel';
-import createLogo from '../images/create-logo.png';
 import cinnamonRolls from '../images/cinnamon-rolls.jpeg';
-import chocPbCookies from '../images/choc-pb-cookies.jpeg';
 import pumpkinChocChipMuffins from '../images/pumpkin-choc-chip-muffins.jpeg';
 import './index.css';
 

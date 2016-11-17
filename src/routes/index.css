@@ -14,3 +14,7 @@
 .HomeView-row:nth-child(even) {
   background-color: #efd39f;
 }
+
+.RegView-logo-container {
+  text-align: center;
+}

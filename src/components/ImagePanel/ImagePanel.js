@@ -1,16 +1,12 @@
 import React from 'react';
-import ImagePanelImage from './ImagePanelImage';
 import ImagePanelText from './ImagePanelText';
 import { Col } from 'react-bootstrap';
 import './index.css'
 
 export default function ImagePanel(props) {
-  // const img = <ImagePanelImage src={props.src}
-  //   alt={props.alt} />
   const text = <ImagePanelText heading={props.heading}
     text={props.children} />
   const panelArray = [{
-    // component: img,
     style: {
       padding: 0,
       backgroundImage: 'url(' + props.src + ')',

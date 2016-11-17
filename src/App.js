@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header } from './components/Header';
 import { Grid, Row, Col } from 'react-bootstrap';
-import createLogo from './images/create-logo.png';
+import createLogo from './images/logo-create.png';
 import './App.css'
 
 class App extends React.Component {
