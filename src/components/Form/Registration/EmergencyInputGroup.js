@@ -8,19 +8,19 @@ class EmergencyInputGroup extends React.Component {
     return (
       <section>
         <InputGroupHeading heading="Emergency Contact"
-        subHeading="if different than parent or guardian above" />
+          subHeading="if different than parent or guardian above" />
         <Row>
           <Col xs={12} md={6}>
             <FormInput controlId="inputEmergencyName"
-            label="Name" />
+              label="Name" />
           </Col>
           <Col xs={6} md={3}>
             <FormInput controlId="inputEmergencyRelation"
-            label="Relation" />
+              label="Relation" />
           </Col>
           <Col xs={6} md={3}>
             <FormInput controlId="inputEmergencyPhone"
-            label="Phone" />
+              label="Phone" />
           </Col>
         </Row>
       </section>

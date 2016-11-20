@@ -1,6 +1,18 @@
+.Agreement {
+  font-size: .8em;
+}
+
+.Agreement p.lead {
+  margin-bottom: 10px;
+}
+
 .Agreement header.h5 {
   margin-bottom: 0;
   font-weight: bolder;
+}
+
+.Agreement label {
+  font-size: 1.5em;
 }
 
 .DatePicker-container {
@@ -58,6 +70,13 @@
 
 .InputGroupHeading {
   margin-top: 20px;
+}
+
+.InputGroupHeading hr {
+  color: #9e5d15;
+  background-color: #9e5d15;
+  border-top: 1px solid #9e5d15;
+  opacity: 0.3;
 }
 
 .InputGroupHeading small {

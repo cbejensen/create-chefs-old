@@ -5,6 +5,7 @@ import ParentInputGroup from './ParentInputGroup';
 import ContactInputGroup from './ContactInputGroup';
 import EmergencyInputGroup from './EmergencyInputGroup';
 import DatePicker from './DatePicker';
+import { Button } from 'react-bootstrap';
 
 class RegistrationForm extends React.Component {
   constructor(props) {
@@ -12,8 +13,8 @@ class RegistrationForm extends React.Component {
     this.state = {
       child: {
         name: '',
-        sex: '',
-        age: ''
+        age: '',
+        gender: ''
       },
       parent: {
         name: '',
@@ -24,8 +25,18 @@ class RegistrationForm extends React.Component {
         city: '',
         state: '',
         zip: ''
+      },
+      emergency: {
+        name: '',
+        relation: '',
+        phone: ''
       }
-    }
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    alert('submitted!')
   }
   render() {
     const dates = [{
@@ -44,8 +55,9 @@ class RegistrationForm extends React.Component {
       day: '12/23/16',
       time: '4-6pm'
     }];
+    // TODO: make state and agreement required
     return (
-      <div>
+      <form onSubmit={this.handleSubmit}>
         <header className="h2 text-center">REGISTRATION FORM</header>
         <ChildInputGroup />
         <ParentInputGroup />
@@ -53,7 +65,10 @@ class RegistrationForm extends React.Component {
         <EmergencyInputGroup />
         <DatePicker dates={dates}/>
         <Agreement />
-      </div>
+        <Button type="submit" bsStyle="primary" bsSize="large">
+          Submit
+        </Button>
+      </form>
     )
   }
 };

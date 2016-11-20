@@ -11,11 +11,13 @@ class ChildInputGroup extends React.Component {
         <Row>
           <Col sm={6}>
             <FormInput controlId="inputChildName"
-            label="Name" />
+              label="Name"
+              required />
           </Col>
           <Col xs={6} sm={3}>
             <FormInput controlId="inputChildAge"
-            label="Age"/>
+              label="Age"
+              required />
           </Col>
           <Col xs={6} sm={3}>
             <FormGroup controlId="selectChildGender">

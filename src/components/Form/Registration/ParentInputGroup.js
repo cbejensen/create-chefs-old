@@ -11,11 +11,12 @@ class ParentInputGroup extends React.Component {
         <Row>
           <Col xs={12} sm={6}>
             <FormInput controlId="inputParentName"
-            label="Name" />
+              label="Name"
+              required />
           </Col>
           <Col xs={12} sm={6}>
             <FormInput controlId="inputParentRelation"
-            label="Relation" />
+              label="Relation" />
           </Col>
         </Row>
       </section>

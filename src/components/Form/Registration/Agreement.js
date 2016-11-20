@@ -1,13 +1,13 @@
 import React from 'react';
 import InputGroupHeading from './InputGroupHeading';
+import { Checkbox } from 'react-bootstrap';
 
 class Agreement extends React.Component {
   render() {
     return (
       <section className="Agreement">
-        <InputGroupHeading heading="Create's Agreement"
-          subHeading="Terms and Conditions"/>
-        <p><strong>Create agrees to offer cooking classes in exchange for payment by the client according to the following terms and conditions:</strong></p>
+        <InputGroupHeading heading="Create's Agreement"/>
+        <p className="lead">Create agrees to offer cooking classes in exchange for payment by the client according to the following terms and conditions:</p>
         <header className="h5">SAFETY</header>
         <p>Culinary classes at Create’s location are hands-on and students are required to use various kitchen utensils and cooking equipment. We are committed to safety and health at all times in our kitchen. Students are supervised at all times and will be given age-appropriate tasks. Parents should be aware, however, that participation sometimes involves using knives and other sharp utensils, and that children will be working with and in close proximity to kitchen equipment and hot surfaces. Classes may also involve handling of raw food items, including meat. Safe sanitary practices will be reviewed with the students. By signing this form, the parent/guardian releases Create, the owner, and employees from all liability for injuries and/or damages incurred in connection with attendance in a cooking class.</p>
         <header className="h5">ATTIRE</header>
@@ -26,6 +26,7 @@ class Agreement extends React.Component {
         <p> By signing this form the parent/guardian gives permission for medical treatment to be administered to their child by a qualified medical professional in the event of an emergency. Every effort will be made to contact the parent or emergency contact, but in the event that no one can be reached the signer authorizes Provision’s Market Hall to act on behalf of and in the best interest of the child.</p>
         <header className="h5">STUDENT RESPONSIBILITIES</header>
         <p> Students are expected to show respect for others, follow directions from teachers and staff, and abide by all class rules. Create reserves the right to send a student home or decline their return if their behavior is inappropriate.</p>
+        <Checkbox>I Agree</Checkbox>
       </section>
     )
   }

@@ -12,37 +12,46 @@ class ContactInputGroup extends React.Component {
         <Row>
           <Col xs={12} >
             <FormInput controlId="inputContactAddress"
-            label="Address"/>
+              label="Address"
+              required />
           </Col>
         </Row>
         <Row>
           <Col xs={6}>
             <FormInput controlId="inputContactCity"
-            label="City" />
+              label="City"
+              required />
           </Col>
           <Col xs={3}>
             <FormGroup controlId="selectContactState">
               <ControlLabel>State</ControlLabel>
               <FormControl componentClass="select">
                 {statesArray.map((state, i) => {
-                  return <option key={i} value={state}>{state}</option>
+                  return (
+                    <option required key={i} value={state}>
+                      {state}
+                    </option>
+                  )
                 })}
               </FormControl>
             </FormGroup>
           </Col>
           <Col xs={3}>
             <FormInput controlId="inputContactZip"
-            label="Zip" />
+              label="Zip"
+              required />
           </Col>
         </Row>
         <Row>
           <Col xs={6}>
             <FormInput controlId="inputContactPhone"
-            label="Phone" />
+              label="Phone"
+              required />
           </Col>
           <Col xs={6}>
             <FormInput controlId="inputContactEmail"
-            label="Email" />
+              label="E-mail"
+              required />
           </Col>
         </Row>
       </section>
