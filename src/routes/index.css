@@ -1,18 +1,27 @@
 .HomeView-header {
-  height: 150px;
-  /*background-image: url(../images/create-background.jpg);*/
-  /*background-repeat: repeat;*/
+  background-color: #b9308d;
+  text-align: center;
+  height: 100px;
 }
 
-.HomeView-header-img-container {
-  text-align: center;
+.HomeView-header > div {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
 }
 
+.HomeView-header img {
+  height: 80%;
+}
+
+.HomeView-row:nth-child(odd) {
+  background-color: #d43333;
+  color: white;
+}
+
 .HomeView-row:nth-child(even) {
-  background-color: #efd39f;
+  background-color: #fff700;
+  color: black;
 }
 
 .RegView-logo-container {

@@ -26,6 +26,23 @@ class ChildInputGroup extends React.Component {
             </FormGroup>
           </Col>
         </Row>
+        <Row>
+          <Col xs={12}>
+            <FormGroup controlId="inputChildAllergies">
+              <ControlLabel>Allergies or Dietary Restrictions</ControlLabel>
+              <FormControl componentClass="textarea" />
+            </FormGroup>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <FormGroup controlId="inputChildOther">
+              <ControlLabel>Other Notes</ControlLabel>
+              <FormControl componentClass="textarea"
+                placeholder="Anything else we should be aware of?" />
+            </FormGroup>
+          </Col>
+        </Row>
       </RegistrationInputGroup>
     )
   }

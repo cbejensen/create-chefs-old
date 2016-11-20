@@ -6,7 +6,8 @@ import { Row, Col } from 'react-bootstrap';
 class EmergencyInputGroup extends React.Component {
   render() {
     return (
-      <RegistrationInputGroup heading="Emergency Contact">
+      <RegistrationInputGroup heading="Emergency Contact"
+        subHeading="if different than parent or guardian above">
         <Row>
           <Col xs={12} md={6}>
             <FormInput controlId="inputEmergencyName"

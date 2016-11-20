@@ -1,6 +1,7 @@
 import React from 'react';
-import { Grid, Row } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import { ImagePanel } from '../components/ImagePanel';
+import logoCreate from '../images/logo-create.png';
 import cinnamonRolls from '../images/cinnamon-rolls.jpeg';
 import pumpkinChocChipMuffins from '../images/pumpkin-choc-chip-muffins.jpeg';
 import './index.css';
@@ -8,6 +9,9 @@ import './index.css';
 export default function HomeView(props) {
   return (
     <Grid fluid className="HomeView-container">
+      <Row className="HomeView-header">
+        <Col xs={12}><img src={logoCreate} alt="CREATE"/></Col>
+      </Row>
       <Row className="HomeView-row">
         <ImagePanel heading='What?' src={cinnamonRolls} >
           We'll have a fun little activity, learn cooking & baking tips, and each student will take home a sampling of all items made!
