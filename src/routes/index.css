@@ -1,21 +1,38 @@
-.HomeView-header {
-  background-color: #b9308d;
-  text-align: center;
-  height: 100px;
+.HomeView-header-container {
+  background-color: black;
 }
 
-.HomeView-header > div {
+.HomeView-header-container figure {
+  filter: invert(100%);
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bolder;
+  font-size: 1.5em;
+  color: black;
+}
+
+/*.HomeView-header-img-container {
+  height: 100%;
+}
+
+.HomeView-header-img-container > img {
+  height: 100%;
+}*/
+
+.HomeView-header-logo-container {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  text-align: center;
+  filter: invert(100%);
 }
 
-.HomeView-header img {
-  height: 80%;
+.HomeView-header-logo-container figcaption {
+
 }
 
 .HomeView-row:nth-child(odd) {
-  background-color: #d43333;
+  background-color: #5AD886;
   color: white;
 }
 

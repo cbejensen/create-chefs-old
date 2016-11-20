@@ -2,15 +2,31 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { ImagePanel } from '../components/ImagePanel';
 import logoCreate from '../images/logo-create.png';
+import ingredientsBlack from '../images/ingredients-black.png';
 import cinnamonRolls from '../images/cinnamon-rolls.jpeg';
 import pumpkinChocChipMuffins from '../images/pumpkin-choc-chip-muffins.jpeg';
 import './index.css';
 
 export default function HomeView(props) {
+  const style = {
+    header: {
+      backgroundImage: 'url(' + ingredientsBlack + ')',
+      backgroundRepeat: 'repeat-x'
+    }
+  }
   return (
     <Grid fluid className="HomeView-container">
-      <Row className="HomeView-header">
-        <Col xs={12}><img src={logoCreate} alt="CREATE"/></Col>
+      <Row style={style.header} className="HomeView-header-container">
+        {/* <Col xs={4} className="HomeView-header-img-container">
+          <img src={ingredientsBlack} alt=""/>
+        </Col> */}
+        <Col xs={12}>
+          <figure>
+            <img src={logoCreate} alt=""/>
+            <figcaption>Cooking Classes</figcaption>
+          </figure>
+
+        </Col>
       </Row>
       <Row className="HomeView-row">
         <ImagePanel heading='What?' src={cinnamonRolls} >
