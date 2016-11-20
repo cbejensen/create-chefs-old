@@ -1,3 +1,8 @@
+.Agreement header.h5 {
+  margin-bottom: 0;
+  font-weight: bolder;
+}
+
 .DatePicker-container {
   margin-top: 10px;
 }
@@ -51,6 +56,10 @@
   font-weight: bolder;
 }
 
-.RegistrationInputGroup-heading > small {
+.InputGroupHeading {
+  margin-top: 20px;
+}
+
+.InputGroupHeading small {
   margin-left: 10px;
 }

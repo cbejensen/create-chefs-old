@@ -1,12 +1,13 @@
 import React from 'react';
 import FormInput from '../FormInput';
-import RegistrationInputGroup from './RegistrationInputGroup';
+import InputGroupHeading from './InputGroupHeading';
 import { Row, Col } from 'react-bootstrap';
 
 class ParentInputGroup extends React.Component {
   render() {
     return (
-      <RegistrationInputGroup heading="Parent or Guardian">
+      <section>
+        <InputGroupHeading heading="Parent or Guardian" />
         <Row>
           <Col xs={12} sm={6}>
             <FormInput controlId="inputParentName"
@@ -17,7 +18,7 @@ class ParentInputGroup extends React.Component {
             label="Relation" />
           </Col>
         </Row>
-      </RegistrationInputGroup>
+      </section>
     )
   }
 };

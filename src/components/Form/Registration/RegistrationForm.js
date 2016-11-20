@@ -1,4 +1,5 @@
 import React from 'react';
+import Agreement from './Agreement';
 import ChildInputGroup from './ChildInputGroup';
 import ParentInputGroup from './ParentInputGroup';
 import ContactInputGroup from './ContactInputGroup';
@@ -51,6 +52,7 @@ class RegistrationForm extends React.Component {
         <ContactInputGroup />
         <EmergencyInputGroup />
         <DatePicker dates={dates}/>
+        <Agreement />
       </div>
     )
   }

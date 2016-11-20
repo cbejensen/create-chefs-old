@@ -1,13 +1,14 @@
 import React from 'react';
 import FormInput from '../FormInput';
-import RegistrationInputGroup from './RegistrationInputGroup';
+import InputGroupHeading from './InputGroupHeading';
 import { Row, Col, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 class ContactInputGroup extends React.Component {
   render() {
     const statesArray = ['UT', 'CA', 'NV'];
     return (
-      <RegistrationInputGroup heading="Contact Info">
+      <section>
+        <InputGroupHeading heading="Contact Info" />
         <Row>
           <Col xs={12} >
             <FormInput controlId="inputContactAddress"
@@ -44,7 +45,7 @@ class ContactInputGroup extends React.Component {
             label="Email" />
           </Col>
         </Row>
-      </RegistrationInputGroup>
+      </section>
     )
   }
 };

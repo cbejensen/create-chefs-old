@@ -1,12 +1,13 @@
 import React from 'react';
-import RegistrationInputGroup from './RegistrationInputGroup';
+import InputGroupHeading from './InputGroupHeading';
 import { Row, Col, FormGroup, Checkbox } from 'react-bootstrap';
 import './index.css';
 
 class DatePicker extends React.Component {
   render() {
     return (
-      <RegistrationInputGroup heading="Select dates of classes to attend">
+      <section>
+        <InputGroupHeading heading="Select dates of classes to attend" />
         <Row className="DatePicker-container">
           {this.props.dates.map((date, i) => {
             return (
@@ -25,7 +26,7 @@ class DatePicker extends React.Component {
             )
           })}
         </Row>
-      </RegistrationInputGroup>
+      </section>
     )
   }
 };

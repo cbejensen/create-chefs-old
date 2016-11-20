@@ -1,5 +1,7 @@
 .HomeView-header-container {
   background-color: black;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
 }
 
 .HomeView-header-container figure {

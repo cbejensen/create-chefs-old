@@ -1,12 +1,13 @@
 import React from 'react';
 import FormInput from '../FormInput';
-import RegistrationInputGroup from './RegistrationInputGroup';
+import InputGroupHeading from './InputGroupHeading';
 import { Row, Col, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 class ChildInputGroup extends React.Component {
   render() {
     return (
-      <RegistrationInputGroup heading="Child">
+      <section>
+        <InputGroupHeading heading="Child" />
         <Row>
           <Col sm={6}>
             <FormInput controlId="inputChildName"
@@ -43,7 +44,7 @@ class ChildInputGroup extends React.Component {
             </FormGroup>
           </Col>
         </Row>
-      </RegistrationInputGroup>
+      </section>
     )
   }
 };
