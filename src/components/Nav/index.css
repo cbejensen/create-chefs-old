@@ -3,17 +3,8 @@ nav {
   background-color: #a1daff;
 }
 
-.Nav-row, nav > div  {
+.Nav-row, .Nav-row > div, nav > div  {
   height: 100%;
-}
-
-.Nav-row > div {
-  text-align: center;
-  height: 100%;
-}
-
-.Nav-row img {
-  height: 70px;
 }
 
 .Nav-row > div > a {
@@ -22,11 +13,28 @@ nav {
   line-height: 80px;
 }
 
+.NavIcon-container {
+  color: white;
+  font-size: 2em;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Nav-icon-left {
+  text-align: left;
+}
+
+.Nav-icon-right {
+  text-align: right;
+}
+
 .NavImage-container {
   height: 90%;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  text-align: center;
 }
 
 .NavImage-container img {
