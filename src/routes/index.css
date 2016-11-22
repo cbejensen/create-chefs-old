@@ -1,48 +1,36 @@
-.HomeView-header-container {
-  background-color: black;
-  border-top: 3px solid white;
-  border-bottom: 3px solid white;
-}
-
 .HomeView-header-container figure {
-  filter: invert(100%);
   text-align: center;
-  margin: 20px 0;
   font-weight: bolder;
   font-size: 1.5em;
-  color: black;
+  margin-bottom: 5px;
 }
 
-/*.HomeView-header-img-container {
-  height: 100%;
-}
-
-.HomeView-header-img-container > img {
-  height: 100%;
-}*/
-
-.HomeView-header-logo-container {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
-  filter: invert(100%);
-}
-
-.HomeView-header-logo-container figcaption {
-
+.HomeView-header-img {
+  height: 50px;
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  margin: 10px 0;
 }
 
 .HomeView-row:nth-child(odd) {
-  background-color: #5AD886;
-  color: white;
+  background-color: #f5b43d;
+  color: #8e4646;
 }
 
 .HomeView-row:nth-child(even) {
-  background-color: #fff700;
-  color: black;
+  background-color: #8e4646;
+  color: #f5b43d;
 }
 
 .RegView-logo-container {
   text-align: center;
+}
+
+@media (min-width: 768px)  {
+  .HomeView-header-img {
+    height: 130px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
 }

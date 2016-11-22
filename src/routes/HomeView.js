@@ -2,30 +2,37 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { ImagePanel } from '../components/ImagePanel';
 import logoCreate from '../images/logo-create.png';
-import ingredientsBlack from '../images/ingredients-black.png';
+import ingredientsLeft from '../images/ingredients1.png';
+import ingredientsRight from '../images/ingredients2.png';
 import cinnamonRolls from '../images/cinnamon-rolls.jpeg';
 import pumpkinChocChipMuffins from '../images/pumpkin-choc-chip-muffins.jpeg';
 import './index.css';
 
 export default function HomeView(props) {
   const style = {
-    header: {
-      backgroundImage: 'url(' + ingredientsBlack + ')',
-      backgroundRepeat: 'repeat-x'
+    headerLeft: {
+      backgroundImage: 'url(' + ingredientsLeft + ')'
+    },
+    headerRight: {
+      backgroundImage: 'url(' + ingredientsRight + ')'
     }
   }
   return (
     <Grid fluid className="HomeView-container">
-      <Row style={style.header} className="HomeView-header-container">
-        {/* <Col xs={4} className="HomeView-header-img-container">
-          <img src={ingredientsBlack} alt=""/>
-        </Col> */}
-        <Col xs={12}>
+      <Row className="HomeView-header-container">
+        <Col xs={12} sm={3}
+          style={style.headerLeft}
+          className="HomeView-header-img">
+        </Col>
+        <Col xs={12} sm={6}>
           <figure>
-            <img src={logoCreate} alt=""/>
+            <img src={logoCreate} alt="CREATE"/>
             <figcaption>Cooking Classes</figcaption>
           </figure>
-
+        </Col>
+        <Col xs={12} sm={3}
+          style={style.headerRight}
+          className="HomeView-header-img">
         </Col>
       </Row>
       <Row className="HomeView-row">

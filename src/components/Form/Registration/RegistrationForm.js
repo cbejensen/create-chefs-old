@@ -32,7 +32,13 @@ class RegistrationForm extends React.Component {
         phone: ''
       }
     };
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(field, e) {
+    const newState = {};
+    newState[field] = e.target.value;
+    this.setState(newState);
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -59,7 +65,7 @@ class RegistrationForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <header className="h2 text-center">REGISTRATION FORM</header>
-        <ChildInputGroup />
+        <ChildInputGroup handleChange={this.handleChange}/>
         <ParentInputGroup />
         <ContactInputGroup />
         <EmergencyInputGroup />
