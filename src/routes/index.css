@@ -1,25 +1,42 @@
-.HomeView-header-container figure {
+.HomeView-banner-container {
+  background-image: linear-gradient(#8d9294, #3b3b40);
+}
+
+.HomeView-banner-text figure {
   text-align: center;
   font-weight: bolder;
   font-size: 1.5em;
   margin-bottom: 5px;
 }
 
-.HomeView-header-img {
+.HomeView-banner-text figure img {
+  filter: invert();
+}
+
+.HomeView-banner-text figure figcaption {
+  color: black;
+  opacity: .7;
+}
+
+.HomeView-banner-img {
   height: 50px;
   background-size: auto 100%;
   background-repeat: repeat-x;
   margin: 10px 0;
 }
 
+.HomeView-body {
+  background-image: linear-gradient(#3b3b40, #191926);
+}
+
 .HomeView-row:nth-child(odd) {
-  background-color: #f5b43d;
-  color: #8e4646;
+  background-color: #09279E;
+  color: #F9D60C;
 }
 
 .HomeView-row:nth-child(even) {
-  background-color: #8e4646;
-  color: #f5b43d;
+  background-color: #F9D60C;
+  color: #09279E;
 }
 
 .RegView-logo-container {
@@ -27,7 +44,7 @@
 }
 
 @media (min-width: 768px)  {
-  .HomeView-header-img {
+  .HomeView-banner-img {
     height: 130px;
     background-size: contain;
     background-repeat: no-repeat;

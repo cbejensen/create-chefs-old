@@ -8,7 +8,7 @@ import './index.css';
 
 export default function Nav(props) {
   return (
-    <nav className="Nav-container">
+    <nav>
       <Grid>
         <Row className="Nav-row">
           {/* <Col xs={2}><Link to="/schedule">Schedule</Link></Col>

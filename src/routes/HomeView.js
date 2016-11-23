@@ -21,49 +21,55 @@ export default function HomeView(props) {
     }
   }
   return (
-    <Grid fluid className="HomeView-container">
-      <Row className="HomeView-header-container">
-        <Col xs={12} sm={3}
-          style={style.headerLeft}
-          className="HomeView-header-img">
-        </Col>
-        <Col xs={12} sm={6}>
-          <figure>
-            <img src={logoCreate} alt="CREATE"/>
-            <figcaption>Cooking Classes</figcaption>
-          </figure>
-        </Col>
-        <Col xs={12} sm={3}
-          style={style.headerRight}
-          className="HomeView-header-img">
-        </Col>
-      </Row>
-      <Row className="HomeView-row">
-        <ImagePanel heading='What?' src={bostonStir} >
-          We'll have a fun little activity, learn cooking & baking tips, and each student will take home a sampling of all items made!
-        </ImagePanel>
-      </Row>
-      <Row className="HomeView-row">
-        <ImagePanel imgRight heading='When?' src={lemonJuicingHand} >
-          Mondays & Thursdays from 4-5 PM.
-          Fridays from 1-2 PM.
-        </ImagePanel>
-      </Row>
-      <Row className="HomeView-row">
-        <ImagePanel heading='Who?' src={saltPour} >
-          Anyobdy who is interested in cooking and loves delicious food!
-        </ImagePanel>
-      </Row>
-      <Row className="HomeView-row">
-        <ImagePanel imgRight heading='Where?' src={scoopChoc} >
-          Taylorsville, UT
-        </ImagePanel>
-      </Row>
-      <Row className="HomeView-row">
-        <ImagePanel heading='How?' src={pumpkinChocChipMuffins} >
-          Click here to register!
-        </ImagePanel>
-      </Row>
-    </Grid>
+    <main>
+      <Grid fluid>
+        <Row className="HomeView-banner-container">
+          <Col xs={12} sm={3}
+            style={style.headerLeft}
+            className="HomeView-banner-img">
+          </Col>
+          <Col xs={12} sm={6} className="HomeView-banner-text">
+            <figure>
+              <img src={logoCreate} alt="CREATE"/>
+              <figcaption>Cooking Classes</figcaption>
+            </figure>
+          </Col>
+          <Col xs={12} sm={3}
+            style={style.headerRight}
+            className="HomeView-banner-img">
+          </Col>
+        </Row>
+      </Grid>
+      <div className="HomeView-body">
+        <Grid>
+          <Row className="HomeView-row">
+            <ImagePanel heading='What?' src={bostonStir} >
+              We'll have a fun little activity, learn cooking & baking tips, and each student will take home a sampling of all items made!
+            </ImagePanel>
+          </Row>
+          <Row className="HomeView-row">
+            <ImagePanel imgRight heading='When?' src={lemonJuicingHand} >
+              Mondays & Thursdays from 4-5 PM.
+              Fridays from 1-2 PM.
+            </ImagePanel>
+          </Row>
+          <Row className="HomeView-row">
+            <ImagePanel heading='Who?' src={saltPour} >
+              Anyobdy who is interested in cooking and loves delicious food!
+            </ImagePanel>
+          </Row>
+          <Row className="HomeView-row">
+            <ImagePanel imgRight heading='Where?' src={scoopChoc} >
+              Taylorsville, UT
+            </ImagePanel>
+          </Row>
+          <Row className="HomeView-row">
+            <ImagePanel heading='How?' src={pumpkinChocChipMuffins} >
+              Click here to register!
+            </ImagePanel>
+          </Row>
+        </Grid>
+      </div>
+    </main>
   );
 }

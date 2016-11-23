@@ -1,15 +1,17 @@
 import React from 'react';
 import { Nav } from './components/Nav';
+import { Footer } from './components/Footer';
 import { Grid, Row, Col } from 'react-bootstrap';
 import createLogo from './images/logo-create.png';
-import './App.css'
+import './index.css'
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <Nav />
-        <div className="main">{this.props.children}</div>
+        <main>{this.props.children}</main>
+        <Footer />
       </div>
     );
   }
