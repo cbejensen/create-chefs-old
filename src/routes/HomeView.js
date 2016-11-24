@@ -31,7 +31,7 @@ export default function HomeView(props) {
           <Col xs={12} sm={6} className="HomeView-banner-text">
             <figure>
               <img src={logoCreate} alt="CREATE"/>
-              <figcaption>Cooking Classes</figcaption>
+              <figcaption><span>Cooking Classes</span></figcaption>
             </figure>
           </Col>
           <Col xs={12} sm={3}

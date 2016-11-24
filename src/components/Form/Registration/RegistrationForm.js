@@ -14,17 +14,21 @@ class RegistrationForm extends React.Component {
       child: {
         name: '',
         age: '',
-        gender: ''
+        gender: '',
+        allergies: '',
+        notes: ''
       },
       parent: {
         name: '',
         relation: ''
       },
-      address: {
-        street: '',
+      contact: {
+        address: '',
         city: '',
         state: '',
-        zip: ''
+        zip: '',
+        phone: '',
+        email: ''
       },
       emergency: {
         name: '',
@@ -32,17 +36,35 @@ class RegistrationForm extends React.Component {
         phone: ''
       }
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChildChange = this.handleChildChange.bind(this);
+    this.handleParentChange = this.handleParentChange.bind(this);
+    this.handleContactChange = this.handleContactChange.bind(this);
+    this.handleEmergencyChange = this.handleEmergencyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleChange(field, e) {
-    const newState = {};
-    newState[field] = e.target.value;
-    this.setState(newState);
+  handleChildChange(field, e) {
+    const child = this.state.child;
+    child[field] = e.target.value;
+    this.setState({child});
+  }
+  handleParentChange(field, e) {
+    const parent = this.state.parent;
+    parent[field] = e.target.value;
+    this.setState({parent});
+  }
+  handleContactChange(field, e) {
+    const contact = this.state.contact;
+    contact[field] = e.target.value;
+    this.setState({contact});
+  }
+  handleEmergencyChange(field, e) {
+    const emergency = this.state.emergency;
+    emergency[field] = e.target.value;
+    this.setState({emergency});
   }
   handleSubmit(e) {
     e.preventDefault();
-    alert('submitted!')
+    console.log(this.state);
   }
   render() {
     const dates = [{
@@ -65,11 +87,11 @@ class RegistrationForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <header className="h2 text-center">REGISTRATION FORM</header>
-        <ChildInputGroup handleChange={this.handleChange}/>
-        <ParentInputGroup />
-        <ContactInputGroup />
-        <EmergencyInputGroup />
-        <DatePicker dates={dates}/>
+        <ChildInputGroup handleChange={this.handleChildChange}/>
+        <ParentInputGroup handleChange={this.handleParentChange}/>
+        <ContactInputGroup handleChange={this.handleContactChange}/>
+        <EmergencyInputGroup handleChange={this.handleEmergencyChange}/>
+        <DatePicker dates={dates} />
         <Agreement />
         <Button type="submit" bsStyle="primary" bsSize="large">
           Submit

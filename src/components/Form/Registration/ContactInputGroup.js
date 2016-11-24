@@ -12,6 +12,7 @@ class ContactInputGroup extends React.Component {
         <Row>
           <Col xs={12} >
             <FormInput controlId="inputContactAddress"
+              onChange={this.props.handleChange.bind(null, 'address')}
               label="Address"
               required />
           </Col>
@@ -19,16 +20,18 @@ class ContactInputGroup extends React.Component {
         <Row>
           <Col xs={6}>
             <FormInput controlId="inputContactCity"
+              onChange={this.props.handleChange.bind(null, 'city')}
               label="City"
               required />
           </Col>
           <Col xs={3}>
             <FormGroup controlId="selectContactState">
               <ControlLabel>State</ControlLabel>
-              <FormControl componentClass="select">
+              <FormControl componentClass="select"
+                onChange={this.props.handleChange.bind(null, 'state')}>
                 {statesArray.map((state, i) => {
                   return (
-                    <option required key={i} value={state}>
+                    <option required key={i}>
                       {state}
                     </option>
                   )
@@ -38,6 +41,7 @@ class ContactInputGroup extends React.Component {
           </Col>
           <Col xs={3}>
             <FormInput controlId="inputContactZip"
+              onChange={this.props.handleChange.bind(null, 'zip')}
               label="Zip"
               required />
           </Col>
@@ -45,11 +49,13 @@ class ContactInputGroup extends React.Component {
         <Row>
           <Col xs={6}>
             <FormInput controlId="inputContactPhone"
+              onChange={this.props.handleChange.bind(null, 'phone')}
               label="Phone"
               required />
           </Col>
           <Col xs={6}>
             <FormInput controlId="inputContactEmail"
+              onChange={this.props.handleChange.bind(null, 'email')}
               label="E-mail"
               required />
           </Col>

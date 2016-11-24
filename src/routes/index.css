@@ -11,11 +11,15 @@
 
 .HomeView-banner-text figure img {
   filter: invert();
+  margin-bottom: 10px;
 }
 
-.HomeView-banner-text figure figcaption {
+.HomeView-banner-text figcaption > span {
   color: black;
   opacity: .7;
+  border: 1px solid black;
+  padding: 5px;
+  margin-top: 10px;
 }
 
 .HomeView-banner-img {
