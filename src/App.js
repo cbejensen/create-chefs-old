@@ -4,12 +4,27 @@ import { Footer } from './components/Footer';
 import './index.css';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sideNav: false
+    }
+    this.toggleSideNav = this.toggleSideNav.bind(this);
+  }
+  toggleSideNav() {
+    this.setState({
+      sideNav: !this.state.sideNav
+    })
+  }
   render() {
     return (
-      <div>
-        <Nav />
-        <main>{this.props.children}</main>
-        <Footer />
+      <div className="App-wrapper">
+        <div className={this.state.sideNav ? 'App-content App-show-side-nav' : 'App-content'}>
+          <nav className="App-side-nav">NAvigation menu yo!</nav>
+          <Nav toggleSideNav={this.toggleSideNav}/>
+          <main>{this.props.children}</main>
+          <Footer />
+        </div>
       </div>
     );
   }

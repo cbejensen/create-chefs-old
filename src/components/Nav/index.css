@@ -1,8 +1,8 @@
-nav {
+.Nav-container {
   height: 80px;
-  /*background-color: #a1daff;*/
-  background-image: linear-gradient(to right,
-    #a1daff 20%, white, #a1daff 80%);
+  background-color: #e80202;
+  /*background-image: linear-gradient(to right,
+    #e80202 20%, #8d9294, #e80202 80%);*/
 }
 
 .Nav-row, .Nav-row > div, nav > div  {
@@ -16,9 +16,13 @@ nav {
 }
 
 .Nav-icon {
+  padding: 0 25px;
+}
+
+.NavIcon-glyph {
+  cursor: pointer;
   color: white;
   font-size: 3em;
-  padding: 0 25px;
 }
 
 .Nav-icon-left {
