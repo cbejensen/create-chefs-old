@@ -15,12 +15,10 @@ nav {
   line-height: 80px;
 }
 
-.NavIcon-container {
+.Nav-icon {
   color: white;
-  font-size: 2em;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  font-size: 3em;
+  padding: 0 25px;
 }
 
 .Nav-icon-left {
@@ -29,6 +27,12 @@ nav {
 
 .Nav-icon-right {
   text-align: right;
+}
+
+.Nav-icon span {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .NavImage-container {
