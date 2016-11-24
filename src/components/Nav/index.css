@@ -1,6 +1,8 @@
 nav {
   height: 80px;
-  background-color: #a1daff;
+  /*background-color: #a1daff;*/
+  background-image: linear-gradient(to right,
+    #a1daff 20%, white, #a1daff 80%);
 }
 
 .Nav-row, .Nav-row > div, nav > div  {

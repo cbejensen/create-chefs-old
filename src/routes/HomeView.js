@@ -21,7 +21,7 @@ export default function HomeView(props) {
     }
   }
   return (
-    <main>
+    <div className="HomeView-container">
       <Grid fluid>
         <Row className="HomeView-banner-container">
           <Col xs={12} sm={3}
@@ -40,8 +40,8 @@ export default function HomeView(props) {
           </Col>
         </Row>
       </Grid>
-      <div className="HomeView-body">
-        <Grid>
+      <div className="HomeView-body-container">
+        <Grid className="HomeView-body">
           <Row className="HomeView-row">
             <ImagePanel heading='What?' src={bostonStir} >
               We'll have a fun little activity, learn cooking & baking tips, and each student will take home a sampling of all items made!
@@ -70,6 +70,6 @@ export default function HomeView(props) {
           </Row>
         </Grid>
       </div>
-    </main>
+    </div>
   );
 }
