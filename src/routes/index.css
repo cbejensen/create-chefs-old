@@ -40,7 +40,6 @@
 }
 
 .HomeView-body {
-  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -64,5 +63,9 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right;
+  }
+
+  .HomeView-body {
+    border-radius: 10px;
   }
 }

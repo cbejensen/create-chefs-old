@@ -1,7 +1,6 @@
 import React from 'react';
-import NavImage from './NavImage';
-import NavIcon from './NavIcon';
-import { Grid, Row, Col } from 'react-bootstrap';
+import NavImg from './NavImg';
+import { Grid, Row, Col, Glyphicon } from 'react-bootstrap';
 import { Link } from 'react-router';
 import logo from '../../images/logo-chef.png';
 import './index.css';
@@ -15,11 +14,13 @@ export default function Nav(props) {
           <Col xs={2}><Link to="/register">Register</Link></Col> */}
           <Col xs={3} className="Nav-icon Nav-icon-left"
             onClick={props.toggleSideNav}>
-            <NavIcon glyph="menu-hamburger" />
+            <Glyphicon glyph="menu-hamburger"
+              className="NavIcon-glyph"/>
           </Col>
-          <Col xs={6}><NavImage to="/" img={logo} alt="CREATE" /></Col>
+          <Col xs={6}><NavImg to="/" img={logo} alt="CREATE" /></Col>
           <Col xs={3} className="Nav-icon Nav-icon-right">
-            <NavIcon glyph="user"/>
+            <Glyphicon glyph="user"
+              className="NavIcon-glyph"/>
           </Col>
           {/* <Col xs={2}><Link to="/parties">Parties</Link></Col>
           <Col xs={2}><Link to="/about">About</Link></Col> */}

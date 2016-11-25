@@ -50,3 +50,31 @@
 .NavImage-container img {
   height: 100%;
 }
+
+.SideNav-container {
+  height: 100%;
+  width: 200px;
+  padding-top: 20px;
+  background-color: #1f9abf;
+  position: absolute;
+  top: 0;
+  left: -200px;
+}
+
+.SideNavItem {
+  height: 50px;
+  line-height: 50px;
+  font-size: 2em;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  transition: .4s;
+}
+
+.SideNavItem:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.SideNavItem-container {
+  text-decoration: none !important;
+}

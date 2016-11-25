@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav } from './components/Nav';
+import { Nav, SideNav } from './components/Nav';
 import { Footer } from './components/Footer';
 import './index.css';
 
@@ -20,8 +20,8 @@ class App extends React.Component {
     return (
       <div className="App-wrapper">
         <div className={this.state.sideNav ? 'App-content App-show-side-nav' : 'App-content'}>
-          <nav className="App-side-nav">NAvigation menu yo!</nav>
-          <Nav toggleSideNav={this.toggleSideNav}/>
+          <SideNav toggleSideNav={this.toggleSideNav} />
+          <Nav toggleSideNav={this.toggleSideNav} />
           <main>{this.props.children}</main>
           <Footer />
         </div>
