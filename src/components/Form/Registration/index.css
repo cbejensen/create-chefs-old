@@ -82,3 +82,12 @@
 .InputGroupHeading small {
   margin-left: 10px;
 }
+
+.RegistrationForm {
+  padding-bottom: 40px;
+}
+
+.RegistrationForm-btn-submit {
+  display: block;
+  margin: auto;
+}

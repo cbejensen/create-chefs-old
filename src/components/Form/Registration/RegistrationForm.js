@@ -6,6 +6,7 @@ import ContactInputGroup from './ContactInputGroup';
 import EmergencyInputGroup from './EmergencyInputGroup';
 import DatePicker from './DatePicker';
 import { Button } from 'react-bootstrap';
+import { register } from '../../../utils/firebaseHelpers';
 
 class RegistrationForm extends React.Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class RegistrationForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    register(this.state);
   }
   render() {
     const dates = [{
@@ -85,7 +86,7 @@ class RegistrationForm extends React.Component {
     }];
     // TODO: make state and agreement required
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="RegistrationForm">
         <header className="h2 text-center">REGISTRATION FORM</header>
         <ChildInputGroup handleChange={this.handleChildChange}/>
         <ParentInputGroup handleChange={this.handleParentChange}/>
@@ -93,7 +94,8 @@ class RegistrationForm extends React.Component {
         <EmergencyInputGroup handleChange={this.handleEmergencyChange}/>
         <DatePicker dates={dates} />
         <Agreement />
-        <Button type="submit" bsStyle="primary" bsSize="large">
+        <Button type="submit" bsStyle="primary" bsSize="large"
+          className="RegistrationForm-btn-submit">
           Submit
         </Button>
       </form>
