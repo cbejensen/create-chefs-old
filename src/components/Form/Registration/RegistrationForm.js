@@ -4,7 +4,7 @@ import ChildInputGroup from './ChildInputGroup';
 import ParentInputGroup from './ParentInputGroup';
 import ContactInputGroup from './ContactInputGroup';
 import EmergencyInputGroup from './EmergencyInputGroup';
-import DatePicker from './DatePicker';
+import ClassPicker from './ClassPicker';
 import { Button } from 'react-bootstrap';
 import { register } from '../../../utils/firebaseHelpers';
 
@@ -68,21 +68,19 @@ class RegistrationForm extends React.Component {
     register(this.state);
   }
   render() {
-    const dates = [{
-      day: '11/22/16',
-      time: '4-6pm'
+    const classes = [{
+      date: '11/22/16',
+      time: '4-6pm',
+      theme: 'Fall into Flavor!',
+      food: ['Pumpkin Chocolate Chip Muffins',
+      'Chocolate Peanut Butter Chip Cookies',
+      'Yummy Hummus']
     }, {
-      day: '11/24/16',
-      time: '5-7pm'
-    }, {
-      day: '12/3/16',
-      time: '5-7pm'
-    }, {
-      day: '12/14/16',
-      time: '4-6pm'
-    },  {
-      day: '12/23/16',
-      time: '4-6pm'
+      date: '12/12/16',
+      time: '5-7pm',
+      theme: 'Another theme!',
+      food: ['Fake Food',
+      'Walnuts']
     }];
     // TODO: make state and agreement required
     return (
@@ -92,7 +90,7 @@ class RegistrationForm extends React.Component {
         <ParentInputGroup handleChange={this.handleParentChange}/>
         <ContactInputGroup handleChange={this.handleContactChange}/>
         <EmergencyInputGroup handleChange={this.handleEmergencyChange}/>
-        <DatePicker dates={dates} />
+        <ClassPicker classes={classes} />
         <Agreement />
         <Button type="submit" bsStyle="primary" bsSize="large"
           className="RegistrationForm-btn-submit">

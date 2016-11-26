@@ -6,9 +6,9 @@ class InputGroupHeading extends React.Component {
       <header className="InputGroupHeading">
         <div>
           <em className="h4">{this.props.heading}</em>
-          <small><em>{this.props.subHeading}</em></small>
         </div>
-        <hr style={{margin: '0 0 5px 0'}}/>
+        <hr/>
+        <small><em>{this.props.subHeading}</em></small>
         {this.props.children}
       </header>
     )
