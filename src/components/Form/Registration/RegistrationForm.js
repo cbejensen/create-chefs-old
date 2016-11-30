@@ -37,20 +37,36 @@ class RegistrationForm extends React.Component {
         relation: '',
         phone: ''
       },
-      classes: []
+      classes: [],
+      agreement: ''
     };
     this.handleChildChange = this.handleChildChange.bind(this);
+    this.addChild = this.addChild.bind(this);
     this.handleParentChange = this.handleParentChange.bind(this);
     this.handleContactChange = this.handleContactChange.bind(this);
     this.handleEmergencyChange = this.handleEmergencyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.addChild = this.addChild.bind(this);
+    this.handleAgreement = this.handleAgreement.bind(this);
   }
   handleChildChange(field, index, e) {
     console.log(this.state);
     const children = this.state.children;
     children[index][field] = e.target.value;
     this.setState({children});
+  }
+  addChild(e) {
+    console.log(this.state)
+    // clone obj, but changing clone doesn't affect original
+    const child = JSON.parse(JSON.stringify(this.state.children[0]))
+    for (var key in child) {
+      child[key] = '';
+    }
+    const newArray = this.state.children;
+    newArray.push(child);
+    this.setState({
+      children: newArray
+    })
+    setTimeout(() => {console.log(this.state)}, 3000)
   }
   handleParentChange(field, e) {
     const parent = this.state.parent;
@@ -67,19 +83,8 @@ class RegistrationForm extends React.Component {
     emergency[field] = e.target.value;
     this.setState({emergency});
   }
-  addChild(e) {
-    console.log(this.state)
-    // clone object without changes to clone affecting original
-    const child = JSON.parse(JSON.stringify(this.state.children[0]))
-    for (var key in child) {
-      child[key] = '';
-    }
-    const newArray = this.state.children;
-    newArray.push(child);
-    this.setState({
-      children: newArray
-    })
-    setTimeout(() => {console.log(this.state)}, 3000)
+  handleAgreement(e) {
+    this.setState({agreement: e.target.checked})
   }
   handleSubmit(e) {
     console.log(this.state);
@@ -118,7 +123,7 @@ class RegistrationForm extends React.Component {
         <ContactInputGroup handleChange={this.handleContactChange}/>
         <EmergencyInputGroup handleChange={this.handleEmergencyChange}/>
         <ClassPicker classes={classes} />
-        <Agreement />
+        <Agreement handleChange={this.handleAgreement}/>
         <Button type="submit" bsStyle="primary" bsSize="large"
           className="RegistrationForm-btn-submit">
           Submit
