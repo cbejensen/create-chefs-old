@@ -5,20 +5,24 @@ import { Row, Col, FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
 
 class ChildInputGroup extends React.Component {
   render() {
+    let childNum = '';
+    if (this.props.childNum) childNum = this.props.childNum;
     return (
       <section>
-        <InputGroupHeading heading="Child" />
+        <InputGroupHeading heading={`Child ${childNum}`} />
         <Row>
           <Col sm={6}>
             <FormInput controlId="inputChildName"
               label="Name"
-              onChange={this.props.handleChange.bind(null, 'name')}
+              onChange={this.props.handleChange.bind(
+                null, 'name', this.props.index)}
               required />
           </Col>
           <Col xs={6} sm={3}>
             <FormInput controlId="inputChildAge"
               label="Age"
-              onChange={this.props.handleChange.bind(null, 'age')}
+              onChange={this.props.handleChange.bind(
+                null, 'age', this.props.index)}
               required />
           </Col>
           <Col xs={6} sm={3}>
@@ -26,7 +30,8 @@ class ChildInputGroup extends React.Component {
               <ControlLabel>Gender</ControlLabel>
               <FormControl componentClass="select"
                 placeholder="test"
-                onChange={this.props.handleChange.bind(null, 'gender')}>
+                onChange={this.props.handleChange.bind(
+                  null, 'gender', this.props.index)}>
                 <option></option>
                 <option>Male</option>
                 <option>Female</option>
@@ -39,7 +44,8 @@ class ChildInputGroup extends React.Component {
             <FormGroup controlId="inputChildAllergies">
               <ControlLabel>Allergies or Dietary Restrictions</ControlLabel>
               <FormControl componentClass="textarea"
-                onChange={this.props.handleChange.bind(null, 'allergies')}/>
+                onChange={this.props.handleChange.bind(
+                  null, 'allergies', this.props.index)}/>
             </FormGroup>
           </Col>
         </Row>
@@ -49,7 +55,8 @@ class ChildInputGroup extends React.Component {
               <ControlLabel>Other Notes</ControlLabel>
               <FormControl componentClass="textarea"
                 placeholder="Anything else we should be aware of"
-                onChange={this.props.handleChange.bind(null, 'notes')} />
+                onChange={this.props.handleChange.bind(
+                  null, 'notes', this.props.index)} />
             </FormGroup>
           </Col>
         </Row>

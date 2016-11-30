@@ -9,3 +9,12 @@ export const register = data => {
     return err;
   })
 }
+
+export const getClasses = () => {
+  const ref = firebase.database().ref('classes');
+  return ref.once('value').then(snap => {
+    return snap.val();
+  }, err => {
+    return err;
+  })
+}
