@@ -1,7 +1,7 @@
 import React from 'react';
 import InputGroupHeading from './InputGroupHeading';
 import ClassBox from './ClassBox';
-import { Row, Col, FormGroup, Checkbox } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { getClasses } from '../../../utils/firebaseHelpers';
 import './index.css';
 
@@ -13,9 +13,9 @@ class ClassPicker extends React.Component {
     }
   }
   componentDidMount() {
-    getClasses().then(res => {
+    getClasses().then(classes => {
       this.setState({
-        classes: res
+        classes: classes
       })
     }, err => {
       console.log(err);
@@ -29,7 +29,9 @@ class ClassPicker extends React.Component {
           {this.state.classes.map((item, i) => {
               return (
                 <Col sm={6} md={4} key={i}>
-                  <ClassBox item={item} />
+                  <ClassBox item={item}
+                    index={i}
+                    handleClick={this.props.handleClick}/>
                 </Col>
               )
             })}

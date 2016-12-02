@@ -37,7 +37,7 @@ class RegistrationForm extends React.Component {
         relation: '',
         phone: ''
       },
-      classes: [],
+      registeredClasses: [],
       agreement: ''
     };
     this.handleChildChange = this.handleChildChange.bind(this);
@@ -45,8 +45,8 @@ class RegistrationForm extends React.Component {
     this.handleParentChange = this.handleParentChange.bind(this);
     this.handleContactChange = this.handleContactChange.bind(this);
     this.handleEmergencyChange = this.handleEmergencyChange.bind(this);
+    this.handleClassPick = this.handleClassPick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleAgreement = this.handleAgreement.bind(this);
   }
   handleChildChange(field, index, e) {
     console.log(this.state);
@@ -56,10 +56,12 @@ class RegistrationForm extends React.Component {
   }
   addChild(e) {
     console.log(this.state)
-    // clone obj, but changing clone doesn't affect original
+    // clone obj while preventing changes to original
     const child = JSON.parse(JSON.stringify(this.state.children[0]))
     for (var key in child) {
-      child[key] = '';
+      if ({}.hasOwnProperty.call(child, key)) {
+        child[key] = '';
+      }
     }
     const newArray = this.state.children;
     newArray.push(child);
@@ -83,29 +85,39 @@ class RegistrationForm extends React.Component {
     emergency[field] = e.target.value;
     this.setState({emergency});
   }
+  handleClassPick(date, e) {
+    const checked = e.target.checked;
+    this.setState((prevState, props) => {
+      let newArray = prevState.registeredClasses.slice();
+      if (checked) {
+        newArray.push(date);
+        newArray = newArray.sort();
+        return {
+          registeredClasses: newArray
+        };
+      } else {
+        let classToRemove;
+        this.state.registeredClasses.forEach((item, i) => {
+          if (item === date) {
+            classToRemove = i;
+          }
+        })
+        newArray.splice(classToRemove, 1);
+        return {
+          registeredClasses: newArray
+        }
+      }
+    })
+    setTimeout(() => {console.log(this.state)}, 2000)
+  }
   handleAgreement(e) {
     this.setState({agreement: e.target.checked})
   }
   handleSubmit(e) {
-    console.log(this.state);
     e.preventDefault();
     register(this.state);
   }
   render() {
-    const classes = [{
-      date: '11/22/16',
-      time: '4-6pm',
-      theme: 'Fall into Flavor!',
-      food: ['Pumpkin Chocolate Chip Muffins',
-      'Chocolate Peanut Butter Chip Cookies',
-      'Yummy Hummus']
-    }, {
-      date: '12/12/16',
-      time: '5-7pm',
-      theme: 'Another theme!',
-      food: ['Fake Food',
-      'Walnuts']
-    }];
     // TODO: make state and agreement required
     let childNum = 0;
     if (this.state.children.length > 1) {
@@ -122,8 +134,8 @@ class RegistrationForm extends React.Component {
         <ParentInputGroup handleChange={this.handleParentChange}/>
         <ContactInputGroup handleChange={this.handleContactChange}/>
         <EmergencyInputGroup handleChange={this.handleEmergencyChange}/>
-        <ClassPicker classes={classes} />
-        <Agreement handleChange={this.handleAgreement}/>
+        <ClassPicker classes={this.state.classes} handleClick={this.handleClassPick} />
+        <Agreement handleClick={this.handleAgreement}/>
         <Button type="submit" bsStyle="primary" bsSize="large"
           className="RegistrationForm-btn-submit">
           Submit

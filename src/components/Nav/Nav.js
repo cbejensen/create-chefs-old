@@ -1,7 +1,6 @@
 import React from 'react';
 import NavImg from './NavImg';
 import { Grid, Row, Col, Glyphicon } from 'react-bootstrap';
-import { Link } from 'react-router';
 import logo from '../../images/logo-chef.png';
 import './index.css';
 

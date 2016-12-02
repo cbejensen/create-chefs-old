@@ -13,7 +13,7 @@
   background-color: green;
   margin-right: 8px;
   position: relative;
-  top: -3px;
+  top: -2px;
 }
 
 .Agreement {
@@ -64,7 +64,7 @@
 }
 
 .ClassBox-body {
-  background-color: #fff1d6;
+  background-color: #fffaf0;
 }
 
 .ClassBox-body ul {

@@ -1,23 +1,23 @@
 import React from 'react';
-import { Row, Col, Checkbox } from 'react-bootstrap';
 import moment from 'moment';
 import './index.css';
 
 class ClassBox extends React.Component {
   render() {
     const date = moment(this.props.item.date).format("dddd, MMMM Do");
-    // const timeStart = moment(this.props.item.start).format("ha");
-    // const timeEnd = moment(this.props.item.end).format("ha");
-    // const time = timeStart + " - " + timeEnd;
+    const timeStart = moment(this.props.item.start, "hh:mm").format("h:mma");
+    const timeEnd = moment(this.props.item.end, "hh:mm").format("h:mma");
+    const time = timeStart + " - " + timeEnd;
     return (
       <label className="ClassBox-container">
         <header className="ClassBox-header">
           <div className="ClassBox-checkbox-container">
-            <input type="checkbox" />
+            <input type="checkbox" onClick={this.props.handleClick.bind(
+              null, this.props.item.date)}/>
           </div>
           <div className="ClassBox-date-container">
             <h3 className="ClassBox-date">{date}</h3>
-            <span className="ClassBox-time">1-3pm</span>
+            <span className="ClassBox-time">{time}</span>
           </div>
         </header>
         <div className="ClassBox-body">

@@ -1,6 +1,5 @@
 import React from 'react';
 import InputGroupHeading from './InputGroupHeading';
-import { FormGroup, Checkbox } from 'react-bootstrap';
 
 class Agreement extends React.Component {
   constructor(props) {
@@ -33,9 +32,7 @@ class Agreement extends React.Component {
         <p> By signing this form the parent/guardian gives permission for medical treatment to be administered to their child by a qualified medical professional in the event of an emergency. Every effort will be made to contact the parent or emergency contact, but in the event that no one can be reached the signer authorizes Provision’s Market Hall to act on behalf of and in the best interest of the child.</p>
         <header className="h6">STUDENT RESPONSIBILITIES</header>
         <p> Students are expected to show respect for others, follow directions from teachers and staff, and abide by all class rules. Create reserves the right to send a student home or decline their return if their behavior is inappropriate.</p>
-        <FormGroup>
-          <Checkbox onClick={this.props.handleChange}>I Agree</Checkbox>
-        </FormGroup>
+        <p className="lead">By clicking Submit, you agree to the terms and conditions above.</p>
       </section>
     )
   }
