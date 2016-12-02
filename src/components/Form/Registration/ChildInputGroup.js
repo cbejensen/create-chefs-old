@@ -16,7 +16,7 @@ class ChildInputGroup extends React.Component {
               label="Name"
               onChange={this.props.handleChange.bind(
                 null, 'name', this.props.index)}
-              required autoFocus/>
+              required />
           </Col>
           <Col xs={6} sm={3}>
             <FormInput controlId="inputChildAge"
