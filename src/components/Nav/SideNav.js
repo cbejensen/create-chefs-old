@@ -9,6 +9,9 @@ class SideNav extends React.Component {
     }, {
       text: 'register',
       path: '/register'
+    }, {
+      text: 'about',
+      path: '/about'
     }]
     return (
       <div className="SideNav-container">

@@ -7,7 +7,6 @@ import ingredientsLeft from '../images/ingredients1.png';
 import ingredientsRight from '../images/ingredients2.png';
 import bostonStir from '../images/2016-11-10/boston-stir.jpg';
 import lemonJuicingHand from '../images/2016-11-10/lemon-juicing-hand.jpg';
-import saltPour from '../images/2016-11-10/salt-pour.jpg';
 import scoopChoc from '../images/2016-11-10/scoop-choc.jpg';
 import pumpkinChocChipMuffins from '../images/pumpkin-choc-chip-muffins.jpeg';
 import './index.css';
