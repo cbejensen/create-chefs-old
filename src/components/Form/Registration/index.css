@@ -43,6 +43,7 @@
 .ClassBox-header {
   height: 40px;
   width: 100%;
+  padding: 10px;
   background-color: #3ED2ED;
   display: table;
 }

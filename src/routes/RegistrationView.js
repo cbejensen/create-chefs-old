@@ -5,17 +5,19 @@ import logoCreate from '../images/logo-create.png';
 
 export default function (props) {
   return (
-    <Grid className="RegView-grid">
-      <Row className="RegView-logo-container">
-        <Col xs={12}>
-          <img src={logoCreate} alt="CREATE" />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12}>
-          <RegistrationForm />
-        </Col>
-      </Row>
-    </Grid>
+    <div className="RegView-container">
+      <Grid className="RegView-grid">
+        <Row className="RegView-logo-container">
+          <Col xs={12}>
+            <img src={logoCreate} alt="CREATE" />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <RegistrationForm />
+          </Col>
+        </Row>
+      </Grid>
+    </div>
   );
 }

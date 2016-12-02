@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router';
 import { ImagePanel } from '../components/ImagePanel';
 import logoCreate from '../images/logo-create.png';
 import ingredientsLeft from '../images/ingredients1.png';
@@ -43,29 +44,25 @@ export default function HomeView(props) {
       <div className="HomeView-body-container">
         <Grid className="HomeView-body">
           <Row className="HomeView-row">
-            <ImagePanel heading='What?' src={bostonStir} >
-              We'll have a fun little activity, learn cooking & baking tips, and each student will take home a sampling of all items made!
+            <ImagePanel heading='learn' src={bostonStir} >
+              CrEATe cooking classes are specifically designed to inspire children ages 8 - 12 with a love for cooking.
             </ImagePanel>
           </Row>
           <Row className="HomeView-row">
-            <ImagePanel imgRight heading='When?' src={lemonJuicingHand} >
-              Mondays & Thursdays from 4-5 PM.
-              Fridays from 1-2 PM.
+            <ImagePanel imgRight heading='laugh' src={lemonJuicingHand} >
+              We love to have fun while we learn, and so do our little chefs!
             </ImagePanel>
           </Row>
           <Row className="HomeView-row">
-            <ImagePanel heading='Who?' src={saltPour} >
-              Anyobdy who is interested in cooking and loves delicious food!
+            <ImagePanel heading='relax' src={scoopChoc} >
+              Take care of yourself while we take care of the rest. Who knows? Maybe you'll enjoy this more than them!
             </ImagePanel>
           </Row>
           <Row className="HomeView-row">
-            <ImagePanel imgRight heading='Where?' src={scoopChoc} >
-              Taylorsville, UT
-            </ImagePanel>
-          </Row>
-          <Row className="HomeView-row">
-            <ImagePanel heading='How?' src={pumpkinChocChipMuffins} >
-              Click here to register!
+            <ImagePanel imgRight src={pumpkinChocChipMuffins} >
+              <div className="HomeView-image-panel-link">
+                <Link to="/register">Click here to register!</Link>
+              </div>
             </ImagePanel>
           </Row>
         </Grid>

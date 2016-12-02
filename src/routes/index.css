@@ -43,6 +43,16 @@
   overflow: hidden;
 }
 
+.HomeView-image-panel-link {
+  font-family: 'Indie Flower', cursive;
+  text-align: center;
+  font-size: 2em;
+}
+
+.HomeView-image-panel-link a {
+  color: #09279E;
+}
+
 .HomeView-row:nth-child(odd) {
   background-color: #09279E;
   color: #F9D60C;
@@ -53,8 +63,8 @@
   color: #09279E;
 }
 
-.RegView-grid {
-  background-color: #fff1d6;
+.RegView-container {
+  background-color: #FFF1D6;
 }
 
 .RegView-logo-container {

@@ -5,7 +5,7 @@ class Footer extends React.Component {
   render() {
     return (
       <footer>
-        This is the footer.
+        Create Cooking Classes 2016
       </footer>
     )
   }

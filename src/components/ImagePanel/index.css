@@ -11,8 +11,27 @@
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  overflow: scroll;
 }
 
 .ImagePanelText-container > .h2 {
-  margin-top: 0
+  font-family: 'Indie Flower', cursive;
+  margin-top: 0;
+  font-size: inherit; /* fallback */
+  font-size: 3em;
+}
+
+.ImagePanelText-container > p {
+  font-size: inherit; /* fallback */
+  font-size: 1.2em;
+}
+
+@media screen and (min-width: 768px){
+  .ImagePanelText-container > .h2 {
+    font-size: 4em;
+  }
+
+  .ImagePanelText-container > p {
+    font-size: 1.7em;
+  }
 }

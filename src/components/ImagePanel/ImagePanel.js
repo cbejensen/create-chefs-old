@@ -16,7 +16,7 @@ export default function ImagePanel(props) {
   }, {
     component: text,
     style: {
-      padding: '40px'
+      padding: '40px 20px'
     }
   }]
   if (props.imgRight) {

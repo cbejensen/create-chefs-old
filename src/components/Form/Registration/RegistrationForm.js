@@ -37,8 +37,7 @@ class RegistrationForm extends React.Component {
         relation: '',
         phone: ''
       },
-      registeredClasses: [],
-      agreement: ''
+      registeredClasses: []
     };
     this.handleChildChange = this.handleChildChange.bind(this);
     this.addChild = this.addChild.bind(this);
