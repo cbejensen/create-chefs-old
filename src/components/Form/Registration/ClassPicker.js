@@ -10,16 +10,19 @@ class ClassPicker extends React.Component {
     super(props);
     this.state = {
       classes: []
-    }
+    };
   }
   componentDidMount() {
-    getClasses().then(classes => {
-      this.setState({
-        classes: classes
+    getClasses()
+      .then(classes => {
+        console.log(classes);
+        this.setState({
+          classes: classes
+        });
       })
-    }, err => {
-      console.log(err);
-    })
+      .catch(err => {
+        console.log(err);
+      });
   }
   render() {
     return (
@@ -27,18 +30,20 @@ class ClassPicker extends React.Component {
         <InputGroupHeading heading="Select classes to attend" />
         <Row className="ClassPicker-container">
           {this.state.classes.map((item, i) => {
-              return (
-                <Col sm={6} md={4} key={i}>
-                  <ClassBox item={item}
-                    index={i}
-                    handleClick={this.props.handleClick}/>
-                </Col>
-              )
-            })}
+            return (
+              <Col sm={6} md={4} key={i}>
+                <ClassBox
+                  item={item}
+                  index={i}
+                  handleClick={this.props.handleClick}
+                />
+              </Col>
+            );
+          })}
         </Row>
       </section>
-    )
+    );
   }
-};
+}
 
 export default ClassPicker;

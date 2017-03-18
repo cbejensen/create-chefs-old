@@ -24,11 +24,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="App-wrapper">
-        <div className={this.state.sideNav ? 'App-content App-show-side-nav' : 'App-content'}>
+        <div
+          className={this.state.sideNav
+          ? 'App-content App-show-side-nav'
+          : 'App-content'}>
           <SideNav toggleSideNav={this.toggleSideNav} />
           <Nav toggleSideNav={this.toggleSideNav}
             showInfo={this.showInfo}/>
-          <main>{this.props.children}</main>
+          <main style={{minHeight: 'calc(100vh - 50px)'}}>
+            {this.props.children}
+          </main>
           <Footer />
         </div>
       </div>
