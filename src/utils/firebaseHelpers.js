@@ -5,11 +5,32 @@ const config = {
   authDomain: 'createchefs.firebaseapp.com',
   databaseURL: 'https://createchefs.firebaseio.com',
   storageBucket: 'createchefs.appspot.com',
-  messagingSenderId: '985125118577'
+  messagingSenderId: '985125118577',
 };
 firebase.initializeApp(config);
 
 const db = firebase.database();
+
+export const createUser = user => {
+  return firebase
+    .auth()
+    .createUserWithEmailAndPassword(user.email, user.password)
+    .then(auth => {
+      delete user.password;
+      return db
+        .ref(`users/${auth.uid}`)
+        .set(user)
+        .then(newUser => {
+          return 'success';
+        })
+        .catch(err => {
+          throw err;
+        });
+    })
+    .catch(err => {
+      throw err;
+    });
+};
 
 export const register = data => {
   return db

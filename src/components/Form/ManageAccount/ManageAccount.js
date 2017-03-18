@@ -4,13 +4,13 @@ import ChildInputGroup from './ChildInputGroup';
 import ParentInputGroup from './ParentInputGroup';
 import ContactInputGroup from './ContactInputGroup';
 import EmergencyInputGroup from './EmergencyInputGroup';
-import AddInputGroup from './AddInputGroup';
+import AddOrSubtract from './AddOrSubtract';
 import ClassPicker from './ClassPicker';
-import { browserHistory } from 'react-router';
-import { Button } from 'react-bootstrap';
-import { register } from '../../../utils/firebaseHelpers';
+import {browserHistory} from 'react-router';
+import {Button} from 'react-bootstrap';
+import * as firebase from 'firebase';
 
-class RegistrationForm extends React.Component {
+class ManageAccount extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,12 +20,12 @@ class RegistrationForm extends React.Component {
           age: '',
           gender: '',
           allergies: '',
-          notes: ''
-        }
+          notes: '',
+        },
       ],
       parent: {
         name: '',
-        relation: ''
+        relation: '',
       },
       contact: {
         address: '',
@@ -33,64 +33,85 @@ class RegistrationForm extends React.Component {
         state: '',
         zip: '',
         phone: '',
-        email: ''
+        email: '',
       },
       emergency: {
         name: '',
         relation: '',
-        phone: ''
+        phone: '',
       },
-      registeredClasses: []
+      registeredClasses: [],
     };
     this.handleChildChange = this.handleChildChange.bind(this);
     this.addChild = this.addChild.bind(this);
+    this.removeChild = this.removeChild.bind(this);
     this.handleParentChange = this.handleParentChange.bind(this);
     this.handleContactChange = this.handleContactChange.bind(this);
     this.handleEmergencyChange = this.handleEmergencyChange.bind(this);
     this.handleClassPick = this.handleClassPick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  componentDidMount() {
+    this.removeAuthListener = firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        const ref = firebase.database().ref(`users/${user.uid}`);
+        ref.on('value', snap => {
+          console.log(snap.val());
+          this.setState(snap.val());
+          this.setState({uid: user.uid});
+        });
+      } else {
+        browserHistory.push('/sing-in');
+      }
+    });
+  }
+  componentWillUnmount() {
+    this.removeAuthListener();
+  }
   handleChildChange(field, index, e) {
-    console.log(this.state);
     const children = this.state.children;
     children[index][field] = e.target.value;
-    this.setState({ children });
+    this.setState({children});
   }
-  addChild(e) {
-    console.log(this.state);
+  addChild() {
     // clone obj while preventing changes to original
-    const child = JSON.parse(JSON.stringify(this.state.children[0]));
+    const child = {...this.state.children[0]};
     for (var key in child) {
-      if (({}).hasOwnProperty.call(child, key)) {
+      if ({}.hasOwnProperty.call(child, key)) {
         child[key] = '';
       }
     }
     const newArray = this.state.children;
     newArray.push(child);
     this.setState({
-      children: newArray
+      children: newArray,
     });
     setTimeout(
       () => {
         console.log(this.state);
       },
-      3000
+      3000,
     );
+  }
+  removeChild() {
+    const arr = this.state.children;
+    arr.pop();
+    this.setState({children: arr});
   }
   handleParentChange(field, e) {
     const parent = this.state.parent;
     parent[field] = e.target.value;
-    this.setState({ parent });
+    this.setState({parent});
   }
   handleContactChange(field, e) {
     const contact = this.state.contact;
     contact[field] = e.target.value;
-    this.setState({ contact });
+    this.setState({contact});
   }
   handleEmergencyChange(field, e) {
     const emergency = this.state.emergency;
     emergency[field] = e.target.value;
-    this.setState({ emergency });
+    this.setState({emergency});
   }
   handleClassPick(date, e) {
     const checked = e.target.checked;
@@ -100,7 +121,7 @@ class RegistrationForm extends React.Component {
         newArray.push(date);
         newArray = newArray.sort();
         return {
-          registeredClasses: newArray
+          registeredClasses: newArray,
         };
       } else {
         let classToRemove;
@@ -111,7 +132,7 @@ class RegistrationForm extends React.Component {
         });
         newArray.splice(classToRemove, 1);
         return {
-          registeredClasses: newArray
+          registeredClasses: newArray,
         };
       }
     });
@@ -119,21 +140,15 @@ class RegistrationForm extends React.Component {
       () => {
         console.log(this.state);
       },
-      2000
+      2000,
     );
   }
   handleAgreement(e) {
-    this.setState({ agreement: e.target.checked });
+    this.setState({agreement: e.target.checked});
   }
   handleSubmit(e) {
     e.preventDefault();
-    register(this.state)
-      .then(res => {
-        browserHistory.push('/register/confirmation');
-      })
-      .catch(err => {
-        alert('Uh oh! Something went wrong. Please try again.');
-      });
+    firebase.database().ref(`users/${this.state.uid}`).set(this.state);
   }
   render() {
     // TODO: make state and agreement required
@@ -142,8 +157,8 @@ class RegistrationForm extends React.Component {
       childNum = 1;
     }
     return (
-      <form onSubmit={this.handleSubmit} className="RegistrationForm">
-        <header className="h2 text-center">REGISTRATION FORM</header>
+      <form onSubmit={this.handleSubmit} className="ManageAccount">
+        <header className="h2 text-center">MY ACCOUNT</header>
         {this.state.children.map((child, i) => {
           return (
             <ChildInputGroup
@@ -154,7 +169,13 @@ class RegistrationForm extends React.Component {
             />
           );
         })}
-        <AddInputGroup handleClick={this.addChild} label="Child" />
+        <AddOrSubtract
+          add={this.addChild}
+          subtract={this.removeChild}
+          label="Child"
+          addText="Add Child"
+          subtractText="Remove Child"
+        />
         <ParentInputGroup handleChange={this.handleParentChange} />
         <ContactInputGroup handleChange={this.handleContactChange} />
         <EmergencyInputGroup handleChange={this.handleEmergencyChange} />
@@ -167,7 +188,7 @@ class RegistrationForm extends React.Component {
           type="submit"
           bsStyle="primary"
           bsSize="large"
-          className="RegistrationForm-btn-submit"
+          className="ManageAccount-btn-submit"
         >
           Submit
         </Button>
@@ -176,4 +197,4 @@ class RegistrationForm extends React.Component {
   }
 }
 
-export default RegistrationForm;
+export default ManageAccount;

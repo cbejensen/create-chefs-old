@@ -1,19 +1,26 @@
-.AddInputGroup-container {
+.AddOrSubtract-container {
   color: gray;
   font-size: 1.2em;
   cursor: pointer;
 }
 
-.AddInputGroup-container:hover {
+.AddOrSubtract-col:hover {
   color: black;
 }
 
-.AddInputGroup-plus-sign {
+.AddOrSubtract-badge {
   color: white;
-  background-color: green;
   margin-right: 8px;
   position: relative;
   top: -2px;
+}
+
+.AddOrSubtract-badge.add {
+  background-color: green;
+}
+
+.AddOrSubtract-badge.subtract {
+  background-color: red;
 }
 
 .Agreement {
@@ -102,11 +109,13 @@
   margin-bottom: 10px;
 }
 
-.RegistrationForm {
+.ManageAccount {
   padding-bottom: 40px;
+  max-width: 1000px;
+  margin: auto;
 }
 
-.RegistrationForm-btn-submit {
+.ManageAccount-btn-submit {
   display: block;
   margin: auto;
 }
