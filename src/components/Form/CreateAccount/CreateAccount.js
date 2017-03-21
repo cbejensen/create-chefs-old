@@ -1,10 +1,11 @@
 import React from 'react';
+import Agreement from '../Agreement';
 import {Button} from 'react-bootstrap';
 import FormInput from '../FormInput';
 
 export default function CreateAccount(props) {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={props.handleSubmit} style={{padding: '20px 0'}}>
       <FormInput
         label="First Name"
         autoFocus
@@ -36,6 +37,8 @@ export default function CreateAccount(props) {
         value={props.user.password}
         onChange={props.handleChange.bind(null, 'password')}
       />
+      <hr />
+      <Agreement />
       <Button
         type={props.creatingUser ? 'button' : 'submit'}
         bsStyle="primary"

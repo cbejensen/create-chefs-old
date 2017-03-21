@@ -1,5 +1,4 @@
 import React from 'react';
-import Agreement from './Agreement';
 import ChildInputGroup from './ChildInputGroup';
 import ParentInputGroup from './ParentInputGroup';
 import ContactInputGroup from './ContactInputGroup';
@@ -188,14 +187,13 @@ class ManageAccount extends React.Component {
           emergency={this.state.emergency}
           handleChange={this.handleEmergencyChange}
         />
-        <Agreement handleClick={this.handleAgreement} />
         <Button
           type="submit"
           bsStyle="primary"
           bsSize="large"
           className="ManageAccount-btn-submit"
         >
-          Submit
+          Save
         </Button>
       </form>
     );
