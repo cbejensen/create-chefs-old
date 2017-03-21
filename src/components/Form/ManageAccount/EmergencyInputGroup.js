@@ -11,17 +11,17 @@ class EmergencyInputGroup extends React.Component {
           subHeading="if different than parent or guardian above" />
         <Row>
           <Col xs={12} md={6}>
-            <FormInput controlId="inputEmergencyName"
+            <FormInput value={this.props.emergency.name} controlId="inputEmergencyName"
               onChange={this.props.handleChange.bind(null, 'name')}
               label="Name" />
           </Col>
           <Col xs={6} md={3}>
-            <FormInput controlId="inputEmergencyRelation"
+            <FormInput value={this.props.emergency.relation} controlId="inputEmergencyRelation"
               onChange={this.props.handleChange.bind(null, 'relation')}
               label="Relation" />
           </Col>
           <Col xs={6} md={3}>
-            <FormInput controlId="inputEmergencyPhone"
+            <FormInput value={this.props.emergency.phone} controlId="inputEmergencyPhone"
               onChange={this.props.handleChange.bind(null, 'phone')}
               label="Phone" />
           </Col>

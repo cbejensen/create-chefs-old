@@ -40,7 +40,6 @@ class ManageAccount extends React.Component {
         relation: '',
         phone: '',
       },
-      registeredClasses: [],
     };
     this.handleChildChange = this.handleChildChange.bind(this);
     this.addChild = this.addChild.bind(this);
@@ -165,6 +164,7 @@ class ManageAccount extends React.Component {
               handleChange={this.handleChildChange}
               key={i}
               index={i}
+              child={child}
               childNum={childNum + i}
             />
           );
@@ -176,12 +176,17 @@ class ManageAccount extends React.Component {
           addText="Add Child"
           subtractText="Remove Child"
         />
-        <ParentInputGroup handleChange={this.handleParentChange} />
-        <ContactInputGroup handleChange={this.handleContactChange} />
-        <EmergencyInputGroup handleChange={this.handleEmergencyChange} />
-        <ClassPicker
-          classes={this.state.classes}
-          handleClick={this.handleClassPick}
+        <ParentInputGroup
+          parent={this.state.parent}
+          handleChange={this.handleParentChange}
+        />
+        <ContactInputGroup
+          contact={this.state.contact}
+          handleChange={this.handleContactChange}
+        />
+        <EmergencyInputGroup
+          emergency={this.state.emergency}
+          handleChange={this.handleEmergencyChange}
         />
         <Agreement handleClick={this.handleAgreement} />
         <Button

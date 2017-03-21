@@ -11,7 +11,7 @@ class ContactInputGroup extends React.Component {
         <InputGroupHeading heading="Contact Info" />
         <Row>
           <Col xs={12} >
-            <FormInput controlId="inputContactAddress"
+            <FormInput value={this.props.contact.address} controlId="inputContactAddress"
               onChange={this.props.handleChange.bind(null, 'address')}
               label="Address"
               required />
@@ -19,7 +19,7 @@ class ContactInputGroup extends React.Component {
         </Row>
         <Row>
           <Col xs={6}>
-            <FormInput controlId="inputContactCity"
+            <FormInput value={this.props.contact.city} controlId="inputContactCity"
               onChange={this.props.handleChange.bind(null, 'city')}
               label="City"
               required />
@@ -31,7 +31,7 @@ class ContactInputGroup extends React.Component {
                 onChange={this.props.handleChange.bind(null, 'state')}>
                 {statesArray.map((state, i) => {
                   return (
-                    <option required key={i}>
+                    <option value={this.props.contact.state} required key={i}>
                       {state}
                     </option>
                   )
@@ -40,21 +40,21 @@ class ContactInputGroup extends React.Component {
             </FormGroup>
           </Col>
           <Col xs={3}>
-            <FormInput controlId="inputContactZip"
+            <FormInput value={this.props.contact.zip} controlId="inputContactZip"
               onChange={this.props.handleChange.bind(null, 'zip')}
-              label="Zip"
+              label="Zip Code"
               required />
           </Col>
         </Row>
         <Row>
           <Col xs={6}>
-            <FormInput controlId="inputContactPhone"
+            <FormInput value={this.props.contact.phone} controlId="inputContactPhone"
               onChange={this.props.handleChange.bind(null, 'phone')}
               label="Phone"
               required />
           </Col>
           <Col xs={6}>
-            <FormInput controlId="inputContactEmail"
+            <FormInput value={this.props.contact.email} controlId="inputContactEmail"
               onChange={this.props.handleChange.bind(null, 'email')}
               label="E-mail"
               required />
