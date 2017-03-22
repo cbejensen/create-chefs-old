@@ -50,21 +50,10 @@ class ManageAccount extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    this.removeAuthListener = firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        const ref = firebase.database().ref(`users/${user.uid}`);
-        ref.on('value', snap => {
-          console.log(snap.val());
-          this.setState(snap.val());
-          this.setState({uid: user.uid});
-        });
-      } else {
-        browserHistory.push('/sing-in');
-      }
+    const ref = firebase.database().ref(`users/${this.props.uid}`);
+    ref.on('value', snap => {
+      this.setState(snap.val());
     });
-  }
-  componentWillUnmount() {
-    this.removeAuthListener();
   }
   handleChildChange(field, index, e) {
     const children = this.state.children;

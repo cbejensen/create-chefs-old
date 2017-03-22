@@ -5,6 +5,7 @@ import {Grid} from 'react-bootstrap';
 export default function SignInView(props) {
   return (
     <Grid>
+      <h1>Sign In</h1>
       <SignIn />
     </Grid>
   );

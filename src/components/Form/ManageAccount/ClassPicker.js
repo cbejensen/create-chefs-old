@@ -1,23 +1,25 @@
 import React from 'react';
 import InputGroupHeading from './InputGroupHeading';
 import ClassBox from './ClassBox';
-import { Row, Col } from 'react-bootstrap';
-import { getClasses } from '../../../utils/firebaseHelpers';
+import {Row, Col} from 'react-bootstrap';
+import * as firebase from 'firebase';
 import './index.css';
 
 class ClassPicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      classes: []
+      classes: [],
     };
   }
   componentDidMount() {
-    getClasses()
-      .then(classes => {
-        console.log(classes);
+    firebase
+      .database()
+      .ref('classes')
+      .once('value')
+      .then(snap => {
         this.setState({
-          classes: classes
+          classes: snap.val(),
         });
       })
       .catch(err => {

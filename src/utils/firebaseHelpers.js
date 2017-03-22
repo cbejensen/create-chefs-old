@@ -32,18 +32,6 @@ export const createUser = user => {
     });
 };
 
-export const register = data => {
-  return db
-    .ref('registrations')
-    .push(data)
-    .then(res => {
-      return res;
-    })
-    .catch(err => {
-      return err;
-    });
-};
-
 export const getClasses = () => {
   return db
     .ref('classes')
@@ -55,14 +43,3 @@ export const getClasses = () => {
       return err;
     });
 };
-
-// images via firebase storage
-// const imgRef = firebase.storage().ref('images');
-//
-// export const getImg = img => {
-//   imgRef.child(img).getDownloadURL().then(url => {
-//     return url;
-//   }, err => {
-//     return err;
-//   });
-// }
