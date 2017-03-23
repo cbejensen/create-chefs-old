@@ -13,12 +13,13 @@ class CheckAuth extends React.Component {
         this.setState({uid: user.uid});
       } else {
         this.setState({uid: null});
-        browserHistory.push(this.props.redirect || '/sign-in');
+        console.log(user);
+        // browserHistory.push(this.props.redirect || '/sign-in');
       }
     });
   }
   componentWillUnmount() {
-    this.removeAuthListener()
+    this.removeAuthListener();
   }
   render() {
     if (!this.state.uid) return null;

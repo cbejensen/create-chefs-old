@@ -4,7 +4,6 @@ import ParentInputGroup from './ParentInputGroup';
 import ContactInputGroup from './ContactInputGroup';
 import EmergencyInputGroup from './EmergencyInputGroup';
 import AddOrSubtract from './AddOrSubtract';
-import ClassPicker from './ClassPicker';
 import {browserHistory} from 'react-router';
 import {Button} from 'react-bootstrap';
 import * as firebase from 'firebase';
@@ -46,7 +45,6 @@ class ManageAccount extends React.Component {
     this.handleParentChange = this.handleParentChange.bind(this);
     this.handleContactChange = this.handleContactChange.bind(this);
     this.handleEmergencyChange = this.handleEmergencyChange.bind(this);
-    this.handleClassPick = this.handleClassPick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
@@ -100,36 +98,6 @@ class ManageAccount extends React.Component {
     emergency[field] = e.target.value;
     this.setState({emergency});
   }
-  handleClassPick(date, e) {
-    const checked = e.target.checked;
-    this.setState((prevState, props) => {
-      let newArray = prevState.registeredClasses.slice();
-      if (checked) {
-        newArray.push(date);
-        newArray = newArray.sort();
-        return {
-          registeredClasses: newArray,
-        };
-      } else {
-        let classToRemove;
-        this.state.registeredClasses.forEach((item, i) => {
-          if (item === date) {
-            classToRemove = i;
-          }
-        });
-        newArray.splice(classToRemove, 1);
-        return {
-          registeredClasses: newArray,
-        };
-      }
-    });
-    setTimeout(
-      () => {
-        console.log(this.state);
-      },
-      2000,
-    );
-  }
   handleAgreement(e) {
     this.setState({agreement: e.target.checked});
   }
@@ -138,7 +106,6 @@ class ManageAccount extends React.Component {
     firebase.database().ref(`users/${this.state.uid}`).set(this.state);
   }
   render() {
-    // TODO: make state and agreement required
     let childNum = 0;
     if (this.state.children.length > 1) {
       childNum = 1;

@@ -41,58 +41,6 @@
   font-size: 1.5em;
 }
 
-.ClassBox-container {
-  border-radius: 10px;
-  overflow: hidden;
-  width: 100%;
-  cursor: pointer;
-}
-
-.ClassBox-header {
-  height: 40px;
-  width: 100%;
-  padding: 10px;
-  background-color: #d6e5ff;
-  display: table;
-}
-
-.ClassBox-checkbox-container,
-.ClassBox-date-container {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.ClassBox-checkbox-container {
-  text-align: center;
-  width: 50px;
-}
-
-.ClassBox-date-container h3 {
-  display: inline;
-  margin-right: 10px;
-}
-
-.ClassBox-body {
-  background-color: #fffaf0;
-}
-
-.ClassBox-body ul {
-  margin: 0;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  padding-left: 37px;
-}
-
-.ClassBox-theme {
-  padding: 10px 0 0 17px;
-  font-size: 1.2em;
-}
-
-.ClassBox-lessons {
-  font-weight: lighter;
-  font-size: 1em;
-}
-
 .InputGroupHeading {
   margin-top: 20px;
 }
