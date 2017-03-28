@@ -13,7 +13,8 @@ class ClassPicker extends React.Component {
     this.handleClassPick = this.handleClassPick.bind(this);
   }
   componentDidMount() {
-    firebase.database().ref('classes').on('value', snap => {
+    this.ref = firebase.database().ref('classes');
+    this.ref.on('value', snap => {
       // assign uid to id prop
       const obj = {...snap.val()};
       for (let key in obj) {
@@ -25,7 +26,7 @@ class ClassPicker extends React.Component {
     });
   }
   componentWillUnmount() {
-    firebase.database().ref('classes').off();
+    this.ref.off();
   }
   handleClassPick(id, e) {
     const checked = e.target.checked;

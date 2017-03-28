@@ -17,6 +17,11 @@ export const createUser = user => {
     .createUserWithEmailAndPassword(user.email, user.password)
     .then(auth => {
       delete user.password;
+      user.contact = {email: user.email};
+      delete user.email;
+      user.parent = {
+        name: `${user.firstName} ${user.lastName}`,
+      };
       return db
         .ref(`users/${auth.uid}`)
         .set(user)

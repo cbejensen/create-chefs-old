@@ -12,9 +12,7 @@ class CheckAuth extends React.Component {
       if (user) {
         this.setState({uid: user.uid});
       } else {
-        this.setState({uid: null});
-        console.log(user);
-        // browserHistory.push(this.props.redirect || '/sign-in');
+        browserHistory.push(this.props.redirect || '/sign-in');
       }
     });
   }
@@ -25,7 +23,9 @@ class CheckAuth extends React.Component {
     if (!this.state.uid) return null;
     return (
       <div>
-        {React.cloneElement(this.props.children, {uid: this.state.uid})}
+        {React.cloneElement(this.props.children, {
+          uid: this.state.uid,
+        })}
       </div>
     );
   }
