@@ -1,7 +1,7 @@
 import React from 'react';
 import * as firebase from 'firebase';
 
-class DataListener extends React.Component {
+class FirebaseListener extends React.Component {
   constructor(props) {
     super(props);
     this.state = {data: null};
@@ -28,9 +28,9 @@ class DataListener extends React.Component {
   }
 }
 
-DataListener.propTypes = {
+FirebaseListener.propTypes = {
   path: React.PropTypes.string.isRequired,
   passDataAs: React.PropTypes.string,
 };
 
-export default DataListener;
+export default FirebaseListener;

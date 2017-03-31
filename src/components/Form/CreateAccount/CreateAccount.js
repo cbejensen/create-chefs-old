@@ -1,32 +1,32 @@
 import React from 'react';
 import Agreement from '../Agreement';
 import {Button} from 'react-bootstrap';
-import FormInput from '../FormInput';
+import FormField from '../FormField';
 
 export default function CreateAccount(props) {
   return (
     <form onSubmit={props.handleSubmit} style={{padding: '20px 0'}}>
-      <FormInput
+      <FormField
         label="First Name"
         autoFocus
         required
         value={props.user.firstName}
         onChange={props.handleChange.bind(null, 'firstName')}
       />
-      <FormInput
+      <FormField
         label="Last Name"
         required
         value={props.user.lastName}
         onChange={props.handleChange.bind(null, 'lastName')}
       />
-      <FormInput
+      <FormField
         label="E-mail"
         required
         type="email"
         value={props.user.email}
         onChange={props.handleChange.bind(null, 'email')}
       />
-      <FormInput
+      <FormField
         label="Password"
         required
         type="password"

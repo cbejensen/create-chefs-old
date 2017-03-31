@@ -1,5 +1,5 @@
 import React from 'react';
-import FormInput from '../FormInput';
+import {FirebaseField} from 'components/FirebaseHelpers';
 import InputGroupHeading from './InputGroupHeading';
 import {Row, Col} from 'react-bootstrap';
 
@@ -12,36 +12,32 @@ export default function EmergencyInputGroup(props) {
       />
       <Row>
         <Col xs={12} sm={4} md={3}>
-          <FormInput
-            value={props.emergency.firstName}
-            controlId="inputEmergencyName"
-            onChange={props.handleChange.bind(null, 'firstName')}
+          <FirebaseField
+            path={`users/${props.uid}/emergency/firstName`}
+            controlId="emergencyFirstName"
             label="First Name"
           />
         </Col>
         <Col xs={12} sm={4} md={3}>
-          <FormInput
-            value={props.emergency.lastName}
-            controlId="inputEmergencyName"
-            onChange={props.handleChange.bind(null, 'lastName')}
+          <FirebaseField
+            path={`users/${props.uid}/emergency/lastName`}
+            controlId="emergencyLastName"
             label="Last Name"
           />
         </Col>
       </Row>
       <Row>
         <Col xs={12} md={3}>
-          <FormInput
-            value={props.emergency.relation}
-            controlId="inputEmergencyRelation"
-            onChange={props.handleChange.bind(null, 'relation')}
-            label="Relation"
+          <FirebaseField
+            path={`users/${props.uid}/emergency/relation`}
+            controlId="emergencyRelation"
+            label="Relation to Children"
           />
         </Col>
         <Col xs={12} md={3}>
-          <FormInput
-            value={props.emergency.phone}
-            controlId="inputEmergencyPhone"
-            onChange={props.handleChange.bind(null, 'phone')}
+          <FirebaseField
+            path={`users/${props.uid}/emergency/phone`}
+            controlId="emergencyPhone"
             label="Phone"
           />
         </Col>

@@ -4,7 +4,7 @@ import App from '../App';
 import Home from './HomeView';
 import CreateAccount from './CreateAccountView.js';
 import ManageAccount from './ManageAccountView.js';
-import UserChildren from './UserChildrenView.js';
+import ManageChild from './ManageChildView.js';
 import SignIn from './SignInView.js';
 import Reg from './ClassesView.js';
 import About from './AboutView.js';
@@ -21,7 +21,7 @@ const routes = (
       <IndexRoute component={Home} />
       <Route path="/create-account" component={CreateAccount} />
       <Route path="/my-account" component={ManageAccount} />
-      <Route path="/my-account/children/:childId" component={UserChildren} />
+      <Route path="/my-account/children/:childId" component={ManageChild} />
       <Route path="/sign-in" component={SignIn} />
       <Route path="/register" component={Reg} />
       <Route path="/about" component={About} />

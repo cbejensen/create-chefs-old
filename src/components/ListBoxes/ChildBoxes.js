@@ -1,6 +1,6 @@
 import React from 'react';
 import ChildBox from './ChildBox';
-import DataListener from 'components/FirebaseHelpers/DataListener';
+import FirebaseListener from 'components/FirebaseHelpers/FirebaseListener';
 
 class ChildBoxes extends React.Component {
   constructor(props) {
@@ -21,9 +21,9 @@ class ChildBoxes extends React.Component {
       <div style={{marginBottom: '10px'}}>
         {childIds.map(id => {
           return (
-            <DataListener key={id} path={`children/${id}`} passDataAs="child">
+            <FirebaseListener key={id} path={`children/${id}`} passDataAs="child">
               <ChildBox id={id} />
-            </DataListener>
+            </FirebaseListener>
           );
         })}
       </div>

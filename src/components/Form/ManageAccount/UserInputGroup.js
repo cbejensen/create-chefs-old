@@ -1,5 +1,6 @@
 import React from 'react';
-import FormInput from '../FormInput';
+import {FirebaseField} from 'components/FirebaseHelpers';
+import FormField from 'components/Form/FormField';
 import InputGroupHeading from './InputGroupHeading';
 import {Row, Col, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 
@@ -10,76 +11,65 @@ export default function UserInputGroup(props) {
       <InputGroupHeading heading="Basic Info" />
       <Row>
         <Col xs={6} md={4}>
-          <FormInput
-            value={props.firstName}
-            controlId="inputParentName"
-            onChange={props.handleChange.bind(null, 'firstName')}
+          <FirebaseField
+            path={`users/${props.uid}/firstName`}
+            controlId="userFirstName"
             label="First Name"
-            required
           />
         </Col>
         <Col xs={6} md={4}>
-          <FormInput
-            value={props.lastName}
-            controlId="inputParentName"
-            onChange={props.handleChange.bind(null, 'lastName')}
+          <FirebaseField
+            path={`users/${props.uid}/lastName`}
+            controlId="userLastName"
             label="Last Name"
-            required
           />
         </Col>
         <Col xs={12} sm={8} md={4}>
-          <FormInput
-            value={props.phone}
-            controlId="inputParentName"
-            onChange={props.handleChange.bind(null, 'phone')}
+          <FirebaseField
+            path={`users/${props.uid}/phone`}
+            controlId="userPhone"
             label="Phone"
-            required
           />
         </Col>
       </Row>
       <Row>
         <Col xs={12} sm={8} md={6}>
-          <FormInput
-            value={props.address}
-            controlId="inputParentName"
-            onChange={props.handleChange.bind(null, 'address')}
+          <FirebaseField
+            path={`users/${props.uid}/address`}
+            controlId="userAddress"
             label="Address"
-            required
           />
         </Col>
       </Row>
       <Row>
         <Col xs={6}>
-          <FormInput
-            value={props.city}
-            controlId="inputParentName"
-            onChange={props.handleChange.bind(null, 'city')}
+          <FirebaseField
+            path={`users/${props.uid}/city`}
+            controlId="userCity"
             label="City"
-            required
           />
         </Col>
         <Col xs={3}>
-          <FormGroup controlId="selectContactState">
-            <ControlLabel>State</ControlLabel>
-            <FormControl
-              componentClass="select"
-              onChange={props.handleChange.bind(null, 'state')}
-            >
-              {statesArray.map((state, i) => {
-                return (
-                  <option required key={i}>
-                    {state}
-                  </option>
-                );
-              })}
-            </FormControl>
-          </FormGroup>
+          <FirebaseField
+            componentClass="select"
+            path={`users/${props.uid}/state`}
+            controlId="userState"
+            label="State"
+          >
+            {statesArray.map((state, i) => {
+              return (
+                <option required key={i}>
+                  {state}
+                </option>
+              );
+            })}
+          </FirebaseField>
         </Col>
         <Col xs={3}>
-          <FormInput
-            value={props.zip}
-            controlId="inputParentName"
-            onChange={props.handleChange.bind(null, 'zip')}
+          <FirebaseField
+            path={`users/${props.uid}/zip`}
+            controlId="userZip"
+            // onChange={props.handleChange.bind(null, 'zip')}
             label="Zip Code"
             required
           />

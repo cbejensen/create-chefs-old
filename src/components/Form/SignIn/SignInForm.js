@@ -1,17 +1,17 @@
 import React from 'react';
-import FormInput from '../FormInput'
+import FormField from '../FormField'
 import { Form, Button } from 'react-bootstrap'
 
 export default function SignInForm(props) {
   return (
       <Form onSubmit={props.handleSubmit}>
-        <FormInput label='E-mail'
+        <FormField label='E-mail'
           autoFocus
           value={props.email}
           onChange={props.handleEmailChange}
           required />
         {' '}
-        <FormInput label='Password'
+        <FormField label='Password'
           type='password'
           value={props.password}
           onChange={props.handlePasswordChange}

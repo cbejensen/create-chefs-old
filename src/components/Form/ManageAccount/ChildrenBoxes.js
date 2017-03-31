@@ -3,7 +3,7 @@ import ChildBoxes from 'components/ListBoxes/ChildBoxes';
 import InputGroupHeading from './InputGroupHeading';
 import {browserHistory} from 'react-router';
 
-export default function ChildrenInputGroup(props) {
+export default function ChildrenBoxes(props) {
   return (
     <div>
       <InputGroupHeading
