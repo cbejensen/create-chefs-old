@@ -13,31 +13,29 @@ class ManageChildContainer extends React.Component {
       allergies: '',
       notes: '',
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
   componentDidMount() {
     this.fbRef = firebase.database().ref(`children/${this.props.childId}`);
-    this.fbRef.on('value', snap => {
+    this.fbRef.once('value').then(snap => {
       this.setState(snap.val());
     });
   }
   componentWillUnmount() {
-    this.fbRef.off()
+    this.fbRef.off();
   }
-  handleChange(field, e) {
-    this.setState({[field]: e.target.value});
-  }
-  handleSubmit() {
-    console.log(this.state);
+  handleBlur(field, e) {
+    const val = e.target.value;
+    // if input is empty, change to original value
+    // as it was when component mounted
+    if (val === '') this.fbRef.child(`/${field}`).set(this.state[field]);
   }
   render() {
     return (
       <ManageChild
         {...this.state}
         childId={this.props.childId}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
+        handleBlur={this.handleBlur}
       />
     );
   }

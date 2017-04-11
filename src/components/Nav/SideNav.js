@@ -9,8 +9,8 @@ class SideNav extends React.Component {
         path: '/',
       },
       {
-        text: 'register',
-        path: '/register',
+        text: 'classes',
+        path: '/classes',
       },
       {
         text: 'my account',

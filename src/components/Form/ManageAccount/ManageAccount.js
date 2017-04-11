@@ -1,5 +1,4 @@
 import React from 'react';
-import ManageTitle from './ManageTitle';
 import UserInputGroup from './UserInputGroup';
 import ChildrenBoxes from './ChildrenBoxes';
 import EmergencyInputGroup from './EmergencyInputGroup';
@@ -11,7 +10,6 @@ import * as firebase from 'firebase';
 export default function ManageAccount(props) {
   return (
     <form className="ManageAccount">
-      <ManageTitle text="My Account" />
       <button
         onClick={() => firebase.auth().signOut()}
         style={{display: 'block', margin: 'auto'}}

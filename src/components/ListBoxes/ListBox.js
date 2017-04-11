@@ -3,7 +3,7 @@ import {Button} from 'react-bootstrap';
 
 export default function ListBox(props) {
   return (
-    <Button bsStyle="primary" bsSize="small" onClick={props.handleClick}>
+    <Button bsStyle="primary" onClick={props.handleClick}>
       {props.text}
     </Button>
   );

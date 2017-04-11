@@ -62,12 +62,8 @@
   color: #09279E;
 }
 
-.RegView-container {
+.ManageAccount, .ManageChild {
   background-color: #FFF1D6;
-}
-
-.RegView-logo-container {
-  text-align: center;
 }
 
 @media (min-width: 768px)  {

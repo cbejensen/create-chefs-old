@@ -16,6 +16,10 @@ body {
   transition: .5s ease;
 }
 
+.App-main {
+  min-height: calc(100vh - 130px);
+}
+
 .App-content.App-show-side-nav {
   transform: translateX(200px);
 }

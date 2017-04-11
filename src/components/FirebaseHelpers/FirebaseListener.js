@@ -9,7 +9,9 @@ class FirebaseListener extends React.Component {
   componentDidMount() {
     this.path = firebase.database().ref(this.props.path);
     this.path.on('value', snap => {
-      this.setState({data: snap.val() ? snap.val() : false});
+      let data = snap.val();
+      if (this.props.transform) data = this.props.transform(data);
+      this.setState({data: data ? data : false});
     });
   }
   componentWillUnmount() {
@@ -19,7 +21,7 @@ class FirebaseListener extends React.Component {
     if (this.state.data === null) return null;
     const attr = this.props.passDataAs || 'data';
     return (
-      <div>
+      <div style={{height: '100%'}}>
         {React.cloneElement(this.props.children, {
           [attr]: this.state.data,
         })}
