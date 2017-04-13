@@ -17,7 +17,7 @@ export default function ManageChildView(props) {
     >
       <FormWrapper>
         <Grid>
-          <ManageChild className="ManageChild" childId={props.params.childId} />
+          <ManageChild childId={props.params.childId} />
         </Grid>
       </FormWrapper>
     </FirebaseListener>

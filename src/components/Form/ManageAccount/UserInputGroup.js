@@ -71,7 +71,6 @@ export default function UserInputGroup(props) {
             controlId="userZip"
             // onChange={props.handleChange.bind(null, 'zip')}
             label="Zip Code"
-            required
           />
         </Col>
       </Row>

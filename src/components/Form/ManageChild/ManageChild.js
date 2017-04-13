@@ -3,12 +3,13 @@ import {FirebaseField} from 'components/FirebaseHelpers';
 import {Row, Col} from 'react-bootstrap';
 
 export default function ManageChild(props) {
+  const childPath = `children/${props.childId}`
   return (
     <form onSubmit={props.handleSubmit}>
       <Row>
         <Col xs={12} sm={6}>
           <FirebaseField
-            path={`children/${props.childId}/firstName`}
+            path={`${childPath}/firstName`}
             controlId="childFirstName"
             label="First Name"
             onBlur={props.handleBlur.bind(null, 'firstName')}
@@ -17,7 +18,7 @@ export default function ManageChild(props) {
         </Col>
         <Col xs={12} sm={6}>
           <FirebaseField
-            path={`children/${props.childId}/lastName`}
+            path={`${childPath}/lastName`}
             controlId="childLastName"
             label="Last Name"
             onBlur={props.handleBlur.bind(null, 'lastName')}
@@ -28,7 +29,7 @@ export default function ManageChild(props) {
       <Row>
         <Col xs={12} sm={6}>
           <FirebaseField
-            path={`children/${props.childId}/gender`}
+            path={`${childPath}/gender`}
             componentClass="select"
             controlId="childGender"
             label="Gender"
@@ -40,7 +41,7 @@ export default function ManageChild(props) {
         </Col>
         <Col xs={12} sm={6}>
           <FirebaseField
-            path={`children/${props.childId}/age`}
+            path={`${childPath}/age`}
             controlId="childAge"
             label="Age"
           />
@@ -49,7 +50,7 @@ export default function ManageChild(props) {
       <Row>
         <Col xs={12}>
           <FirebaseField
-            path={`children/${props.childId}/allergies`}
+            path={`${childPath}/allergies`}
             componentClass="textarea"
             controlId="childAllergies"
             label="Allergies"
@@ -59,7 +60,7 @@ export default function ManageChild(props) {
       <Row>
         <Col xs={12}>
           <FirebaseField
-            path={`children/${props.childId}/notes`}
+            path={`${childPath}/notes`}
             componentClass="textarea"
             controlId="childNotes"
             label="Notes"
