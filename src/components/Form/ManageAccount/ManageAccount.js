@@ -4,13 +4,13 @@ import ChildrenBoxes from './ChildrenBoxes';
 import EmergencyInputGroup from './EmergencyInputGroup';
 import AddOrSubtract from './AddOrSubtract';
 import {Button} from 'react-bootstrap';
-import FirebaseListener from 'components/FirebaseHelpers/FirebaseListener';
 import * as firebase from 'firebase';
 
 export default function ManageAccount(props) {
   return (
     <form className="ManageAccount">
       <button
+        type="button"
         onClick={() => firebase.auth().signOut()}
         style={{display: 'block', margin: 'auto'}}
       >
@@ -18,12 +18,7 @@ export default function ManageAccount(props) {
         Log Out
       </button>
       <UserInputGroup uid={props.uid} />
-      <FirebaseListener
-        path={`users/${props.uid}/children`}
-        passDataAs="childIds"
-      >
-        <ChildrenBoxes />
-      </FirebaseListener>
+      <ChildrenBoxes uid={props.uid} />
       <EmergencyInputGroup uid={props.uid} />
     </form>
   );

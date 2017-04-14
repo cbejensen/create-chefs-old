@@ -1,5 +1,5 @@
 import React from 'react';
-import {FirebaseField} from 'components/FirebaseHelpers';
+import {FirebaseField} from 'components/FirebaseCustom';
 import InputGroupHeading from './InputGroupHeading';
 import {Row, Col} from 'react-bootstrap';
 

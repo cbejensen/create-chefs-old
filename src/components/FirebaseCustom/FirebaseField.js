@@ -22,11 +22,19 @@ class FirebaseField extends React.PureComponent {
     this.fbRef.off();
   }
   handleChange(e) {
+    const val = e.target.value;
+    // clear timer from prevous onChange
+    if (this.timer) window.clearTimeout(this.timer);
+    // if blank, don't update db
+    if (val === '' && this.props.required) {
+      this.setState({value: val, status: 'warning'});
+      return;
+    }
     this.fbRef
-      .set(e.target.value)
+      .set(val)
       .then(res => {
         this.setState({status: 'success'});
-        if (this.timer) window.clearTimeout(this.timer);
+        // show saved msg temporarily
         this.timer = setTimeout(
           () => {
             this.setState({status: null});
@@ -38,28 +46,49 @@ class FirebaseField extends React.PureComponent {
         this.setState({status: 'error'});
         console.log(err);
       });
-    this.props.handleChange && this.props.handleChange(e);
+    if (this.props.handleChange) this.props.handleChange(e);
   }
   handleBlur(e) {
-    if (e.target.value === '' && this.props.required)
-      this.setState({value: this.state.original});
+    // if blank on blur, change back to db value
+    // as it was when this field mounted
+    if (e.target.value === '' && this.props.required) {
+      this.setState({value: this.state.original, status: null});
+    }
+    if (this.props.handleBlur) this.props.handleBlur(e);
   }
   showStatus() {
-    if (this.state.status === 'success') return 'Saved';
-    if (this.state.status === 'error') return 'There was an error saving';
+    switch (this.state.status) {
+      case 'success':
+        return 'Saved';
+        break;
+      case 'warning':
+        return 'This field is required';
+        break;
+      case 'error':
+        return 'Error saving changes';
+        break;
+      default:
+        return null;
+    }
   }
   render() {
-    const {controlId, label, path, handleChange, ...props} = this.props;
+    const {
+      path,
+      value,
+      onChange,
+      onBlur,
+      validationState,
+      help,
+      ...otherProps
+    } = this.props;
     return (
       <FormField
-        value={this.state.value || ''}
-        controlId={controlId}
-        label={label}
+        value={this.state.value}
         onChange={this.handleChange}
         onBlur={this.handleBlur}
-        validationState={this.state.status}
-        help={this.showStatus()}
-        {...props}
+        validationState={validationState || this.state.status}
+        help={help || this.showStatus()}
+        {...otherProps}
       >
         {this.props.children}
       </FormField>

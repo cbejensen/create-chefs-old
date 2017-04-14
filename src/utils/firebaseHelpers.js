@@ -37,6 +37,21 @@ export const createUser = user => {
     });
 };
 
+export const addChild = (uid, firstName, lastName) => {
+  const child = {
+    firstName: firstName,
+    lastName: lastName,
+    parent: uid
+  }
+  const userChildrenPath = `users/${uid}/children`;
+  const childId = db.ref(userChildrenPath).push().key;
+  let updates = {};
+  updates[`${userChildrenPath}/${childId}`] = childId;
+  updates[`children/${childId}`] = child
+  firebase.database().ref().update(updates);
+  // browserHistory.push(`/my-account/children/${childId}`);
+};
+
 export const getClasses = () => {
   return db
     .ref('classes')

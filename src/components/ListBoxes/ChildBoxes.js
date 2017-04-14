@@ -1,6 +1,6 @@
 import React from 'react';
 import ChildBox from './ChildBox';
-import FirebaseListener from 'components/FirebaseHelpers/FirebaseListener';
+import FirebaseListener from 'components/FirebaseCustom/FirebaseListener';
 
 class ChildBoxes extends React.Component {
   constructor(props) {

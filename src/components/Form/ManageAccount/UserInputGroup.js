@@ -1,5 +1,5 @@
 import React from 'react';
-import {FirebaseField} from 'components/FirebaseHelpers';
+import {FirebaseField} from 'components/FirebaseCustom';
 import FormField from 'components/Form/FormField';
 import InputGroupHeading from './InputGroupHeading';
 import {Row, Col, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
@@ -15,6 +15,7 @@ export default function UserInputGroup(props) {
             path={`users/${props.uid}/firstName`}
             controlId="userFirstName"
             label="First Name"
+            required
           />
         </Col>
         <Col xs={6} md={4}>
@@ -22,6 +23,8 @@ export default function UserInputGroup(props) {
             path={`users/${props.uid}/lastName`}
             controlId="userLastName"
             label="Last Name"
+            type="tel"
+            required
           />
         </Col>
         <Col xs={12} sm={8} md={4}>
