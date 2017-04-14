@@ -11,18 +11,17 @@ class FirebaseField extends React.PureComponent {
   }
   componentDidMount() {
     this.fbRef = firebase.database().ref(this.props.path);
-    let originalData;
     this.fbRef.once('value', snap => {
-      originalData = snap.val();
-      this.setState({value: snap.val()});
+      const val = snap.val();
+      this.setState({value: val, original: val});
     });
-    this.setState({original: originalData});
   }
   componentWillUnmount() {
     this.fbRef.off();
   }
   handleChange(e) {
     const val = e.target.value;
+    this.setState({value: val});
     // clear timer from prevous onChange
     if (this.timer) window.clearTimeout(this.timer);
     // if blank, update state val
@@ -30,7 +29,7 @@ class FirebaseField extends React.PureComponent {
     if (val === '' && this.props.required) {
       this.fbRef.set(this.state.original).then(
         res => {
-          this.setState({value: val, status: 'warning'});
+          this.setState({status: 'warning'});
         },
         err => {
           this.setState({status: 'error'});
@@ -42,7 +41,7 @@ class FirebaseField extends React.PureComponent {
     this.fbRef
       .set(val)
       .then(res => {
-        this.setState({value: val, status: 'success'});
+        this.setState({status: 'success'});
         // show saved msg temporarily
         this.timer = setTimeout(
           () => {
@@ -55,7 +54,7 @@ class FirebaseField extends React.PureComponent {
         this.setState({status: 'error'});
         console.log(err);
       });
-    if (this.props.handleChange) this.props.handleChange(e);
+    if (this.props.onBlur) this.props.onBlur(e);
   }
   handleBlur(e) {
     // if blank on blur, change back to db value
@@ -63,7 +62,7 @@ class FirebaseField extends React.PureComponent {
     if (e.target.value === '' && this.props.required) {
       this.setState({value: this.state.original, status: null});
     }
-    if (this.props.handleBlur) this.props.handleBlur(e);
+    if (this.props.onBlur) this.props.onBlur(e);
   }
   showStatus() {
     switch (this.state.status) {

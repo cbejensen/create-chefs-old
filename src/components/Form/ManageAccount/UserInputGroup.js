@@ -72,7 +72,6 @@ export default function UserInputGroup(props) {
           <FirebaseField
             path={`users/${props.uid}/zip`}
             controlId="userZip"
-            // onChange={props.handleChange.bind(null, 'zip')}
             label="Zip Code"
           />
         </Col>

@@ -3,16 +3,15 @@ import {FirebaseField} from 'components/FirebaseCustom';
 import {Row, Col} from 'react-bootstrap';
 
 export default function ManageChild(props) {
-  const childPath = `children/${props.childId}`
+  const childPath = `children/${props.childId}`;
   return (
-    <form onSubmit={props.handleSubmit}>
+    <div>
       <Row>
         <Col xs={12} sm={6}>
           <FirebaseField
             path={`${childPath}/firstName`}
             controlId="childFirstName"
             label="First Name"
-            onBlur={props.handleBlur.bind(null, 'firstName')}
             required
           />
         </Col>
@@ -21,7 +20,6 @@ export default function ManageChild(props) {
             path={`${childPath}/lastName`}
             controlId="childLastName"
             label="Last Name"
-            onBlur={props.handleBlur.bind(null, 'lastName')}
             required
           />
         </Col>
@@ -33,7 +31,6 @@ export default function ManageChild(props) {
             componentClass="select"
             controlId="childGender"
             label="Gender"
-            onBlur={props.handleBlur.bind(null, 'gender')}
           >
             <option>Male</option>
             <option>Female</option>
@@ -67,6 +64,6 @@ export default function ManageChild(props) {
           />
         </Col>
       </Row>
-    </form>
+    </div>
   );
 }
