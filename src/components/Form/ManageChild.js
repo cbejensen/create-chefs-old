@@ -1,11 +1,25 @@
 import React from 'react';
-import {FirebaseField} from 'components/FirebaseCustom';
+import {FormWrapper} from 'components/Form';
+import {FirebaseField, FirebaseListener} from 'components/FirebaseCustom';
 import {Row, Col} from 'react-bootstrap';
+import {browserHistory} from 'react-router';
 
 export default function ManageChild(props) {
   const childPath = `children/${props.childId}`;
+  const title = (
+    <FirebaseListener
+      path={`children/${props.childId}`}
+      transform={child => child.firstName + ' ' + child.lastName}
+      passDataAs="title"
+      returnAsText
+    />
+  );
   return (
-    <div>
+    <FormWrapper
+      title={title}
+      backBtnText="Manage Account"
+      handleClick={() => browserHistory.push('my-account')}
+    >
       <Row>
         <Col xs={12} sm={6}>
           <FirebaseField
@@ -64,6 +78,6 @@ export default function ManageChild(props) {
           />
         </Col>
       </Row>
-    </div>
+    </FormWrapper>
   );
 }

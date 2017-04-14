@@ -20,19 +20,21 @@ class FirebaseListener extends React.Component {
   render() {
     if (this.state.data === null) return null;
     const attr = this.props.passDataAs || 'data';
-    return (
-      <div style={{height: '100%'}}>
-        {React.cloneElement(this.props.children, {
-          [attr]: this.state.data,
-        })}
-      </div>
-    );
+    return this.props.returnAsText
+      ? <span>{this.state.data}</span>
+      : <div style={{height: '100%'}}>
+          {React.cloneElement(this.props.children, {
+            [attr]: this.state.data,
+          })}
+        </div>;
   }
 }
 
 FirebaseListener.propTypes = {
   path: React.PropTypes.string.isRequired,
   passDataAs: React.PropTypes.string,
+  transofrm: React.PropTypes.func,
+  returnAsText: React.PropTypes.bool,
 };
 
 export default FirebaseListener;
