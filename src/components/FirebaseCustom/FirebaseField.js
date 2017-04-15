@@ -64,7 +64,10 @@ class FirebaseField extends React.PureComponent {
     }
     if (this.props.onBlur) this.props.onBlur(e);
   }
-  showStatus() {
+  getValidation() {
+    return this.state.status !== 'loading' ? this.state.status : null;
+  }
+  getStatus() {
     switch (this.state.status) {
       case 'success':
         return 'Saved';
@@ -75,6 +78,8 @@ class FirebaseField extends React.PureComponent {
       case 'error':
         return 'Error saving changes';
         break;
+      case 'loading':
+        return 'Loading...';
       default:
         return null;
     }
@@ -94,8 +99,9 @@ class FirebaseField extends React.PureComponent {
         value={this.state.value}
         onChange={this.handleChange}
         onBlur={this.handleBlur}
-        validationState={validationState || this.state.status}
-        help={help || this.showStatus()}
+        validationState={validationState || this.getValidation()}
+        help={help || this.getStatus()}
+        disabled={this.state.status === 'loading'}
         {...otherProps}
       >
         {this.props.children}

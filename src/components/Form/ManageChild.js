@@ -18,7 +18,7 @@ export default function ManageChild(props) {
     <FormWrapper
       title={title}
       backBtnText="Manage Account"
-      handleClick={() => browserHistory.push('my-account')}
+      handleClick={() => browserHistory.push('/my-account')}
     >
       <Row>
         <Col xs={12} sm={6}>

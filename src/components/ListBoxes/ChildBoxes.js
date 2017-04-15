@@ -12,22 +12,28 @@ class ChildBoxes extends React.Component {
       this.setState({childIds: nextProps.childIds});
   }
   render() {
-    if (!this.state.childIds || this.state.childIds.length === 0)
+    if (!this.state.childIds || this.state.childIds.length === 0) {
       return <div>There are no children set up on your account yet.</div>;
-    const childIds = Object.keys(this.state.childIds).map(
-      id => this.state.childIds[id],
-    );
-    return (
-      <div style={{marginBottom: '10px'}}>
-        {childIds.map(id => {
-          return (
-            <FirebaseListener key={id} path={`children/${id}`} passDataAs="child">
-              <ChildBox id={id} />
-            </FirebaseListener>
-          );
-        })}
-      </div>
-    );
+    } else {
+      const childIds = Object.keys(this.state.childIds).map(
+        id => this.state.childIds[id],
+      );
+      return (
+        <div style={{marginBottom: '10px'}}>
+          {childIds.map(id => {
+            return (
+              <FirebaseListener
+                key={id}
+                path={`children/${id}`}
+                passDataAs="child"
+              >
+                <ChildBox id={id} />
+              </FirebaseListener>
+            );
+          })}
+        </div>
+      );
+    }
   }
 }
 

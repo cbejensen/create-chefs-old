@@ -23,7 +23,6 @@ export default function ManageAccount(props) {
         <ChildrenBoxes uid={props.uid} />
         <EmergencyInputGroup uid={props.uid} />
       </form>
-
     </FormWrapper>
   );
 }

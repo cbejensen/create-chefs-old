@@ -22,7 +22,7 @@ const routes = (
       <Route path="/create-account" component={CreateAccount} />
       <Route path="/register" component={Classes} />
       <Route path="/my-account" component={ManageAccount} />
-      <Route path="/my-account/children/:childId" component={ManageChild} />
+      <Route path="/children/:childId" component={ManageChild} />
       <Route path="/sign-in" component={SignIn} />
       <Route path="/about" component={About} />
       <Route path="/admin" component={Admin} />

@@ -8,7 +8,7 @@ export default function ChildBox(props) {
     <ListBox
       id={props.id}
       text={text}
-      handleClick={() => browserHistory.push(`my-account/children/${props.id}`)}
+      handleClick={() => browserHistory.push(`/children/${props.id}`)}
     />
   );
 }
