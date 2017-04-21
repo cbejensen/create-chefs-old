@@ -3,8 +3,6 @@ import {FormWrapper} from 'components/Form';
 import UserInputGroup from './UserInputGroup';
 import ChildrenBoxes from './ChildrenBoxes';
 import EmergencyInputGroup from './EmergencyInputGroup';
-import AddOrSubtract from './AddOrSubtract';
-import {Button} from 'react-bootstrap';
 import * as firebase from 'firebase';
 
 export default function ManageAccount(props) {

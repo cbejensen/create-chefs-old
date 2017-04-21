@@ -1,8 +1,7 @@
 import React from 'react';
 import {FirebaseField} from 'components/FirebaseCustom';
-import FormField from 'components/Form/FormField';
 import InputGroupHeading from './InputGroupHeading';
-import {Row, Col, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap';
 
 export default function UserInputGroup(props) {
   const statesArray = ['UT', 'CA', 'NV'];

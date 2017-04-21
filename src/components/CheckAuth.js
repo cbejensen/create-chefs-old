@@ -10,9 +10,18 @@ class CheckAuth extends React.Component {
   componentDidMount() {
     this.removeAuthListener = firebase.auth().onAuthStateChanged(user => {
       if (user) {
+        // pass user ID to children
         this.setState({uid: user.uid});
+      } else if (!this.props.redirect) {
+        // pass false to children
+        this.setState({uid: false});
       } else {
-        browserHistory.push(this.props.redirect || '/sign-in');
+        // if redirect is string path, go there
+        // otherwise redirect to sign-in page
+        const path = typeof this.props.redirect === 'string'
+          ? this.props.redirect
+          : '/sign-in';
+        browserHistory.push(path);
       }
     });
   }
@@ -20,12 +29,11 @@ class CheckAuth extends React.Component {
     this.removeAuthListener();
   }
   render() {
-    if (!this.state.uid) return null;
+    if (this.state.uid === null) return null;
+    const props = {...this.props, uid: this.state.uid};
     return (
       <div>
-        {React.cloneElement(this.props.children, {
-          uid: this.state.uid,
-        })}
+        {React.cloneElement(this.props.children, props)}
       </div>
     );
   }

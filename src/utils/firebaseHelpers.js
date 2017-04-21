@@ -41,25 +41,19 @@ export const addChild = (uid, firstName, lastName) => {
   const child = {
     firstName: firstName,
     lastName: lastName,
-    parent: uid
-  }
+    parent: uid,
+  };
   const userChildrenPath = `users/${uid}/children`;
   const childId = db.ref(userChildrenPath).push().key;
   let updates = {};
   updates[`${userChildrenPath}/${childId}`] = childId;
-  updates[`children/${childId}`] = child
+  updates[`children/${childId}`] = child;
   firebase.database().ref().update(updates);
   // browserHistory.push(`/my-account/children/${childId}`);
 };
 
 export const getClasses = () => {
-  return db
-    .ref('classes')
-    .once('value')
-    .then(snap => {
-      return snap.val();
-    })
-    .catch(err => {
-      return err;
-    });
+  return db.ref('classes').once('value').then(snap => snap.val()).catch(err => {
+    return err;
+  });
 };
