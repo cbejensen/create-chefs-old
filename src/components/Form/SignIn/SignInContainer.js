@@ -3,22 +3,22 @@ import SignInForm from './SignInForm';
 import {browserHistory} from 'react-router';
 import * as firebase from 'firebase';
 
-const SignInContainer = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.object,
-  },
-  getInitialState() {
-    return {
+export default class SignInContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       email: '',
       password: '',
     };
-  },
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+  }
   handleEmailChange(e) {
     this.setState({email: e.target.value});
-  },
+  }
   handlePasswordChange(e) {
     this.setState({password: e.target.value});
-  },
+  }
   handleSubmit(e) {
     e.preventDefault();
     firebase
@@ -33,7 +33,7 @@ const SignInContainer = React.createClass({
           console.log(error.code, error.message);
         },
       );
-  },
+  }
   render() {
     return (
       <SignInForm
@@ -44,7 +44,5 @@ const SignInContainer = React.createClass({
         handleSubmit={this.handleSubmit}
       />
     );
-  },
-});
-
-export default SignInContainer;
+  }
+}

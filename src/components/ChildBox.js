@@ -7,7 +7,7 @@ export default function ChildBox(props) {
     if (props.handleClick) {
       props.handleClick();
     } else {
-      browserHistory.push(`/children/${props.child.id}`);
+      browserHistory.push(`/children/${props.id}`);
     }
   };
   return (
@@ -16,7 +16,7 @@ export default function ChildBox(props) {
       bsStyle={props.bsStyle || 'primary'}
       style={{...props.style}}
     >
-      {props.child.name}
+      {props.name}
     </Button>
   );
 }

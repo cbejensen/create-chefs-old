@@ -16,8 +16,8 @@ export default function ChildBoxes(props) {
   if (!props.childIds || !props.childIds.length) {
     return <div>There are no children set up on your account yet.</div>;
   } else {
-    function getName({firstName, lastName, id}) {
-      return {name: firstName + ' ' + lastName, id: id};
+    function getName({firstName, lastName}) {
+      return firstName + ' ' + lastName
     }
     return (
       <Row style={styles.row}>
@@ -25,9 +25,9 @@ export default function ChildBoxes(props) {
           return (
             <Col xs={4} style={styles.col} key={id}>
               <FirebaseListener
-                transform={getName}
                 path={`children/${id}`}
-                passDataAs="child"
+                transform={getName}
+                passDataAs="name"
               >
                 <ChildBox
                   id={id}
