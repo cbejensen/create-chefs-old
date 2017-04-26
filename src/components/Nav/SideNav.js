@@ -3,36 +3,20 @@ import SideNavItem from './SideNavItem';
 
 class SideNav extends React.Component {
   render() {
-    const navItems = [
-      {
-        text: 'home',
-        path: '/',
-      },
-      {
-        text: 'classes',
-        path: '/classes',
-      },
-      {
-        text: 'my account',
-        path: '/my-account',
-      },
-      {
-        text: 'about',
-        path: '/about',
-      },
-    ];
+    let acctLink = {
+      text: 'sign in',
+      path: '/sign-in',
+    };
+    if (this.props.uid) {
+      acctLink.text = 'my account';
+      acctLink.path = '/my-account';
+    }
     return (
-      <div className="SideNav-container">
-        {navItems.map((item, i) => {
-          return (
-            <SideNavItem
-              key={i}
-              text={item.text}
-              path={item.path}
-              closeSideNav={this.props.toggleSideNav}
-            />
-          );
-        })}
+      <div className="SideNav-container" onClick={this.props.toggleSideNav}>
+        <SideNavItem text="home" path="/" />
+        <SideNavItem text="classes" path="/classes" />
+        <SideNavItem {...acctLink} />
+        <SideNavItem text="about" path="/about" />
       </div>
     );
   }

@@ -12,6 +12,10 @@ export default class SignInContainer extends React.Component {
     };
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  componentWillMount() {
+    if (this.props.uid) browserHistory.push('/my-account');
   }
   handleEmailChange(e) {
     this.setState({email: e.target.value});
@@ -26,7 +30,7 @@ export default class SignInContainer extends React.Component {
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(
         user => {
-          browserHistory.push('/');
+          browserHistory.push('/my-account');
         },
         error => {
           alert(error.message);

@@ -35,7 +35,7 @@ class CreateAccountContainer extends React.Component {
       createUser(this.state.user).then(
         res => {
           console.log(res);
-          browserHistory.push('/');
+          browserHistory.push('/my-account');
         },
         err => {
           this.setState({creatingUser: false});

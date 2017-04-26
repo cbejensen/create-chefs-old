@@ -1,8 +1,9 @@
 import React from 'react';
 import {FormWrapper} from 'components/Form';
 import {FirebaseField, FirebaseListener} from 'components/FirebaseCustom';
-import {Row, Col} from 'react-bootstrap';
+import {Row, Col, Button} from 'react-bootstrap';
 import {browserHistory} from 'react-router';
+import {deleteChild} from 'utils/firebaseHelpers';
 
 export default function ManageChild(props) {
   const childPath = `children/${props.childId}`;
@@ -14,6 +15,20 @@ export default function ManageChild(props) {
       returnAsText
     />
   );
+  function removeChild() {
+    const confirmed = confirm(
+      "Are you sure you want to delete this child's info?",
+    );
+    if (confirmed)
+      deleteChild(props.childId, props.uid)
+        .then(res => browserHistory.push('/my-account#children'))
+        .catch(err => {
+          console.log(err);
+          alert(
+            'There was an error processing your request. Please try again.',
+          );
+        });
+  }
   return (
     <FormWrapper
       title={title}
@@ -78,6 +93,11 @@ export default function ManageChild(props) {
           />
         </Col>
       </Row>
+      <div style={{textAlign: 'center', marginBottom: '10px'}}>
+        <Button type="button" bsStyle="danger" onClick={removeChild}>
+          Delete
+        </Button>
+      </div>
     </FormWrapper>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Nav, SideNav} from './components/Nav';
+import CheckAuth from 'components/CheckAuth';
 import {Footer} from './components/Footer';
 import {browserHistory} from 'react-router';
 import './index.css';
@@ -13,14 +14,6 @@ class App extends React.Component {
     this.toggleSideNav = this.toggleSideNav.bind(this);
     this.showInfo = this.showInfo.bind(this);
   }
-  componentDidMount() {
-    // const e = this.main;
-    // const minHeight = window.innerHeight - 130 + 'px';
-    // e.style.minHeight = minHeight;
-    // console.log(e.clientHeight);
-    // e.style.height = e.clientHeight + 'px';
-    // console.dir(e.style);
-  }
   toggleSideNav() {
     this.setState({
       sideNav: !this.state.sideNav,
@@ -30,16 +23,20 @@ class App extends React.Component {
     browserHistory.push('/about');
   }
   render() {
+    const styles = {
+      content: this.state.sideNav
+        ? 'App-content App-show-side-nav'
+        : 'App-content',
+    };
     return (
       <div className="App-wrapper">
-        <div
-          className={
-            this.state.sideNav ? 'App-content App-show-side-nav' : 'App-content'
-          }
-        >
-          <SideNav toggleSideNav={this.toggleSideNav} />
+        <div className={styles.content}>
+          <CheckAuth>
+            <SideNav toggleSideNav={this.toggleSideNav} />
+          </CheckAuth>
           <Nav toggleSideNav={this.toggleSideNav} showInfo={this.showInfo} />
           <main
+            onClick={this.state.sideNav && this.toggleSideNav}
             className="App-main"
             ref={e => {
               this.main = e;

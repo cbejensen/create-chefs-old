@@ -50,9 +50,6 @@ function Agreement(props) {
         {' '}
         Students are expected to show respect for others, follow directions from teachers and staff, and abide by all class rules. Create reserves the right to send a student home or decline their return if their behavior is inappropriate.
       </p>
-      <p className="lead">
-        By proceeding, you agree to the terms and conditions above.
-      </p>
     </section>
   );
 }

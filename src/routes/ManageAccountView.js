@@ -4,7 +4,7 @@ import CheckAuth from 'components/CheckAuth';
 
 export default function ManageAccountView(props) {
   return (
-    <CheckAuth>
+    <CheckAuth redirect>
       <ManageAccount />
     </CheckAuth>
   );

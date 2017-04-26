@@ -17,11 +17,7 @@ export const createUser = user => {
     .createUserWithEmailAndPassword(user.email, user.password)
     .then(auth => {
       delete user.password;
-      user.contact = {email: user.email};
       delete user.email;
-      user.parent = {
-        name: `${user.firstName} ${user.lastName}`,
-      };
       return db
         .ref(`users/${auth.uid}`)
         .set(user)
@@ -56,4 +52,22 @@ export const getClasses = () => {
   return db.ref('classes').once('value').then(snap => snap.val()).catch(err => {
     return err;
   });
+};
+
+export const deleteChild = (childId, uid) => {
+  const childPath = `children/${childId}`;
+  const parentPath = `users/${uid}/children/${childId}`;
+  return db
+    .ref(childPath)
+    .remove()
+    .then(res => {
+      return db.ref(parentPath).remove().then(res => true).catch(err => {
+        console.log(err);
+        return false;
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      return false;
+    });
 };

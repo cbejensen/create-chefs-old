@@ -6,12 +6,12 @@ import {addChild} from 'utils/firebaseHelpers';
 
 export default function ChildrenBoxes(props) {
   return (
-    <div>
+    <div id="children">
       <InputGroupHeading
         heading="Children"
         subHeading="click a child's name to edit"
         commandText="+ Add Child"
-        handleCommandClick={() => addChild(props.uid, 'Jane', 'Doe')}
+        handleCommandClick={() => addChild(props.uid, 'John', 'Doe')}
       />
       <FirebaseListener
         path={`users/${props.uid}/children`}

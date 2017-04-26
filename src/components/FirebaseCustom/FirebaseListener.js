@@ -14,7 +14,7 @@ class FirebaseListener extends React.Component {
         return;
       } else {
         let data = snap.val();
-        if (this.props.transform) data = this.props.transform(data);
+        if (data && this.props.transform) data = this.props.transform(data);
         this.setState({data: data ? data : false});
       }
     });
