@@ -2,19 +2,21 @@ import React from 'react';
 import {FirebaseListener} from 'components/FirebaseCustom';
 import CookClassList from './CookClassList';
 
-class CookClasses extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {modal: true};
+export default function CookClasses(props) {
+  function removeRegs(classes) {
+    // regs are unneeded
+    for (const id in classes) {
+      delete classes[id].registered;
+    }
+    return classes;
   }
-  render() {
-    console.log('CookClasses render');
-    return (
-      <FirebaseListener path="classes" passDataAs="classes">
-        <CookClassList />
-      </FirebaseListener>
-    );
-  }
+  return (
+    <FirebaseListener
+      path="classes"
+      transform={removeRegs}
+      passDataAs="classes"
+    >
+      <CookClassList />
+    </FirebaseListener>
+  );
 }
-
-export default CookClasses;

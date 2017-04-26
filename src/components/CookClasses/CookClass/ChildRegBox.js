@@ -1,41 +1,37 @@
 import React from 'react';
-import ChildBox from 'components/ChildBox';
+import {Button} from 'react-bootstrap';
 import * as firebase from 'firebase';
 
-class ChildRegBox extends React.Component {
+class ChildRegBox extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {name: '', regd: false};
+    this.state = {name: '', regd: null};
     this.register = this.register.bind(this);
   }
   componentDidMount() {
-    this.removeListener = firebase
-      .database()
-      .ref(`children/${this.props.id}`)
-      .on('value', snap => {
-        if (!snap) {
-          this.setState({regd: null});
-          return;
-        }
-        const child = snap.val();
-        console.log(child);
-        let regd = false;
-        if (child.registered) {
-          for (const classId in child.registered) {
-            if (classId === this.props.classId) {
-              console.log(this.props.id, classId, this.props.classId);
-              regd = true;
-            }
+    this.listener = firebase.database().ref(`children/${this.props.id}`);
+    this.listener.on('value', snap => {
+      if (!snap) {
+        this.setState({regd: null});
+        return;
+      }
+      const child = snap.val();
+      let regd = false;
+      if (child.registered) {
+        for (const classId in child.registered) {
+          if (classId === this.props.classId) {
+            regd = true;
           }
         }
-        this.setState({
-          name: `${child.firstName} ${child.lastName}`,
-          regd: regd,
-        });
+      }
+      this.setState({
+        name: `${child.firstName} ${child.lastName}`,
+        regd: regd,
       });
+    });
   }
   componentWillUnmount() {
-    this.removeListener();
+    this.listener.off();
   }
   register() {
     // update both class and child regs
@@ -53,15 +49,16 @@ class ChildRegBox extends React.Component {
   render() {
     if (this.state.regd === null) return null;
     const color = {
-      backgroundColor: this.state.regd ? '#2fcb2f' : '#e80202',
+      backgroundColor: this.state.regd ? '#69de51' : '#8e8e8e',
+      border: 'none',
     };
     return (
-      <ChildBox
-        name={this.state.name}
-        id={this.props.id}
-        style={color}
-        handleClick={this.register}
-      />
+      <span>
+        <Button style={color} onClick={this.register}>
+          {this.state.name}
+        </Button>
+        {this.state.regd && <div style={{fontSize: '0.7em'}}>REGISTERED</div>}
+      </span>
     );
   }
 }

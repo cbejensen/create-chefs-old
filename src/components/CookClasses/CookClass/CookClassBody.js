@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import CheckAuth from 'components/CheckAuth';
 import ChildList from './ChildListWrapper';
 
-export default function ClassBoxBody(props) {
+export default function CookClassBody(props) {
   const Container = styled.div`
     background-color: #2D5D7B;
     color: #f4f4f4;
@@ -14,6 +14,18 @@ export default function ClassBoxBody(props) {
   const List = styled.ul`
     margin: 10px 0 0 0;
   `;
+  const styles = {
+    container: {
+      backgroundColor: '#2D5D7B',
+      color: '#f4f4f4',
+      padding: '15px',
+      fontSize: '1.2em',
+      transition: '1s',
+    },
+    list: {
+      margin: '10px 0 0 0',
+    },
+  };
   const Reg = styled.span`
     color: #FFDD4A;
     cursor: pointer;
@@ -22,14 +34,14 @@ export default function ClassBoxBody(props) {
     }
   `;
   return (
-    <Container>
+    <div style={styles.container}>
       <strong>{props.theme}</strong>
-      <List>
+      <ul style={styles.list}>
         {props.lessons &&
           Object.keys(props.lessons).map(key => (
             <li key={key}>{props.lessons[key]}</li>
           ))}
-      </List>
+      </ul>
       <div style={{textAlign: 'right'}}>
         <Reg onClick={props.showChildList}>Register</Reg>
       </div>
@@ -37,6 +49,6 @@ export default function ClassBoxBody(props) {
         <CheckAuth>
           <ChildList classId={props.id} />
         </CheckAuth>}
-    </Container>
+    </div>
   );
 }

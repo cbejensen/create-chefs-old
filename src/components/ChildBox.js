@@ -7,7 +7,7 @@ export default function ChildBox(props) {
     if (props.handleClick) {
       props.handleClick();
     } else {
-      browserHistory.push(`/children/${props.id}`);
+      browserHistory.push(`/children/${props.child.id}`);
     }
   };
   return (
@@ -16,12 +16,7 @@ export default function ChildBox(props) {
       bsStyle={props.bsStyle || 'primary'}
       style={{...props.style}}
     >
-      {props.name}
+      {props.child.name}
     </Button>
   );
 }
-
-ChildBox.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  id: React.PropTypes.string.isRequired,
-};

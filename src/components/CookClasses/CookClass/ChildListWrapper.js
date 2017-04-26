@@ -4,7 +4,8 @@ import ChildList from './ChildList';
 import {FirebaseListener} from 'components/FirebaseCustom';
 
 export default function ChildListWrapper(props) {
-  const childList = (
+  if (!props.uid) return <SignInPrompt linkColor="#e80202" />;
+  return (
     <FirebaseListener
       path={`users/${props.uid}/children`}
       transform={childIds => Object.keys(childIds)}
@@ -13,5 +14,4 @@ export default function ChildListWrapper(props) {
       <ChildList {...props} />
     </FirebaseListener>
   );
-  return props.uid ? childList : <SignInPrompt linkColor="#e80202" />;
 }
