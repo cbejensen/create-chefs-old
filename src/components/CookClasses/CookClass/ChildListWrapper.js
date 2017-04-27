@@ -4,7 +4,7 @@ import ChildList from './ChildList';
 import {FirebaseListener} from 'components/FirebaseCustom';
 
 export default function ChildListWrapper(props) {
-  if (!props.uid) return <SignInPrompt linkColor="#e80202" />;
+  if (!props.uid) return <SignInPrompt linkColor="rgba(#1a818b, 1)" />;
   return (
     <div style={{marginTop: '15px'}}>
       <FirebaseListener

@@ -1,8 +1,6 @@
 .Nav-container {
   height: 80px;
   background-color: #e80202;
-  /*background-image: linear-gradient(to right,
-    #e80202 20%, #8d9294, #e80202 80%);*/
 }
 
 .Nav-row, .Nav-row > div, nav > div  {
@@ -55,7 +53,7 @@
   height: 100%;
   width: 200px;
   padding-top: 20px;
-  background-color: #1f9abf;
+  background: linear-gradient(45deg, #770108 0%, #900009 60%, #f5000e 100%);
   position: absolute;
   top: 0;
   left: -200px;
@@ -77,4 +75,10 @@
 
 .SideNavItem-container {
   text-decoration: none !important;
+}
+
+@media (min-width: 992px) {
+  .NavImage-container {
+    float: left;
+  }
 }

@@ -9,8 +9,8 @@ import * as firebase from 'firebase';
 
 export default function ManageAccount(props) {
   const styles = {
-    btn: {
-      display: 'block',
+    btns: {
+      textAlign: 'center',
       margin: '0 auto 10px',
     },
   };
@@ -21,22 +21,25 @@ export default function ManageAccount(props) {
   return (
     <FormWrapper title="My Account">
       <form action={void 0}>
-        <Button
-          type="button"
-          bsStyle="primary"
-          onClick={() => browserHistory.push('/classes')}
-          style={styles.btn}
-        >
-          Register for Classes
-        </Button>
-        <Button
-          bsStyle="warning"
-          type="button"
-          onClick={signOut}
-          style={styles.btn}
-        >
-          Log Out
-        </Button>
+        <div style={styles.btns}>
+          <Button
+            type="button"
+            bsStyle="primary"
+            bsSize="small"
+            onClick={() => browserHistory.push('/classes')}
+            style={{marginRight: '20px'}}
+          >
+            Register for Classes
+          </Button>
+          <Button
+            bsStyle="warning"
+            bsSize="small"
+            type="button"
+            onClick={signOut}
+          >
+            Log Out
+          </Button>
+        </div>
         <UserInputGroup uid={props.uid} />
         <ChildrenBoxes uid={props.uid} />
         <EmergencyInputGroup uid={props.uid} />

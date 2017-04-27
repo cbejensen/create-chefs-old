@@ -4,20 +4,10 @@ import CheckAuth from 'components/CheckAuth';
 import ChildList from './ChildListWrapper';
 
 export default function CookClassBody(props) {
-  const Container = styled.div`
-    background-color: #2D5D7B;
-    color: #f4f4f4;
-    padding: 15px;
-    font-size: 1.2em;
-    transition: 1s;
-  `;
-  const List = styled.ul`
-    margin: 10px 0 0 0;
-  `;
   const styles = {
     container: {
-      backgroundColor: '#2D5D7B',
-      color: '#f4f4f4',
+      backgroundColor: '#69D6E3',
+      color: '#000000',
       padding: '15px',
       fontSize: '1.2em',
       transition: '1s',

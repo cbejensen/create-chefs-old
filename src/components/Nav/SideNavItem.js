@@ -1,16 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router';
+import styled from 'styled-components';
+import {browserHistory} from 'react-router';
 
-class SideNavItem extends React.Component {
-  render() {
-    return (
-      <Link className="SideNavItem-container"
-        to={this.props.path}
-        onClick={this.props.closeSideNav}>
-        <div className="SideNavItem">{this.props.text}</div>
-      </Link>
-    )
+export const SideNavStyle = styled.li`
+  height: 50px;
+  line-height: 50px;
+  font-size: 2em;
+  list-style: none;
+  display: inline-block;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  text-decoration: none;
+  transition: .4s;
+  cursor: pointer;
+  &:hover {
+    color: rgba(255, 255, 255, 0.9);
   }
-};
+`;
 
-export default SideNavItem;
+export default function SideNavItem(props) {
+  return (
+    <SideNavStyle>
+      <div onClick={() => browserHistory.push(props.to)}>
+        {props.text}
+      </div>
+    </SideNavStyle>
+  );
+}

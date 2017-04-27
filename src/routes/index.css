@@ -53,13 +53,13 @@
 }
 
 .HomeView-row:nth-child(odd) {
-  background-color: #09279E;
-  color: #F9D60C;
+  background-color: #E10C18;
+  color: #69D6E3;
 }
 
 .HomeView-row:nth-child(even) {
-  background-color: #F9D60C;
-  color: #09279E;
+  background-color: #69D6E3;
+  color: #E10C18;
 }
 
 .ManageAccount, .ManageChild {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Nav, SideNav} from './components/Nav';
+import {Nav, NavLarge, SideNav} from './components/Nav';
 import CheckAuth from 'components/CheckAuth';
 import {Footer} from './components/Footer';
 import {browserHistory} from 'react-router';
@@ -35,6 +35,9 @@ class App extends React.Component {
             <SideNav toggleSideNav={this.toggleSideNav} />
           </CheckAuth>
           <Nav toggleSideNav={this.toggleSideNav} showInfo={this.showInfo} />
+          <CheckAuth>
+            <NavLarge />
+          </CheckAuth>
           <main
             onClick={this.state.sideNav && this.toggleSideNav}
             className="App-main"

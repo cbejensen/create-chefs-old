@@ -11,7 +11,11 @@ class AboutView extends React.Component {
           Jodie Jensen is an experienced gourmet cook and licensed food handler. She has taught homeschool for 19 years and is ABA therapy trained.
         </p>
         <p>
-          Call or text 801-856-2768 or e-mail createclasses@gmail.com with questions.
+          Call or text 801-856-2768 or e-mail
+          {' '}
+          <a href="mailto:createclasses@gmail.com">createclasses@gmail.com</a>
+          {' '}
+          with questions.
         </p>
         <p>Special needs students welcome!</p>
       </Grid>

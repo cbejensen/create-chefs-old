@@ -9,7 +9,7 @@ export default function CreateAccount(props) {
     <form onSubmit={props.handleSubmit}>
       <h1 style={{marginBottom: '5px'}}>Create Account</h1>
       <div style={{margin: '10px'}}>
-        <Link to="/sign-in">or click here to create sign in</Link>
+        <Link to="/sign-in">or click here to sign in</Link>
       </div>
       <div style={{margin: '10px'}}>
         <FormField

@@ -7,5 +7,5 @@ export default function SignInPrompt(props) {
       sign in
     </Link>
   );
-  return <div>Please {signIn} first</div>;
-};
+  return <div className="text-center">Please {signIn} first</div>;
+}

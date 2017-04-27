@@ -8,8 +8,8 @@ export default function ClassBoxHeader(props) {
   const endTime = moment(props.endTime, 'hh:mm').format('h:mma');
   const time = startTime + ' - ' + endTime;
   const Header = styled.header`
-    background-color: #FFDD4A;
-    color: #545E75;
+    background-color: #E10C18;
+    color: #ffffff;
     padding: 15px;
   `;
   const Heading = styled.h2`
@@ -17,7 +17,7 @@ export default function ClassBoxHeader(props) {
   `;
   const Time = styled.span`
     font-size: 1.5em;
-  `
+  `;
   return (
     <Header>
       <Heading>{date}</Heading>

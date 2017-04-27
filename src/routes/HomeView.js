@@ -13,14 +13,14 @@ import pumpkinChocChipMuffins from '../images/pumpkin-choc-chip-muffins.jpeg';
 import './index.css';
 
 export default function HomeView(props) {
-  const style = {
-    headerLeft: {
-      backgroundImage: 'url(' + ingredientsLeft + ')',
-    },
-    headerRight: {
-      backgroundImage: 'url(' + ingredientsRight + ')',
-    },
-  };
+  // const style = {
+  //   headerLeft: {
+  //     backgroundImage: 'url(' + ingredientsLeft + ')',
+  //   },
+  //   headerRight: {
+  //     backgroundImage: 'url(' + ingredientsRight + ')',
+  //   },
+  // };
   return (
     <div className="HomeView-container">
       <Grid fluid>
@@ -28,7 +28,7 @@ export default function HomeView(props) {
           <Col
             xs={12}
             sm={3}
-            style={style.headerLeft}
+            // style={style.headerLeft}
             className="HomeView-banner-img"
           />
           <Col xs={12} sm={6} className="HomeView-banner-text">
@@ -40,7 +40,7 @@ export default function HomeView(props) {
           <Col
             xs={12}
             sm={3}
-            style={style.headerRight}
+            // style={style.headerRight}
             className="HomeView-banner-img"
           />
         </Row>
