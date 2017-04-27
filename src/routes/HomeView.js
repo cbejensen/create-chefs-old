@@ -13,38 +13,16 @@ import pumpkinChocChipMuffins from '../images/pumpkin-choc-chip-muffins.jpeg';
 import './index.css';
 
 export default function HomeView(props) {
-  // const style = {
-  //   headerLeft: {
-  //     backgroundImage: 'url(' + ingredientsLeft + ')',
-  //   },
-  //   headerRight: {
-  //     backgroundImage: 'url(' + ingredientsRight + ')',
-  //   },
-  // };
   return (
     <div className="HomeView-container">
-      <Grid fluid>
-        <Row className="HomeView-banner-container">
-          <Col
-            xs={12}
-            sm={3}
-            // style={style.headerLeft}
-            className="HomeView-banner-img"
-          />
-          <Col xs={12} sm={6} className="HomeView-banner-text">
-            <figure>
-              <img src={logoCreate} alt="CREATE" />
-              <figcaption><span>Cooking Classes</span></figcaption>
-            </figure>
-          </Col>
-          <Col
-            xs={12}
-            sm={3}
-            // style={style.headerRight}
-            className="HomeView-banner-img"
-          />
-        </Row>
-      </Grid>
+      <div className="HomeView-banner-container">
+        <div className="HomeView-banner-text">
+          <figure>
+            <img src={logoCreate} alt="CREATE" />
+            <figcaption><span>Cooking Classes</span></figcaption>
+          </figure>
+        </div>
+      </div>
       <div className="HomeView-body-container">
         <Grid className="HomeView-body">
           <Row className="HomeView-row">

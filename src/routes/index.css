@@ -1,5 +1,6 @@
 .HomeView-banner-container {
   background-image: linear-gradient(#87878c, #403e3d);
+  padding-top: 10px;
 }
 
 .HomeView-banner-text {
@@ -52,6 +53,11 @@
   color: #09279E;
 }
 
+.HomeView-row:nth-child(odd):not(:last-child),
+.HomeView-row:nth-child(even):not(:last-child) {
+  text-shadow: 0px 0px 4px black;
+}
+
 .HomeView-row:nth-child(odd) {
   background-color: #E10C18;
   color: #69D6E3;
@@ -73,7 +79,6 @@
     background-repeat: no-repeat;
     background-position: right;
   }
-
   .HomeView-body {
     border-radius: 10px;
   }

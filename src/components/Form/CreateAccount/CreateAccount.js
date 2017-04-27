@@ -49,7 +49,7 @@ export default function CreateAccount(props) {
           bsSize="large"
           disabled={props.creatingUser}
         >
-          {props.creatingUser ? 'Loading...' : 'Create Account'}
+          {props.creatingUser ? 'Loading...' : 'Submit'}
         </Button>
         <p style={{marginTop: '10px'}}>
           By creating an account, you agree to the terms and conditions below.

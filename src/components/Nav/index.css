@@ -19,8 +19,12 @@
 
 .NavIcon-glyph {
   cursor: pointer;
-  color: white;
+  color: rgba(255, 255, 255, 0.75);
   font-size: 3em;
+}
+
+.NavIcon-glyph:hover {
+  color: #ffffff;
 }
 
 .Nav-icon-left {
@@ -57,20 +61,6 @@
   position: absolute;
   top: 0;
   left: -200px;
-}
-
-.SideNavItem {
-  height: 50px;
-  line-height: 50px;
-  font-size: 2em;
-  width: 100%;
-  color: rgba(255, 255, 255, 0.6);
-  text-align: center;
-  transition: .4s;
-}
-
-.SideNavItem:hover {
-  color: rgba(255, 255, 255, 0.9);
 }
 
 .SideNavItem-container {

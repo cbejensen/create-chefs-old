@@ -9,13 +9,13 @@ export const SideNavStyle = styled.li`
   list-style: none;
   display: inline-block;
   width: 100%;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
   text-align: center;
   text-decoration: none;
   transition: .4s;
   cursor: pointer;
   &:hover {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
   }
 `;
 
