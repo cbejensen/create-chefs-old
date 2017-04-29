@@ -12,9 +12,13 @@ export default function CookClassList(props) {
       : [];
     return obj;
   });
+  // sort by date ascending
+  const classes = classesArray.sort((a, b) => {
+    return a.date > b.date ? 1 : -1;
+  });
   return (
     <div>
-      {classesArray.map(obj => <CookClass {...obj} key={obj.id} />)}
+      {classes.map(obj => <CookClass {...obj} key={obj.id} />)}
     </div>
   );
 }

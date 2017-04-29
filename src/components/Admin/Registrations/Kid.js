@@ -22,6 +22,7 @@ export default function Kid(props) {
           <Item text="Age: ">{kid.age}</Item>
           <Item text="Allergies: ">{kid.allergies}</Item>
           <Item text="Notes: ">{kid.notes}</Item>
+          <div style={{marginBottom: '10px'}} />
           <Item text="Parent">
             <FirebaseListener path={`users/${kid.parent}`} passDataAs="parent">
               <Parent />

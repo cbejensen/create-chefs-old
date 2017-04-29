@@ -49,7 +49,8 @@ class ChildRegBox extends React.PureComponent {
   render() {
     if (this.state.regd === null) return null;
     const color = {
-      backgroundColor: this.state.regd ? '#69de51' : '#8e8e8e',
+      backgroundColor: this.state.regd ? '#50af3d' : '#000000',
+      color: '#ffffff',
       border: 'none',
     };
     return (

@@ -6,7 +6,6 @@ import ChildList from './ChildListWrapper';
 export default function CookClassBody(props) {
   const styles = {
     container: {
-      backgroundColor: '#69D6E3',
       color: '#000000',
       padding: '15px',
       fontSize: '1.2em',
@@ -17,8 +16,9 @@ export default function CookClassBody(props) {
     },
   };
   const Reg = styled.span`
-    color: #FFDD4A;
+    color: #69D6E3;
     cursor: pointer;
+    font-size: 1.5em;
     &:hover {
       text-decoration: underline;
     }

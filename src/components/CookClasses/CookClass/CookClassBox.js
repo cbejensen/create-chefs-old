@@ -8,6 +8,7 @@ export default function CookClassBox(props) {
       padding: '0 10px',
     },
     box: {
+      border: '3px solid #E10C18',
       borderRadius: '15px',
       margin: '10px auto',
       overflow: 'hidden',

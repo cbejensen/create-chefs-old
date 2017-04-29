@@ -10,17 +10,17 @@ class Classes extends React.Component {
   }
   componentDidMount() {
     firebase.database().ref('classes').on('value', snap => {
-      const classes = snap.val();
-      const arr = Object.keys(classes).map(id => {
-        const obj = classes[id];
+      const data = snap.val();
+      const arr = Object.keys(data).map(id => {
+        const obj = data[id];
         obj.id = id;
         // create arrays
         obj.lessons = Object.keys(obj.lessons).map(key => obj.lessons[key]);
-        obj.registered = Object.keys(obj.registered)
-        console.log(obj);
+        if (obj.registered) obj.registered = Object.keys(obj.registered);
         return obj;
       });
-      this.setState({classes: arr});
+      const classes = arr.sort((a, b) => (a.date > b.date ? 1 : -1));
+      this.setState({classes: classes});
     });
   }
   render() {

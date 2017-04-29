@@ -18,16 +18,19 @@ export default function Reg(props) {
       <Item text="Food: ">
         {props.lessons.map((lesson, i) => <span key={i}>{lesson}, </span>)}
       </Item>
+      <div style={{marginBottom: '10px'}} />
       <Item text="Kids">
-        {props.registered.map(childId => (
-          <FirebaseListener
-            key={childId}
-            path={`children/${childId}`}
-            passDataAs="kid"
-          >
-            <Kid />
-          </FirebaseListener>
-        ))}
+        {props.registered
+          ? props.registered.map(childId => (
+              <FirebaseListener
+                key={childId}
+                path={`children/${childId}`}
+                passDataAs="kid"
+              >
+                <Kid />
+              </FirebaseListener>
+            ))
+          : <div style={{marginLeft: '20px'}}>Nobody registered yet!</div>}
       </Item>
     </Panel>
   );
