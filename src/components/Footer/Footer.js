@@ -3,27 +3,26 @@ import React from 'react';
 export default function Footer(props) {
   const styles = {
     footer: {
-      height: '70px',
+      height: '90px',
+      position: 'relative',
       textAlign: 'center',
-      paddingTop: '10px',
+      color: '#959595',
       backgroundColor: '#191926',
+      padding: '10px 0',
     },
     info: {
-      textAlign: 'right',
-      paddingRight: '15px',
-      color: '#959595',
+      position: 'relative',
+      top: '50%',
+      transform: 'translateY(-50%)',
     },
   };
   return (
     <footer style={styles.footer}>
       <div style={styles.info}>
+        Create Chefs 2017
         <div>
-          Phone: <strong>801-856-2768</strong>
-        </div>
-        <div>
-          E-mail:
-          {' '}
           <strong>
+            <div>801-856-2768</div>
             <a href="mailto:createclasses@gmail.com">createclasses@gmail.com</a>
           </strong>
         </div>

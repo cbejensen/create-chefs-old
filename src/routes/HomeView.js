@@ -13,6 +13,12 @@ import pumpkinChocChipMuffins from '../images/pumpkin-choc-chip-muffins.jpeg';
 import './index.css';
 
 export default function HomeView(props) {
+  const styles = {
+    regLink: {
+      textAlign: 'center',
+      fontSize: '2em',
+    },
+  };
   return (
     <div className="HomeView-container">
       <div className="HomeView-banner-container">
@@ -27,22 +33,31 @@ export default function HomeView(props) {
         <Grid className="HomeView-body">
           <Row className="HomeView-row">
             <ImagePanel heading="learn" src={bostonStir}>
-              CrEATe cooking classes are specifically designed to inspire children ages 8 - 12 with a love for cooking.
+              CrEATe cooking classes are specifically designed to inspire children ages 4 and up.
+              <ul>
+                <li>measuring & mixing</li>
+                <li>following recipes</li>
+                <li>safe cutting</li>
+                <li>baking and cooking techniques</li>
+                <li>veggie approval :-)</li>
+                <li>meal timing</li>
+                <li>taste testing!</li>
+              </ul>
             </ImagePanel>
           </Row>
           <Row className="HomeView-row">
             <ImagePanel imgRight heading="laugh" src={lemonJuicingHand}>
-              We love to have fun while we learn, and so do our little chefs!
+              We love to have fun while we learn, and so do our little chefs! With silly yet memorable lessons, we learn what NOT to do in the kitchen as much as the wonderful things we can do!
             </ImagePanel>
           </Row>
           <Row className="HomeView-row">
-            <ImagePanel heading="relax" src={scoopChoc}>
-              Take care of yourself while we take care of the rest. Who knows? Maybe you'll enjoy this more than them!
+            <ImagePanel heading="live" src={scoopChoc}>
+              Take care of yourself while we take care of the rest. Your budding chefs will be proud to bring home a sampling of what they've created as they develop this SKILL FOR LIFE!
             </ImagePanel>
           </Row>
           <Row className="HomeView-row">
             <ImagePanel imgRight src={pumpkinChocChipMuffins}>
-              <div className="HomeView-image-panel-link">
+              <div style={styles.regLink}>
                 <CheckAuth>
                   <RegLink />
                 </CheckAuth>
@@ -57,5 +72,7 @@ export default function HomeView(props) {
 
 function RegLink(props) {
   const link = props.uid ? '/classes' : '/sign-in';
-  return <Link to={link}>Click here to register!</Link>;
+  return (
+    <Link style={{color: 'white'}} to={link}>Click here to register!</Link>
+  );
 }

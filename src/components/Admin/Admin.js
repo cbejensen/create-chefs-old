@@ -1,13 +1,26 @@
 import React from 'react';
-import {Registrations} from './Registrations';
 import CheckAuth from 'components/CheckAuth';
+import AdminNav from './AdminNav';
 
-export default function Admin(props) {
-  return (
-    <div style={{margin: '20px'}}>
+
+class Admin extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeKey: 0
+    };
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+  handleSelect(e) {
+    this.setState({ activeKey: e });
+  }
+  render() {
+    return (
       <CheckAuth redirect>
-        <Registrations />
+        <AdminNav />
       </CheckAuth>
-    </div>
-  );
+    );
+  }
 }
+
+export default Admin;

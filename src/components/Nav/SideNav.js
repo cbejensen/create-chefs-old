@@ -16,6 +16,7 @@ class SideNav extends React.Component {
         <SideNavItem text="home" to="/" />
         <SideNavItem text="classes" to="/classes" />
         <SideNavItem {...acctLink} />
+        <SideNavItem text="blog" to="/blog/p/1" />
         <SideNavItem text="about" to="/about" />
       </div>
     );

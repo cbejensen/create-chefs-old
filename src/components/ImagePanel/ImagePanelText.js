@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-export default function (props) {
+export default function ImagePanelText(props) {
   return (
     <div className="ImagePanelText-container">
       <div className="ImagePanelText-header">{props.heading}</div>

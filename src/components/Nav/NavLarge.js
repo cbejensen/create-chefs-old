@@ -37,6 +37,7 @@ export default function NavLarge(props) {
           <NavItem text="home" to="/" />
           <NavItem text="classes" to="/classes" />
           <NavItem {...acctLink} />
+          <NavItem text="blog" to="/blog/p/1" />
           <NavItem text="about" to="/about" />
         </ul>
       </Grid>
