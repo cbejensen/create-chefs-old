@@ -1,27 +1,40 @@
 import React from 'react';
+import { Link } from 'react-router';
 import moment from 'moment';
 import styled from 'styled-components';
 
 export default function ClassBoxHeader(props) {
-  const date = moment(props.date).format('dddd, MMMM Do');
-  const startTime = moment(props.startTime, 'hh:mm').format('h:mma');
-  const endTime = moment(props.endTime, 'hh:mm').format('h:mma');
-  const time = startTime + ' - ' + endTime;
+  const editPath = props.isGroup
+    ? `/admin/class-groups/${props.id}`
+    : `/admin/classes/${props.id}`;
   const Header = styled.header`
-    background-color: #E10C18;
+    background-color: ${props.color};
     color: #ffffff;
     padding: 15px;
+    position: relative;
   `;
-  const Heading = styled.h2`
-    margin-top: 0;
+  const Title = styled.h2`
+    margin: 0 0 5px 0;
   `;
-  const Time = styled.span`
-    font-size: 1.5em;
+  const Subtitle = styled.span`
+    font-size: 1.1em;
+  `;
+  const AdminEdit = styled.span`
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: .9em;
   `;
   return (
     <Header>
-      <Heading>{date}</Heading>
-      <Time>{time}</Time>
+      <Title>{props.title}</Title>
+      <Subtitle>{props.subtitle}</Subtitle>
+      {props.isAdmin &&
+        <AdminEdit>
+          <Link style={{ color: 'white' }} to={editPath}>
+            Edit
+          </Link>
+        </AdminEdit>}
     </Header>
   );
 }

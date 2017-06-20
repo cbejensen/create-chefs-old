@@ -1,1 +1,1 @@
-export {default as CookClasses} from './CookClasses';
+export { default as CookClasses } from './CookClasses';

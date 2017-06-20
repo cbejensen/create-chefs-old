@@ -23,7 +23,7 @@ class AdminNav extends React.Component {
           onSelect={this.handleSelect}
         >
           <NavItem eventKey={0}>Registrations</NavItem>
-          <NavItem eventKey={1}>Create Classes</NavItem>
+          <NavItem eventKey={1}>Class List</NavItem>
         </Nav>
         {this.state.activeKey
           ? <ClassForm />

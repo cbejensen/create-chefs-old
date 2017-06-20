@@ -1,18 +1,20 @@
 import React from 'react';
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import * as firebase from 'firebase';
 
 class ChildRegBox extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {name: '', regd: null};
+    this.state = { name: '', regd: null };
     this.register = this.register.bind(this);
   }
   componentDidMount() {
-    this.listener = firebase.database().ref(`children/${this.props.id}`);
+    this.listener = firebase
+      .database()
+      .ref(`children/${this.props.id}`);
     this.listener.on('value', snap => {
       if (!snap) {
-        this.setState({regd: null});
+        this.setState({ regd: null });
         return;
       }
       const child = snap.val();
@@ -26,7 +28,7 @@ class ChildRegBox extends React.PureComponent {
       }
       this.setState({
         name: `${child.firstName} ${child.lastName}`,
-        regd: regd,
+        regd: regd
       });
     });
   }
@@ -35,13 +37,18 @@ class ChildRegBox extends React.PureComponent {
   }
   register() {
     // update both class and child regs
-    const childPath = `children/${this.props.id}/registered/${this.props.classId}`;
-    const classPath = `classes/${this.props.classId}/registered/${this.props.id}`;
+    const childPath = `children/${this.props
+      .id}/registered/${this.props.classId}`;
+    const classType = this.props.isGroup
+      ? 'classGroups'
+      : 'classes';
+    const classPath = `${classType}/${this.props
+      .classId}/registered/${this.props.id}`;
     // if regd now, unregister, and vice versa
     const status = this.state.regd ? null : true;
     const reg = {
       [childPath]: status,
-      [classPath]: status,
+      [classPath]: status
     };
     // update both paths atomically
     firebase.database().ref().update(reg);
@@ -49,16 +56,21 @@ class ChildRegBox extends React.PureComponent {
   render() {
     if (this.state.regd === null) return null;
     const color = {
-      backgroundColor: this.state.regd ? '#50af3d' : '#000000',
+      backgroundColor: this.state.regd
+        ? '#50af3d'
+        : '#000000',
       color: '#ffffff',
-      border: 'none',
+      border: 'none'
     };
     return (
       <span>
         <Button style={color} onClick={this.register}>
           {this.state.name}
         </Button>
-        {this.state.regd && <div style={{fontSize: '0.7em'}}>REGISTERED</div>}
+        {this.state.regd &&
+          <div style={{ fontSize: '0.7em' }}>
+            REGISTERED
+          </div>}
       </span>
     );
   }

@@ -1,4 +1,6 @@
 import React from 'react';
+import GroupClassBoxes from './GroupClassBoxes';
+import { FirebaseListener } from 'components/FirebaseCustom';
 import FieldGroup from '../FieldGroup';
 import {
   FormGroup,
@@ -7,9 +9,16 @@ import {
   HelpBlock,
   Button
 } from 'react-bootstrap';
+import {
+  sortClassesByDate,
+  objToArray
+} from 'utils/functions';
 
 export default function ClassForm(props) {
   const styles = {
+    classBoxes: {
+      marginBottom: '10px'
+    },
     lessonFields: {
       margin: '0'
     },
@@ -28,32 +37,33 @@ export default function ClassForm(props) {
   };
   return (
     <form onSubmit={props.handleSubmit}>
-      <FieldGroup
-        name="date"
-        val={props.date}
-        label="Date"
-        help="Format should be yyyy-mm-dd"
-        onChange={props.handleChange}
-      />
-      <FieldGroup
-        name="start"
-        val={props.start}
-        label="Start Time"
-        help="Format should be hh:mm in military time"
-        onChange={props.handleChange}
-      />
-      <FieldGroup
-        name="end"
-        val={props.end}
-        label="End Time"
-        help="Format should be hh:mm in military time"
-        onChange={props.handleChange}
-      />
+      <h4>Select Classes</h4>
+      <div style={styles.classBoxes}>
+        <FirebaseListener
+          path="classes"
+          transform={data =>
+            sortClassesByDate(objToArray(data))}
+          passDataAs="classes"
+        >
+          <GroupClassBoxes
+            groupClassIds={props.classes}
+            groupId={props.groupId}
+            handleClick={props.handleClassChange}
+          />
+        </FirebaseListener>
+      </div>
       <FieldGroup
         name="theme"
-        val={props.theme}
         label="Theme"
+        val={props.theme}
         help="A theme or short title for this class"
+        onChange={props.handleChange}
+      />
+      <FieldGroup
+        name="subtitle"
+        label="Subtitle"
+        val={props.subtitle}
+        help="This will appear just below the date range"
         onChange={props.handleChange}
       />
       <FieldGroup
@@ -66,8 +76,8 @@ export default function ClassForm(props) {
       />
       <FieldGroup
         name="price"
-        val={props.price}
         label="Price"
+        val={props.price}
         help="Do not include a dollar sign"
         onChange={props.handleChange}
       />
@@ -75,8 +85,8 @@ export default function ClassForm(props) {
         return (
           <FieldGroup
             key={i}
-            val={props.lessons[i]}
             name={`lesson ${i}`}
+            val={props.lessons[i]}
             label={i === 0 ? 'Lessons' : null}
             onChange={props.handleLessonChange}
             style={styles.lessonFields}

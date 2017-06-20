@@ -1,17 +1,16 @@
 import React from 'react';
 import FieldGroup from '../FieldGroup';
-import ClassForm from './ClassForm';
+import GroupForm from './GroupForm';
 import * as firebase from 'firebase';
 
 class ClassFormContainer extends React.Component {
   constructor(props) {
     super(props);
-    const info = { ...this.props.cookClass };
+    const info = this.props.group;
     this.state = {
-      date: info.date || '',
-      start: info.start || '',
-      end: info.end || '',
+      classes: info.classes || [],
       theme: info.theme || '',
+      subtitle: info.subtitle || '',
       description: info.description || '',
       price: info.price || '',
       lessons: info.lessons || ['', '', '']
@@ -24,6 +23,36 @@ class ClassFormContainer extends React.Component {
       return {
         [name]: value
       };
+    });
+  };
+  handleClassChange = classId => {
+    console.log(classId);
+    this.setState((prevState, props) => {
+      // find out if class is already in group
+      // by converting array to object
+      // then checking for object key
+      const oldClasses = [...prevState.classes];
+      const state = {};
+      oldClasses.forEach(
+        currentId => (state[currentId] = true)
+      );
+      if (state[classId]) {
+        delete state[classId];
+      } else {
+        state[classId] = true;
+      }
+      const newClasses = Object.keys(state);
+      const newState = { ...prevState };
+      return {
+        ...newState,
+        classes: newClasses
+      };
+      // let inGroup = false;
+      // for (let i = classes.length - 1; i >= 0; i--) {
+      //   if (classes[i] === classId) {
+      //     classes.splice(i, 1);
+      //   }
+      // }
     });
   };
   handleLessonChange = e => {
@@ -54,18 +83,20 @@ class ClassFormContainer extends React.Component {
     e.preventDefault();
     firebase
       .database()
-      .ref(`classes/${this.props.cookClass.id}`)
+      .ref(`classGroups/${this.props.group.id}`)
       .update(this.state);
   };
   render() {
     return (
-      <ClassForm
+      <GroupForm
         {...this.state}
+        groupId={this.props.group.id}
         handleChange={this.handleChange}
         handleLessonChange={this.handleLessonChange}
         addLesson={this.addLesson}
         removeLesson={this.removeLesson}
         handleSubmit={this.handleSubmit}
+        handleClassChange={this.handleClassChange}
       />
     );
   }

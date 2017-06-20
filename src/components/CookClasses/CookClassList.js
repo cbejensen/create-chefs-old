@@ -1,24 +1,58 @@
 import React from 'react';
-import {CookClass} from './CookClass';
+import { CookClass } from './CookClass';
+import {
+  objToArray,
+  sortClassesByDate
+} from 'utils/functions';
 
 export default function CookClassList(props) {
-  // convert classes obj to array
-  const classesArray = Object.keys(props.classes).map(key => {
-    const obj = props.classes[key];
-    obj.id = key;
-    // convert lessons to arrays
-    obj.lessons = obj.lessons
-      ? Object.keys(obj.lessons).map(key => obj.lessons[key])
-      : [];
-    return obj;
-  });
-  // sort by date ascending
-  const classes = classesArray.sort((a, b) => {
-    return a.date > b.date ? 1 : -1;
-  });
+  // turn objects into arrays
+  const classesArray = objToArray(props.classes);
+  const groupsArray = props.groups
+    ? objToArray(props.groups)
+    : null;
+
+  // give each group a start and end date
+  // so we can sort them with classes as one array
+  let datedGroups = [];
+  if (groupsArray) {
+    datedGroups = groupsArray.map(originalGroup => {
+      const group = { ...originalGroup };
+      const dateArray = [];
+      // create array of class dates
+      group.classes.forEach(classId => {
+        classesArray.forEach(cookClass => {
+          if (classId === cookClass.id) {
+            dateArray.push(cookClass.date);
+          }
+        });
+      });
+      // sort dates
+      const dates = dateArray.sort((a, b) => {
+        return a > b ? 1 : -1;
+      });
+      // put date range on object
+      group.date = dates[0];
+      group.endDate = dates[dateArray.length - 1];
+      return group;
+    });
+  }
+
+  // combine arrays
+  const classesAndGroups = classesArray.concat(datedGroups);
+
+  // sort by date, with groups taking priority
+  const classes = sortClassesByDate(classesAndGroups);
+
   return (
     <div>
-      {classes.map(obj => <CookClass {...obj} key={obj.id} />)}
+      {classesAndGroups.map(cookClass =>
+        <CookClass
+          {...cookClass}
+          key={cookClass.id}
+          isAdmin={props.isAdmin}
+        />
+      )}
     </div>
   );
 }

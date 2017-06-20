@@ -7,18 +7,25 @@ import {
 } from 'react-bootstrap';
 
 export default function FieldGroup({
-  getValidation,
+  name,
+  val,
   label,
   help,
-  val,
+  getValidation,
+  style,
   ...props
 }) {
   return (
-    <FormGroup validationState={getValidation}>
+    <FormGroup
+      controlId={name}
+      validationState={getValidation}
+      style={style}
+    >
       <ControlLabel>
         {label}{props.required && '*'}
       </ControlLabel>
       <FormControl
+        name={name}
         value={val}
         style={{ fontSize: '16px' }}
         {...props}
