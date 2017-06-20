@@ -65,6 +65,10 @@ export default function CookClassBody(props) {
       transform: props.seeChildList
         ? 'rotate(90deg)'
         : 'initial'
+    },
+    paymentMsg: {
+      textAlign: 'center',
+      margin: '10px 0'
     }
   };
   return (
@@ -99,16 +103,27 @@ export default function CookClassBody(props) {
         </span>
       </div>
       {props.seeChildList &&
-        <CheckAuth noPass>
-          {props.isAdmin
-            ? <RegisteredChildren
-                registered={props.registered}
-              />
-            : <ChildList
-                classId={props.id}
-                isGroup={props.isGroup}
-              />}
-        </CheckAuth>}
+        <div>
+          <CheckAuth>
+            {props.isAdmin
+              ? <RegisteredChildren
+                  registered={props.registered}
+                />
+              : <ChildList
+                  classId={props.id}
+                  isGroup={props.isGroup}
+                />}
+          </CheckAuth>
+          {!props.isAdmin &&
+            <div style={styles.paymentMsg}>
+              Payment accepted through Paypal
+              (<a href="mailto:createclasses@gmail.com">
+                createclasses@gmail.com
+              </a>), Venmo
+              (<a href="tel:8018562768">801-856-2768</a>),
+              or via card at the 1st class
+            </div>}
+        </div>}
     </div>
   );
 }

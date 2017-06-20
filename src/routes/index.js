@@ -16,6 +16,7 @@ import About from './AboutView.js';
 import Admin from './AdminView.js';
 import AdminClassEdit from './AdminClassEditView.js';
 import AdminGroupEdit from './AdminGroupEditView.js';
+import AdminChild from './AdminChildView.js';
 import BlogHome from './BlogHomeView.js';
 import BlogPost from './BlogPostView.js';
 
@@ -49,6 +50,10 @@ const routes = (
       <Route
         path="/admin/class-groups/:id"
         component={AdminGroupEdit}
+      />
+      <Route
+        path="/admin/children/:id"
+        component={AdminChild}
       />
     </Route>
   </Router>

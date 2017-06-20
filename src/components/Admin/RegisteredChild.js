@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 import * as firebase from 'firebase';
 
 class RegisteredChild extends React.Component {
@@ -36,7 +37,15 @@ class RegisteredChild extends React.Component {
     };
     if (this.state.name === null) return null;
     return (
-      <Button style={styles.btn}>{this.state.name}</Button>
+      <Button
+        style={styles.btn}
+        onClick={() =>
+          browserHistory.push(
+            `admin/children/${this.props.id}`
+          )}
+      >
+        {this.state.name}
+      </Button>
     );
   }
 }

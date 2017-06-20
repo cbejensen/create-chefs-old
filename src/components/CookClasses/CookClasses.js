@@ -41,14 +41,9 @@ class CookClasses extends React.Component {
     });
   }
   render() {
-    if (
-      this.state.loading ||
-      this.state.classes === null
-    ) {
+    if (this.state.loading || this.state.classes === null) {
       return <Loading />;
-    } else if (
-      !this.state.classes
-    ) {
+    } else if (!this.state.classes) {
       return (
         <h3 style={{ textAlign: 'center' }}>
           There are no upcoming classes at this time. <br />

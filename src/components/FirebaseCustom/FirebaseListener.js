@@ -11,7 +11,6 @@ class FirebaseListener extends React.Component {
       .database()
       .ref(this.props.path);
     this.listener.on('value', snap => {
-      console.log('fb', snap.val());
       if (!snap) {
         this.setState({ data: null, loading: false });
         return;

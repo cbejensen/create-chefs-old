@@ -1,11 +1,13 @@
 import React from 'react';
 import FieldGroup from '../FieldGroup';
+import { browserHistory } from 'react-router';
 import {
   FormGroup,
   FormControl,
   ControlLabel,
   HelpBlock,
-  Button
+  Button,
+  Panel
 } from 'react-bootstrap';
 
 export default function ClassForm(props) {
@@ -13,17 +15,21 @@ export default function ClassForm(props) {
     lessonFields: {
       margin: '0'
     },
+    lessonsContainer: {
+      position: 'relative'
+    },
     lessonBtnContainer: {
-      margin: '20px',
-      display: 'flex',
-      justifyConent: 'center'
+      position: 'absolute',
+      top: '20px',
+      width: '100%',
+      textAlign: 'center'
     },
     lessonBtn: {
-      flex: '1',
-      margin: '5px'
+      margin: '0 10px'
     },
     submitBtnContainer: {
-      textAlign: 'right'
+      textAlign: 'right',
+      margin: '30px 0'
     }
   };
   return (
@@ -71,42 +77,57 @@ export default function ClassForm(props) {
         help="Do not include a dollar sign"
         onChange={props.handleChange}
       />
-      {props.lessons.map((lesson, i) => {
-        return (
-          <FieldGroup
-            key={i}
-            val={props.lessons[i]}
-            name={`lesson ${i}`}
-            label={i === 0 ? 'Lessons' : null}
-            onChange={props.handleLessonChange}
-            style={styles.lessonFields}
-          />
-        );
-      })}
-      <div style={styles.lessonBtnContainer}>
-        <Button
-          type="button"
-          bsStyle="success"
-          bsSize="sm"
-          onClick={props.addLesson}
-          style={styles.lessonBtn}
-        >
-          + Add Lesson
-        </Button>
+      <div style={styles.lessonsContainer}>
+        <div style={{ height: '40px' }}>
+          <label for="lesson 0" class="control-label">
+            Lessons
+          </label>
+        </div>
+        {props.lessons.map((lesson, i) => {
+          return (
+            <FieldGroup
+              key={i}
+              val={props.lessons[i]}
+              name={`lesson ${i}`}
+              onChange={props.handleLessonChange}
+              style={styles.lessonFields}
+            />
+          );
+        })}
+        <div style={styles.lessonBtnContainer}>
+          <Button
+            type="button"
+            bsStyle="success"
+            bsSize="sm"
+            onClick={props.addLesson}
+            style={styles.lessonBtn}
+          >
+            + Add Lesson
+          </Button>
+          <Button
+            type="button"
+            bsStyle="danger"
+            bsSize="sm"
+            disabled={
+              props.lessons.length === 1 ? true : false
+            }
+            onClick={props.removeLesson}
+            style={styles.lessonBtn}
+          >
+            - Remove Lesson
+          </Button>
+        </div>
+      </div>
+      <div style={styles.submitBtnContainer}>
         <Button
           type="button"
           bsStyle="danger"
-          bsSize="sm"
-          disabled={
-            props.lessons.length === 1 ? true : false
-          }
-          onClick={props.removeLesson}
-          style={styles.lessonBtn}
+          bsSize="lg"
+          style={{ marginRight: '10px' }}
+          onClick={() => browserHistory.push('admin')}
         >
-          - Remove Lesson
+          Cancel
         </Button>
-      </div>
-      <div style={styles.submitBtnContainer}>
         <Button type="submit" bsStyle="primary" bsSize="lg">
           Submit
         </Button>
