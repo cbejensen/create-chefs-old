@@ -39,7 +39,7 @@ class AdminClassEditView extends React.Component {
     const title = formatDate(this.state.cookClass.date);
     const subtitle = this.state.cookClass.theme;
     return (
-      <CheckAuth redirect noPass>
+      <CheckAuth redirect noPass adminOnly>
         <Grid>
           <PageHeader title={title} subtitle={subtitle} />
           <ClassForm cookClass={this.state.cookClass} />

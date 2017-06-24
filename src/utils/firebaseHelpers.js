@@ -5,7 +5,7 @@ const config = {
   authDomain: 'createchefs.firebaseapp.com',
   databaseURL: 'https://createchefs.firebaseio.com',
   storageBucket: 'createchefs.appspot.com',
-  messagingSenderId: '985125118577',
+  messagingSenderId: '985125118577'
 };
 firebase.initializeApp(config);
 
@@ -14,7 +14,10 @@ const db = firebase.database();
 export const createUser = user => {
   return firebase
     .auth()
-    .createUserWithEmailAndPassword(user.email, user.password)
+    .createUserWithEmailAndPassword(
+      user.email,
+      user.password
+    )
     .then(auth => {
       delete user.password;
       delete user.email;
@@ -37,7 +40,7 @@ export const addChild = (uid, firstName, lastName) => {
   const child = {
     firstName: firstName,
     lastName: lastName,
-    parent: uid,
+    parent: uid
   };
   const userChildrenPath = `users/${uid}/children`;
   const childId = db.ref(userChildrenPath).push().key;
@@ -45,13 +48,16 @@ export const addChild = (uid, firstName, lastName) => {
   updates[`${userChildrenPath}/${childId}`] = childId;
   updates[`children/${childId}`] = child;
   firebase.database().ref().update(updates);
-  // browserHistory.push(`/my-account/children/${childId}`);
 };
 
 export const getClasses = () => {
-  return db.ref('classes').once('value').then(snap => snap.val()).catch(err => {
-    return err;
-  });
+  return db
+    .ref('classes')
+    .once('value')
+    .then(snap => snap.val())
+    .catch(err => {
+      return err;
+    });
 };
 
 export const deleteChild = (childId, uid) => {
@@ -61,10 +67,14 @@ export const deleteChild = (childId, uid) => {
     .ref(childPath)
     .remove()
     .then(res => {
-      return db.ref(parentPath).remove().then(res => true).catch(err => {
-        console.log(err);
-        return false;
-      });
+      return db
+        .ref(parentPath)
+        .remove()
+        .then(res => true)
+        .catch(err => {
+          console.log(err);
+          return false;
+        });
     })
     .catch(err => {
       console.log(err);

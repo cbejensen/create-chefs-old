@@ -6,7 +6,7 @@ import { Grid } from 'react-bootstrap';
 class AdminView extends React.Component {
   render() {
     return (
-      <CheckAuth redirect noPass>
+      <CheckAuth redirect noPass adminOnly>
         <Grid>
           <h2 className="text-center">Welcome, Jodie!</h2>
           <Admin />

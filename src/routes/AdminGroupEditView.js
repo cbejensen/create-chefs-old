@@ -38,7 +38,7 @@ class AdminGroupEditView extends React.Component {
     const info = this.state.group;
     console.log(info);
     return (
-      <CheckAuth redirect noPass>
+      <CheckAuth redirect noPass adminOnly>
         <Grid>
           <PageHeader
             title={info.theme}

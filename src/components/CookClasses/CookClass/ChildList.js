@@ -1,6 +1,7 @@
 import React from 'react';
 import ChildRegBox from './ChildRegBox';
 import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 export default function ChildList(props) {
   const styles = {
@@ -9,6 +10,13 @@ export default function ChildList(props) {
       padding: '5px 0'
     }
   };
+  if (!props.childIds)
+    return (
+      <div style={styles.col}>
+        <Link to="my-account">Click here</Link> to add
+        children to your account
+      </div>
+    );
   return (
     <Row>
       {props.childIds.map(childId =>
