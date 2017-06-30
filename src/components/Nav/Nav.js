@@ -1,7 +1,7 @@
 import React from 'react';
 import NavLogo from './NavLogo';
-import {Grid, Row, Col, Glyphicon} from 'react-bootstrap';
-import logo from '../../images/logo-chef.png';
+import { Grid, Row, Col, Glyphicon } from 'react-bootstrap';
+import logo from 'images/logo-chef.png';
 import styled from 'styled-components';
 import './index.css';
 
@@ -25,7 +25,7 @@ export default function Nav(props) {
               onClick={props.toggleSideNav}
             />
           </Col>
-          <Col xs={6} style={{textAlign: 'center'}}>
+          <Col xs={6} style={{ textAlign: 'center' }}>
             <NavLogo to="/" img={logo} alt="CREATE" />
           </Col>
           <Col xs={3} className="Nav-icon Nav-icon-right">

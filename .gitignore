@@ -17,4 +17,6 @@ firebase.json
 # misc
 .DS_Store
 .env
-npm-debug.log
+npm-debug.
+sitemap.xml
+robots.txt
