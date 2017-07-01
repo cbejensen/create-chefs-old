@@ -7,6 +7,7 @@ import { browserHistory } from 'react-router';
 import { Grid } from 'react-bootstrap';
 import { formatDate } from 'utils/functions';
 import * as firebase from 'firebase';
+import { Helmet } from 'react-helmet';
 
 class AdminClassEditView extends React.Component {
   constructor(props) {
@@ -39,12 +40,18 @@ class AdminClassEditView extends React.Component {
     const title = formatDate(this.state.cookClass.date);
     const subtitle = this.state.cookClass.theme;
     return (
-      <CheckAuth redirect noPass adminOnly>
-        <Grid>
-          <PageHeader title={title} subtitle={subtitle} />
-          <ClassForm cookClass={this.state.cookClass} />
-        </Grid>
-      </CheckAuth>
+      <div>
+        <Helmet>
+          <title>Admin</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        <CheckAuth redirect noPass adminOnly>
+          <Grid>
+            <PageHeader title={title} subtitle={subtitle} />
+            <ClassForm cookClass={this.state.cookClass} />
+          </Grid>
+        </CheckAuth>
+      </div>
     );
   }
 }

@@ -43,6 +43,42 @@ class App extends React.Component {
             rel="canonical"
             href="https://createchefs.com"
           />
+          <meta
+            property="og:type"
+            content="business.business"
+          />
+          <meta
+            property="og:title"
+            content="Create Chefs"
+          />
+          <meta
+            property="og:url"
+            content="createchefs.com"
+          />
+          <meta
+            property="og:image"
+            content="createchefs.com/static/media/logo-chef.ca69eddf.png"
+          />
+          <meta
+            property="business:contact_data:street_address"
+            content="6119 Don Leone Dr"
+          />
+          <meta
+            property="business:contact_data:locality"
+            content="Taylorsville"
+          />
+          <meta
+            property="business:contact_data:region"
+            content="UT"
+          />
+          <meta
+            property="business:contact_data:postal_code"
+            content="84118"
+          />
+          <meta
+            property="business:contact_data:country_name"
+            content="USA"
+          />
         </Helmet>
         <div className={styles.content}>
           <CheckAuth>

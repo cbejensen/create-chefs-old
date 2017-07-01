@@ -36,7 +36,8 @@ class CheckAuth extends React.Component {
       return null;
     } else if (
       this.props.adminOnly &&
-      this.state.uid !== 'tDHYraX5Iqes7WDq4Ne474qk30n1'
+      this.state.uid !== 'tDHYraX5Iqes7WDq4Ne474qk30n1' &&
+      this.state.uid !== '8KRkYoGQnTTBbMbl0PYRdneUbqO2'
     ) {
       const path = typeof this.props.redirect === 'string'
         ? this.props.redirect

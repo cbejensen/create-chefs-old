@@ -39,8 +39,8 @@ const routes = (
         path="/children/:childId"
         component={ManageChild}
       />
-      <Route path="/blog/:slug" component={BlogPost} />
-      <Route path="/blog/p/:page" component={BlogHome} />
+      {/* <Route path="/blog/:slug" component={BlogPost} />
+      <Route path="/blog/p/:page" component={BlogHome} /> */}
       <Route path="/about" component={About} />
       <Route path="/admin" component={Admin} />
       <Route

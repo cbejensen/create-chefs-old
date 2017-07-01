@@ -7,6 +7,7 @@ import { browserHistory } from 'react-router';
 import { Grid } from 'react-bootstrap';
 import { formatDate } from 'utils/functions';
 import * as firebase from 'firebase';
+import { Helmet } from 'react-helmet';
 
 class AdminGroupEditView extends React.Component {
   constructor(props) {
@@ -38,15 +39,21 @@ class AdminGroupEditView extends React.Component {
     const info = this.state.group;
     console.log(info);
     return (
-      <CheckAuth redirect noPass adminOnly>
-        <Grid>
-          <PageHeader
-            title={info.theme}
-            subtitle={info.subtitle}
-          />
-          <GroupForm group={info} />
-        </Grid>
-      </CheckAuth>
+      <div>
+        <Helmet>
+          <title>Admin</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        <CheckAuth redirect noPass adminOnly>
+          <Grid>
+            <PageHeader
+              title={info.theme}
+              subtitle={info.subtitle}
+            />
+            <GroupForm group={info} />
+          </Grid>
+        </CheckAuth>
+      </div>
     );
   }
 }
