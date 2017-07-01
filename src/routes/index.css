@@ -48,11 +48,38 @@
   background-color: #a80f18;
 }
 
+.HomeView-register {
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 1.5em;
+  background-color: #8eeeee;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.HomeView-register:hover {
+  background-color: white;
+  /*border: 4px solid #8eeeee;*/
+  padding: 12px;
+  font-size: 1.6em;
+}
+
+.HomeView-register a {
+  color: #a80f18;
+  text-decoration: none;
+}
+
+.HomeView-register:hover a {
+  color: #8eeeee;
+  text-decoration: none;
+}
+
 .ManageAccount, .ManageChild {
   background-color: #FFF1D6;
 }
 
-@media (min-width: 768px)  {
+@media (min-width: 768px) {
   .HomeView-banner-img {
     height: 130px;
     background-size: contain;

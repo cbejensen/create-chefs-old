@@ -13,12 +13,6 @@ import pumpkinChocChipMuffins from '../images/pumpkin-choc-chip-muffins.jpeg';
 import './index.css';
 
 export default function HomeView(props) {
-  const styles = {
-    regLink: {
-      textAlign: 'center',
-      fontSize: '2em'
-    }
-  };
   return (
     <div className="HomeView-container">
       <div className="HomeView-banner-container">
@@ -74,11 +68,9 @@ export default function HomeView(props) {
               imgRight
               src={pumpkinChocChipMuffins}
             >
-              <div style={styles.regLink}>
-                <CheckAuth>
-                  <RegLink />
-                </CheckAuth>
-              </div>
+              <CheckAuth>
+                <RegLink />
+              </CheckAuth>
             </ImagePanel>
           </Row>
         </Grid>
@@ -90,8 +82,13 @@ export default function HomeView(props) {
 function RegLink(props) {
   const link = props.uid ? '/classes' : '/sign-in';
   return (
-    <Link style={{ color: 'white' }} to={link}>
-      Click here to register!
-    </Link>
+    <div
+      id="home-register-btn"
+      className="HomeView-register"
+    >
+      <Link to={link}>
+        Click here to register!
+      </Link>
+    </div>
   );
 }

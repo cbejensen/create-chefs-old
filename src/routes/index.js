@@ -17,8 +17,6 @@ import Admin from './AdminView.js';
 import AdminClassEdit from './AdminClassEditView.js';
 import AdminGroupEdit from './AdminGroupEditView.js';
 import AdminChild from './AdminChildView.js';
-import BlogHome from './BlogHomeView.js';
-import BlogPost from './BlogPostView.js';
 
 const handleUpdate = () => {
   window.scrollTo(0, 0);
@@ -39,8 +37,6 @@ const routes = (
         path="/children/:childId"
         component={ManageChild}
       />
-      {/* <Route path="/blog/:slug" component={BlogPost} />
-      <Route path="/blog/p/:page" component={BlogHome} /> */}
       <Route path="/about" component={About} />
       <Route path="/admin" component={Admin} />
       <Route
