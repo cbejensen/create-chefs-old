@@ -5,18 +5,20 @@ class SideNav extends React.Component {
   render() {
     let acctLink = {
       text: 'sign in',
-      to: '/sign-in',
+      to: '/sign-in'
     };
     if (this.props.uid) {
       acctLink.text = 'my account';
       acctLink.to = '/my-account';
     }
     return (
-      <div className="SideNav-container" onClick={this.props.toggleSideNav}>
+      <div
+        className="SideNav-container"
+        onClick={this.props.toggleSideNav}
+      >
         <SideNavItem text="home" to="/" />
         <SideNavItem text="classes" to="/classes" />
         <SideNavItem {...acctLink} />
-        <SideNavItem text="blog" to="/blog/p/1" />
         <SideNavItem text="about" to="/about" />
       </div>
     );

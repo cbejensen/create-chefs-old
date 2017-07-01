@@ -1,7 +1,7 @@
 import React from 'react';
 import NavLogo from './NavLogo';
 import NavItem from './NavItem';
-import {Grid, Row, Col, Glyphicon} from 'react-bootstrap';
+import { Grid, Row, Col, Glyphicon } from 'react-bootstrap';
 import styled from 'styled-components';
 import './index.css';
 
@@ -18,12 +18,12 @@ export default function NavLarge(props) {
   const styles = {
     logo: {
       float: 'left',
-      marginRight: '20px',
-    },
+      marginRight: '20px'
+    }
   };
   let acctLink = {
     text: 'sign in',
-    to: '/sign-in',
+    to: '/sign-in'
   };
   if (props.uid) {
     acctLink.text = 'my account';
@@ -37,7 +37,6 @@ export default function NavLarge(props) {
           <NavItem text="home" to="/" />
           <NavItem text="classes" to="/classes" />
           <NavItem {...acctLink} />
-          <NavItem text="blog" to="/blog/p/1" />
           <NavItem text="about" to="/about" />
         </ul>
       </Grid>
