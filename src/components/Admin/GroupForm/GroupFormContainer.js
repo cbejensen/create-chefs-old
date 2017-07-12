@@ -1,6 +1,7 @@
 import React from 'react';
 import FieldGroup from '../FieldGroup';
 import GroupForm from './GroupForm';
+import { browserHistory } from 'react-router';
 import * as firebase from 'firebase';
 
 class ClassFormContainer extends React.Component {
@@ -47,12 +48,6 @@ class ClassFormContainer extends React.Component {
         ...newState,
         classes: newClasses
       };
-      // let inGroup = false;
-      // for (let i = classes.length - 1; i >= 0; i--) {
-      //   if (classes[i] === classId) {
-      //     classes.splice(i, 1);
-      //   }
-      // }
     });
   };
   handleLessonChange = e => {
@@ -86,6 +81,26 @@ class ClassFormContainer extends React.Component {
       .ref(`classGroups/${this.props.group.id}`)
       .update(this.state);
   };
+  handleDelete = e => {
+    const confirmation = confirm(
+      'Are you sure you want to delete this group?'
+    );
+    if (confirmation) {
+      firebase
+        .database()
+        .ref(`classGroups/${this.props.group.id}`)
+        .set(null)
+        .then(res => {
+          browserHistory.push('/admin');
+        })
+        .catch(err => {
+          console.log(err);
+          alert(
+            'There was an issue deleting this group. Please try again later.'
+          );
+        });
+    }
+  };
   render() {
     return (
       <GroupForm
@@ -96,6 +111,7 @@ class ClassFormContainer extends React.Component {
         addLesson={this.addLesson}
         removeLesson={this.removeLesson}
         handleSubmit={this.handleSubmit}
+        handleDelete={this.handleDelete}
         handleClassChange={this.handleClassChange}
       />
     );

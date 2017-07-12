@@ -1,6 +1,7 @@
 import React from 'react';
 import FieldGroup from '../FieldGroup';
 import ClassForm from './ClassForm';
+import { browserHistory } from 'react-router';
 import * as firebase from 'firebase';
 
 class ClassFormContainer extends React.Component {
@@ -57,6 +58,26 @@ class ClassFormContainer extends React.Component {
       .ref(`classes/${this.props.cookClass.id}`)
       .update(this.state);
   };
+  handleDelete = e => {
+    const confirmation = confirm(
+      'Are you sure you want to delete this class?'
+    );
+    if (confirmation) {
+      firebase
+        .database()
+        .ref(`classes/${this.props.cookClass.id}`)
+        .set(null)
+        .then(res => {
+          browserHistory.push('/admin');
+        })
+        .catch(err => {
+          console.log(err);
+          alert(
+            'There was an issue deleting this class. Please try again later.'
+          );
+        });
+    }
+  };
   render() {
     return (
       <ClassForm
@@ -66,6 +87,7 @@ class ClassFormContainer extends React.Component {
         addLesson={this.addLesson}
         removeLesson={this.removeLesson}
         handleSubmit={this.handleSubmit}
+        handleDelete={this.handleDelete}
       />
     );
   }

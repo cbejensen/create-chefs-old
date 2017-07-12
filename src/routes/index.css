@@ -48,7 +48,7 @@
   background-color: #a80f18;
 }
 
-.HomeView-register {
+.HomeView-register-btn {
   padding: 10px;
   border-radius: 15px;
   text-align: center;
@@ -58,19 +58,19 @@
   transition: .3s;
 }
 
-.HomeView-register:hover {
+.HomeView-register-btn:hover {
   background-color: white;
   /*border: 4px solid #8eeeee;*/
   padding: 12px;
   font-size: 1.6em;
 }
 
-.HomeView-register a {
+.HomeView-register-link {
   color: #a80f18;
   text-decoration: none;
 }
 
-.HomeView-register:hover a {
+.HomeView-register-link:hover {
   color: #8eeeee;
   text-decoration: none;
 }

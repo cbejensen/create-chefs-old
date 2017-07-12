@@ -7,6 +7,9 @@ class SideNav extends React.Component {
       text: 'sign in',
       to: '/sign-in'
     };
+    const isAdmin =
+      this.props.uid === 'tDHYraX5Iqes7WDq4Ne474qk30n1' ||
+      this.props.uid === '8KRkYoGQnTTBbMbl0PYRdneUbqO2';
     if (this.props.uid) {
       acctLink.text = 'my account';
       acctLink.to = '/my-account';
@@ -20,6 +23,8 @@ class SideNav extends React.Component {
         <SideNavItem text="classes" to="/classes" />
         <SideNavItem {...acctLink} />
         <SideNavItem text="about" to="/about" />
+        {isAdmin &&
+          <SideNavItem text="admin" to="/admin" />}
       </div>
     );
   }

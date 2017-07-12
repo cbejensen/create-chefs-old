@@ -124,6 +124,15 @@ export default function ClassForm(props) {
           bsStyle="danger"
           bsSize="lg"
           style={{ marginRight: '10px' }}
+          onClick={props.handleDelete}
+        >
+          Delete
+        </Button>
+        <Button
+          type="button"
+          bsStyle="warning"
+          bsSize="lg"
+          style={{ marginRight: '10px' }}
           onClick={() => browserHistory.push('admin')}
         >
           Cancel

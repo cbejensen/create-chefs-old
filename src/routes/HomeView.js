@@ -82,13 +82,14 @@ export default function HomeView(props) {
 function RegLink(props) {
   const link = props.uid ? '/classes' : '/sign-in';
   return (
-    <div
+    <Link
+      className="HomeView-register-link"
       id="home-register-btn"
-      className="HomeView-register"
+      to={link}
     >
-      <Link to={link}>
+      <div className="HomeView-register-btn">
         Click here to register!
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }

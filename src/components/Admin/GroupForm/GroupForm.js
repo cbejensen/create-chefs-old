@@ -2,6 +2,7 @@ import React from 'react';
 import GroupClassBoxes from './GroupClassBoxes';
 import { FirebaseListener } from 'components/FirebaseCustom';
 import FieldGroup from '../FieldGroup';
+import { browserHistory } from 'react-router';
 import {
   FormGroup,
   FormControl,
@@ -32,7 +33,8 @@ export default function ClassForm(props) {
       margin: '5px'
     },
     submitBtnContainer: {
-      textAlign: 'right'
+      textAlign: 'right',
+      margin: '30px 0'
     }
   };
   return (
@@ -117,6 +119,24 @@ export default function ClassForm(props) {
         </Button>
       </div>
       <div style={styles.submitBtnContainer}>
+        <Button
+          type="button"
+          bsStyle="danger"
+          bsSize="lg"
+          style={{ marginRight: '10px' }}
+          onClick={props.handleDelete}
+        >
+          Delete
+        </Button>
+        <Button
+          type="button"
+          bsStyle="warning"
+          bsSize="lg"
+          style={{ marginRight: '10px' }}
+          onClick={() => browserHistory.push('admin')}
+        >
+          Cancel
+        </Button>
         <Button type="submit" bsStyle="primary" bsSize="lg">
           Submit
         </Button>
