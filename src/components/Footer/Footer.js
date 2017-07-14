@@ -3,18 +3,18 @@ import React from 'react';
 export default function Footer(props) {
   const styles = {
     footer: {
-      height: '90px',
+      height: '120px',
       position: 'relative',
       textAlign: 'center',
       color: '#959595',
       backgroundColor: '#191926',
-      padding: '10px 0',
+      padding: '10px 0'
     },
     info: {
       position: 'relative',
       top: '50%',
-      transform: 'translateY(-50%)',
-    },
+      transform: 'translateY(-50%)'
+    }
   };
   return (
     <footer style={styles.footer}>
@@ -23,9 +23,13 @@ export default function Footer(props) {
         <div>
           <strong>
             <div>801-856-2768</div>
-            <a href="mailto:createclasses@gmail.com">createclasses@gmail.com</a>
+            <a href="mailto:createclasses@gmail.com">
+              createclasses@gmail.com
+            </a>
           </strong>
         </div>
+        <div>6119 Don Leone Drive</div>
+        <div>Taylorsville, UT 84118</div>
       </div>
     </footer>
   );
