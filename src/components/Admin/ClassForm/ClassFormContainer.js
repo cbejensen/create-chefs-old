@@ -56,7 +56,16 @@ class ClassFormContainer extends React.Component {
     firebase
       .database()
       .ref(`classes/${this.props.cookClass.id}`)
-      .update(this.state);
+      .update(this.state)
+      .then(res => {
+        browserHistory.push('admin');
+      })
+      .catch(err => {
+        console.log(err);
+        alert(
+          'Sorry, something went wrong. Please try again later.'
+        );
+      });
   };
   handleDelete = e => {
     const confirmation = confirm(

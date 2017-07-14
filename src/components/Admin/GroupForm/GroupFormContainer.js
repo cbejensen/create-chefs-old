@@ -76,10 +76,30 @@ class ClassFormContainer extends React.Component {
   };
   handleSubmit = e => {
     e.preventDefault();
+    if (this.state.classes.length < 2) {
+      alert('Please select at least 2 classes');
+      return;
+    }
+    const lessons = [
+      ...this.state.lessons
+    ].filter(lesson => {
+      return lesson !== '';
+    });
+    const info = { ...this.state };
+    info.lessons = lessons;
     firebase
       .database()
       .ref(`classGroups/${this.props.group.id}`)
-      .update(this.state);
+      .update(info)
+      .then(res => {
+        browserHistory.push('admin');
+      })
+      .catch(err => {
+        console.log(err);
+        alert(
+          'Sorry, something went wrong. Please try again later.'
+        );
+      });
   };
   handleDelete = e => {
     const confirmation = confirm(
