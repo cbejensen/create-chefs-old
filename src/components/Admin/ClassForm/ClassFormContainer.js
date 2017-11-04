@@ -58,7 +58,7 @@ class ClassFormContainer extends React.Component {
       .ref(`classes/${this.props.cookClass.id}`)
       .update(this.state)
       .then(res => {
-        browserHistory.push('admin');
+        browserHistory.push('/admin');
       })
       .catch(err => {
         console.log(err);

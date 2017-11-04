@@ -133,7 +133,7 @@ export default function ClassForm(props) {
           bsStyle="warning"
           bsSize="lg"
           style={{ marginRight: '10px' }}
-          onClick={() => browserHistory.push('admin')}
+          onClick={() => browserHistory.push('/admin')}
         >
           Cancel
         </Button>

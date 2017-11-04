@@ -92,7 +92,7 @@ class ClassFormContainer extends React.Component {
       .ref(`classGroups/${this.props.group.id}`)
       .update(info)
       .then(res => {
-        browserHistory.push('admin');
+        browserHistory.push('/admin');
       })
       .catch(err => {
         console.log(err);
