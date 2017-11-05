@@ -15,16 +15,13 @@ class SideNav extends React.Component {
       acctLink.to = '/my-account';
     }
     return (
-      <div
-        className="SideNav-container"
-        onClick={this.props.toggleSideNav}
-      >
+      <div className="SideNav-container" onClick={this.props.toggleSideNav}>
         <SideNavItem text="home" to="/" />
         <SideNavItem text="classes" to="/classes" />
         <SideNavItem {...acctLink} />
+        <SideNavItem text="gallery" to="/gallery" />
         <SideNavItem text="about" to="/about" />
-        {isAdmin &&
-          <SideNavItem text="admin" to="/admin" />}
+        {isAdmin && <SideNavItem text="admin" to="/admin" />}
       </div>
     );
   }

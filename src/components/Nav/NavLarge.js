@@ -8,7 +8,7 @@ import './index.css';
 const NavContainer = styled.nav`
   display: none;
   height: 80px;
-  background-color: #50D7E3;
+  background-color: #50d7e3;
   @media (min-width: 992px) {
     display: block;
   }
@@ -40,6 +40,7 @@ export default function NavLarge(props) {
           <NavItem text="home" to="/" />
           <NavItem text="classes" to="/classes" />
           <NavItem {...acctLink} />
+          <NavItem text="gallery" to="/gallery" />
           <NavItem text="about" to="/about" />
           {isAdmin && <NavItem text="admin" to="/admin" />}
         </ul>

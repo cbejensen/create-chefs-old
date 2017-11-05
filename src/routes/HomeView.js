@@ -4,12 +4,10 @@ import { Link } from 'react-router';
 import { ImagePanel } from '../components/ImagePanel';
 import CheckAuth from 'components/CheckAuth';
 import logoCreate from 'images/logo-create.png';
-import ingredientsLeft from 'images/ingredients1.png';
-import ingredientsRight from 'images/ingredients2.png';
 import bostonStir from 'images/2016-11-10/boston-stir.jpg';
 import lemonJuicingHand from 'images/2016-11-10/lemon-juicing-hand.jpg';
-import scoopChoc from 'images/2016-11-10/scoop-choc.jpg';
-import pumpkinChocChipMuffins from '../images/pumpkin-choc-chip-muffins.jpeg';
+import scoopChoc from 'images/2017-11-4/kid-scooping-cookie-dough.jpg';
+import pumpkinChocChipMuffins from 'images/2017-11-4/pumpkin-choc-chip-muffins-in-pan.jpg';
 import './index.css';
 
 export default function HomeView(props) {
@@ -29,8 +27,8 @@ export default function HomeView(props) {
         <Grid className="HomeView-body">
           <Row className="HomeView-row">
             <ImagePanel heading="learn" src={bostonStir}>
-              CrEATe cooking classes are specifically
-              designed to inspire children ages 4 and up.
+              CrEATe cooking classes are specifically designed to inspire
+              children ages 4 and up.
               <ul>
                 <li>measuring & mixing</li>
                 <li>following recipes</li>
@@ -43,31 +41,21 @@ export default function HomeView(props) {
             </ImagePanel>
           </Row>
           <Row className="HomeView-row">
-            <ImagePanel
-              imgRight
-              heading="laugh"
-              src={lemonJuicingHand}
-            >
-              We love to have fun while we learn, and so do
-              our little chefs! With silly yet memorable
-              lessons, we learn what NOT to do in the
-              kitchen as much as the wonderful things we can
-              do!
+            <ImagePanel imgRight heading="laugh" src={lemonJuicingHand}>
+              We love to have fun while we learn, and so do our little chefs!
+              With silly yet memorable lessons, we learn what NOT to do in the
+              kitchen as much as the wonderful things we can do!
             </ImagePanel>
           </Row>
           <Row className="HomeView-row">
             <ImagePanel heading="live" src={scoopChoc}>
-              Take care of yourself while we take care of
-              the rest. Your budding chefs will be proud to
-              bring home a sampling of what they've created
-              as they develop this SKILL FOR LIFE!
+              Take care of yourself while we take care of the rest. Your budding
+              chefs will be proud to bring home a sampling of what they've
+              created as they develop this SKILL FOR LIFE!
             </ImagePanel>
           </Row>
           <Row className="HomeView-row">
-            <ImagePanel
-              imgRight
-              src={pumpkinChocChipMuffins}
-            >
+            <ImagePanel imgRight src={pumpkinChocChipMuffins}>
               <CheckAuth>
                 <RegLink />
               </CheckAuth>
@@ -82,14 +70,8 @@ export default function HomeView(props) {
 function RegLink(props) {
   const link = props.uid ? '/classes' : '/sign-in';
   return (
-    <Link
-      className="HomeView-register-link"
-      id="home-register-btn"
-      to={link}
-    >
-      <div className="HomeView-register-btn">
-        Click here to register!
-      </div>
+    <Link className="HomeView-register-link" id="home-register-btn" to={link}>
+      <div className="HomeView-register-btn">Click here to register!</div>
     </Link>
   );
 }
