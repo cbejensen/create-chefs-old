@@ -1,51 +1,52 @@
 import React from 'react';
 import ImageGrid from './ImageGrid';
+import Lightbox from './Lightbox';
 
 class ImageGridContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { lightbox: 0 };
+    this.state = { activeLightbox: 1 };
   }
-  showLightbox = index => {
-    this.setState({ lightbox: index });
+  showLightbox = num => {
+    this.setState({ activeLightbox: num });
   };
   hideLightbox = () => {
-    this.setState({ lightbox: 0 });
+    this.setState({ activeLightbox: 0 });
   };
-  prevLightbox = () => {
+  prevLightbox = e => {
     this.setState((prevState, props) => {
-      const current = prevState.lightbox;
+      const current = prevState.activeLightbox;
       // if user is on first image
       // go to last image
       if (current === 1) {
-        return { lightbox: this.props.images.length };
+        return { activeLightbox: this.props.images.length };
       } else {
-        return { lightbox: current - 1 };
+        return { activeLightbox: current - 1 };
       }
     });
   };
-  nextLightbox = () => {
+  nextLightbox = e => {
     this.setState((prevState, props) => {
-      const current = prevState.lightbox;
+      const current = prevState.activeLightbox;
       // if user is on last image
       // go to first image
       if (current === this.props.images.length) {
-        return { lightbox: 1 };
+        return { activeLightbox: 1 };
       } else {
-        return { lightbox: current + 1 };
+        return { activeLightbox: current + 1 };
       }
     });
   };
   render() {
     return (
-      <ImageGrid
-        images={this.props.images}
-        {...this.state}
-        showLightbox={this.showLightbox}
-        hideLightbox={this.hideLightbox}
-        prevLightbox={this.prevLightbox}
-        nextLightbox={this.nextLightbox}
-      />
+      <ImageGrid images={this.props.images} onClick={this.showLightbox}>
+        <Lightbox
+          active={this.state.activeLightbox}
+          hide={this.hideLightbox}
+          prev={this.prevLightbox}
+          next={this.nextLightbox}
+        />
+      </ImageGrid>
     );
   }
 }

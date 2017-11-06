@@ -1,41 +1,59 @@
 import React from 'react';
-import './ImageGrid.css';
-import 'css/z-index.css';
 
 const ImageGrid = props => {
   // TODO: use background-img so images crop and center correctly
-  // TODO: implement props.prevLightbox and props.nextLightbox
-  // TODO: remove css and use js-in-css
+  const styles = {
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'center'
+    },
+    imgWrap: {
+      width: '25%',
+      paddingTop: '25%',
+      overflow: 'hidden',
+      margin: '5px',
+      position: 'relative',
+      cursor: 'pointer'
+    },
+    img: {
+      width: '100%',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translateY(-50%) translateX(-50%)'
+    }
+  };
   return (
-    <div className="ImageGrid-container">
+    <div style={styles.container}>
       {props.images.map((img, index) => {
-        console.log('render');
-        const pos = index + 1;
-        const styles = {
-          lightbox: {
-            display: props.lightbox === pos ? 'flex' : 'none'
-          }
-        };
         return (
-          <div key={index} className="ImageGrid-image">
+          <div key={index} style={styles.imgWrap}>
             <img
               src={img.src}
               alt={img.alt}
-              title={img.alt}
-              onClick={() => props.showLightbox(pos)}
+              title={img.title}
+              style={styles.img}
+              onClick={() => props.onClick(index + 1)}
             />
-            <div
-              className="ImageGrid-lightbox lightbox"
-              style={styles.lightbox}
-              onClick={props.hideLightbox}
-            >
-              <img src={img.src} alt={img.alt} title={img.alt} />
-            </div>
+            {React.Children.map(props.children, child => {
+              return React.cloneElement(child, {
+                index: index,
+                src: img.src,
+                alt: img.alt,
+                title: img.title
+              });
+            })}
           </div>
         );
       })}
     </div>
   );
+};
+
+ImageGrid.propTypes = {
+  images: React.PropTypes.array,
+  onClick: React.PropTypes.func
 };
 
 export default ImageGrid;
