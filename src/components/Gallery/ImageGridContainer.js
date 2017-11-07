@@ -5,7 +5,7 @@ import Lightbox from './Lightbox';
 class ImageGridContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { activeLightbox: 1 };
+    this.state = { activeLightbox: 0 };
   }
   showLightbox = num => {
     this.setState({ activeLightbox: num });
