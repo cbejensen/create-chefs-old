@@ -22,7 +22,7 @@ export default function Footer(props) {
         Create Chefs 2017
         <div>
           <strong>
-            <div>801-856-2768</div>
+            <div><a href="tel:801-856-2768">801-856-2768</a></div>
             <a href="mailto:createclasses@gmail.com">
               createclasses@gmail.com
             </a>

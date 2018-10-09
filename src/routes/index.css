@@ -53,16 +53,13 @@
   border-radius: 15px;
   text-align: center;
   font-size: 1.5em;
-  background-color: #8eeeee;
+  background-color: #fff;
   cursor: pointer;
   transition: .3s;
 }
 
 .HomeView-register-btn:hover {
-  background-color: white;
-  /*border: 4px solid #8eeeee;*/
-  padding: 12px;
-  font-size: 1.6em;
+  transform: scale(1.1);
 }
 
 .HomeView-register-link {
@@ -71,7 +68,7 @@
 }
 
 .HomeView-register-link:hover {
-  color: #8eeeee;
+  color: #a80f18;
   text-decoration: none;
 }
 
