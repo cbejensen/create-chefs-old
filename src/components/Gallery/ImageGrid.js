@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const ImageGrid = props => {
   // TODO: use background-img so images crop and center correctly
@@ -6,24 +6,20 @@ const ImageGrid = props => {
     container: {
       display: 'flex',
       flexWrap: 'wrap',
-      justifyContent: 'center'
+      justifyContent: 'center',
     },
     imgWrap: {
-      width: '25%',
-      paddingTop: '25%',
-      overflow: 'hidden',
-      margin: '5px',
-      position: 'relative',
-      cursor: 'pointer'
+      width: '200px',
+      height: '200px',
+      margin: '10',
+      cursor: 'pointer',
     },
     img: {
+      objectFit: 'cover',
       width: '100%',
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translateY(-50%) translateX(-50%)'
-    }
-  };
+      height: '100%',
+    },
+  }
   return (
     <div style={styles.container}>
       {props.images.map((img, index) => {
@@ -41,19 +37,19 @@ const ImageGrid = props => {
                 index: index,
                 src: img.src,
                 alt: img.alt,
-                title: img.title
-              });
+                title: img.title,
+              })
             })}
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
 ImageGrid.propTypes = {
   images: React.PropTypes.array,
-  onClick: React.PropTypes.func
-};
+  onClick: React.PropTypes.func,
+}
 
-export default ImageGrid;
+export default ImageGrid
