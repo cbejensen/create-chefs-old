@@ -1,14 +1,15 @@
-import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router';
-import { ImagePanel } from '../components/ImagePanel';
-import CheckAuth from 'components/CheckAuth';
-import logoCreate from 'images/logo-create.png';
-import bostonStir from 'images/2016-11-10/boston-stir.jpg';
-import lemonJuicingHand from 'images/2016-11-10/lemon-juicing-hand.jpg';
-import scoopChoc from 'images/2017-11-4/kid-scooping-cookie-dough.jpg';
-import pumpkinChocChipMuffins from 'images/2017-11-4/pumpkin-choc-chip-muffins-in-pan.jpg';
-import './index.css';
+import React from 'react'
+import { Grid, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router'
+import { ImagePanel } from '../components/ImagePanel'
+import CheckAuth from 'components/CheckAuth'
+import logoCreate from 'images/logo-create.png'
+import bostonStir from 'images/2016-11-10/boston-stir.jpg'
+import lemonJuicingHand from 'images/2016-11-10/lemon-juicing-hand.jpg'
+import scoopChoc from 'images/2017-11-4/kid-scooping-cookie-dough.jpg'
+import pumpkinChocChipMuffins from 'images/2017-11-4/pumpkin-choc-chip-muffins-in-pan.jpg'
+import foodVid from 'images/after-school-snacks.mp4'
+import './index.css'
 
 export default function HomeView(props) {
   return (
@@ -61,17 +62,28 @@ export default function HomeView(props) {
               </CheckAuth>
             </ImagePanel>
           </Row>
+          <Row>
+            <Col className="HomeView-video-title">
+              <h1>After School Snacks</h1>
+              <p>
+                See <a href="/classes">classes</a> for details
+              </p>
+            </Col>
+          </Row>
+          <Row className="HomeView-video">
+            <video controls src={foodVid}></video>
+          </Row>
         </Grid>
       </div>
     </div>
-  );
+  )
 }
 
 function RegLink(props) {
-  const link = props.uid ? '/classes' : '/sign-in';
+  const link = props.uid ? '/classes' : '/sign-in'
   return (
     <Link className="HomeView-register-link" id="home-register-btn" to={link}>
       <div className="HomeView-register-btn">Click here to register!</div>
     </Link>
-  );
+  )
 }
