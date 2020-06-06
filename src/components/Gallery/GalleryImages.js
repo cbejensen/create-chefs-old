@@ -24,8 +24,28 @@ import twoKidsChefHats from 'images/2017-11-4/two-kids-chef-hats.jpg'
 import twoKidsStirringLaugh from 'images/2017-11-4/two-kids-stirring-laugh.jpg'
 import twoKidsStirring from 'images/2017-11-4/two-kids-stirring.jpg'
 import twoKidsWhiteBowl from 'images/2017-11-4/two-kids-white-bowl.jpg'
+import babyBlocksFood from 'images/2020-06-06/baby-blocks-food.jpg'
+import banquetTableMiscFood from 'images/2020-06-06/banquet-table-misc-food.jpg'
+import banquetTablePretzelsTrianglePlates from 'images/2020-06-06/banquet-table-pretzels-triangle-plates.jpg'
+import cakeAndOldBooks from 'images/2020-06-06/cake-and-old-books.jpg'
+import dinnerTakesAll from 'images/2020-06-06/dinner-takes-all.jpg'
+import frostSettingCakePops from 'images/2020-06-06/frost-setting-cake-pops.jpg'
+import girlScoopingChocolateFinger from 'images/2020-06-06/girl-scooping-chocolate-finger.jpg'
+import meatAndFruitLarge from 'images/2020-06-06/meat-and-fruit-large.jpg'
+import meatAndFruit from 'images/2020-06-06/meat-and-fruit.jpg'
+import twoKidsBigHats from 'images/2020-06-06/two-kids-big-hats.jpg'
 
 export default [
+  { src: babyBlocksFood, alt: '', title: '', caption: '' },
+  { src: banquetTableMiscFood, alt: '', title: '', caption: '' },
+  { src: banquetTablePretzelsTrianglePlates, alt: '', title: '', caption: '' },
+  { src: cakeAndOldBooks, alt: '', title: '', caption: '' },
+  { src: dinnerTakesAll, alt: '', title: '', caption: '' },
+  { src: frostSettingCakePops, alt: '', title: '', caption: '' },
+  { src: girlScoopingChocolateFinger, alt: '', title: '', caption: '' },
+  { src: meatAndFruitLarge, alt: '', title: '', caption: '' },
+  { src: meatAndFruit, alt: '', title: '', caption: '' },
+  { src: twoKidsBigHats, alt: '', title: '', caption: '' },
   {
     src: adultsEatingAtTable,
     alt: '',
