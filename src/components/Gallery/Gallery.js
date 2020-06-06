@@ -1,9 +1,10 @@
 import React from 'react'
 import ImageGrid from './ImageGridContainer'
+import VideoList from './VideoList'
 import images from './GalleryImages'
-// import { getImages } from '../../utils/firebaseHelpers'
+import { Tabs, Tab } from 'react-bootstrap'
 
-const Gallery = props => {
+const Gallery = (props) => {
   // getImages()
   const styles = {
     center: {
@@ -17,7 +18,14 @@ const Gallery = props => {
         Now offering adult classes. Book your next holiday party or team
         building event with us today!
       </p>
-      <ImageGrid images={images} />
+      <Tabs defaultActiveKey="images">
+        <Tab eventKey="images" title="Images">
+          <ImageGrid images={images} />
+        </Tab>
+        <Tab eventKey="videos" title="Videos">
+          <VideoList></VideoList>
+        </Tab>
+      </Tabs>
     </div>
   )
 }
