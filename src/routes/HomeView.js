@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router'
 import { ImagePanel } from '../components/ImagePanel'
+import ContactButtonContainer from '../components/ContactButtonContainer'
 import CheckAuth from 'components/CheckAuth'
 import logoCreate from 'images/logo-create.png'
 import bostonStir from 'images/2016-11-10/boston-stir.jpg'
@@ -22,6 +23,7 @@ export default function HomeView(props) {
               <span>Cooking Classes</span>
             </figcaption>
           </figure>
+          <ContactButtonContainer text="Contact Us Today!"></ContactButtonContainer>
         </div>
       </div>
       <div className="HomeView-body-container">
@@ -61,6 +63,9 @@ export default function HomeView(props) {
                 <RegLink />
               </CheckAuth>
             </ImagePanel>
+          </Row>
+          <Row>
+            <ContactButtonContainer text="Contact Us for More Details!"></ContactButtonContainer>
           </Row>
           <Row>
             <Col className="HomeView-video-title">
