@@ -1,6 +1,7 @@
 import React from 'react'
+import LazyLoad from 'react-lazyload'
 
-const ImageGrid = props => {
+const ImageGrid = (props) => {
   // TODO: use background-img so images crop and center correctly
   const styles = {
     container: {
@@ -25,14 +26,16 @@ const ImageGrid = props => {
       {props.images.map((img, index) => {
         return (
           <div key={index} style={styles.imgWrap}>
-            <img
-              src={img.src}
-              alt={img.alt}
-              title={img.title}
-              style={styles.img}
-              onClick={() => props.onClick(index + 1)}
-            />
-            {React.Children.map(props.children, child => {
+            <LazyLoad height={200}>
+              <img
+                src={img.src}
+                alt={img.alt}
+                title={img.title}
+                style={styles.img}
+                onClick={() => props.onClick(index + 1)}
+              />
+            </LazyLoad>
+            {React.Children.map(props.children, (child) => {
               return React.cloneElement(child, {
                 index: index,
                 src: img.src,

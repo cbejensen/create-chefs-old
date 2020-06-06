@@ -1,44 +1,44 @@
-import React from 'react';
+import React from 'react'
 
 class LightboxControls extends React.PureComponent {
   // TODO: Prevent this from re-rendering on image change
   constructor(props) {
-    super(props);
+    super(props)
   }
   componentDidMount() {
-    console.log('mounted');
+    console.log('mounted')
   }
   render() {
-    console.log('rendered');
+    console.log('rendered')
     const styles = {
       controlWrap: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        color: '#fff'
+        color: '#fff',
       },
       control: {
         border: 0,
         background: 'none',
         padding: '10px 30px',
         fontSize: '10vmin',
-        textShadow: '3px 3px 3px black'
-      }
-    };
+        textShadow: '3px 3px 3px black',
+      },
+    }
     return (
       <div style={styles.controlWrap}>
-        <button onClick={e => this.props.prev(e)} style={styles.control}>
+        <button onClick={(e) => this.props.prev(e)} style={styles.control}>
           &#60;
         </button>
         <button onClick={this.props.hide} style={styles.control}>
-          X
+          &times;
         </button>
-        <button onClick={e => this.props.next(e)} style={styles.control}>
+        <button onClick={(e) => this.props.next(e)} style={styles.control}>
           &#62;
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default LightboxControls;
+export default LightboxControls
