@@ -1,6 +1,7 @@
-import React from 'react';
-import CookClasses from 'components/CookClasses/CookClasses';
-import { Helmet } from 'react-helmet';
+import React from 'react'
+import CookClasses from 'components/CookClasses/CookClasses'
+import Payment from 'components/Payment'
+import { Helmet } from 'react-helmet'
 
 export default function CookClassesView(props) {
   return (
@@ -12,8 +13,11 @@ export default function CookClassesView(props) {
           content="See what cooking classes are available and register your kids today!"
         />
       </Helmet>
-      <h1 className="text-center">Upcoming Classes</h1>
+      <div style={{ textAlign: 'center' }}>
+        <h1 className="text-center">Upcoming Classes</h1>
+        <Payment></Payment>
+      </div>
       <CookClasses />
     </div>
-  );
+  )
 }
