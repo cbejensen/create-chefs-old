@@ -26,12 +26,22 @@ export default function UserInputGroup(props) {
             required
           />
         </Col>
-        <Col xs={12} sm={8} md={4}>
-          <FirebaseField
-            path={`users/${props.uid}/phone`}
-            controlId="userPhone"
-            label="Phone"
-          />
+      </Row>
+      <Row>
+        <Col xs={6}>
+            <FirebaseField
+              path={`users/${props.uid}/phone`}
+              controlId="userPhone"
+              label="Phone"
+            />
+        </Col>
+        <Col xs={6}>
+            <FirebaseField
+              path={`users/${props.uid}/email`}
+              controlId="userEmail"
+              label="Email"
+              required
+            />
         </Col>
       </Row>
       <Row>
