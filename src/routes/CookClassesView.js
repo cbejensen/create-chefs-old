@@ -14,7 +14,7 @@ export default function CookClassesView(props) {
         />
       </Helmet>
       <div style={{ textAlign: 'center' }}>
-        <h1 className="text-center">Upcoming Classes</h1>
+        <h1 className="text-center">Camps & Classes</h1>
         <Payment></Payment>
       </div>
       <CookClasses />

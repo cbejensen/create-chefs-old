@@ -38,7 +38,7 @@ export default function NavLarge(props) {
         <NavLogo style={styles.logo} />
         <ul>
           <NavItem text="home" to="/" />
-          <NavItem text="classes" to="/classes" />
+          <NavItem text="camps & classes" to="/classes" />
           <NavItem {...acctLink} />
           <NavItem text="gallery" to="/gallery" />
           <NavItem text="about" to="/about" />

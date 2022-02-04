@@ -1,0 +1,24 @@
+{
+  "rules": {
+    "children": {
+      "$id": {
+        ".read": "data.child('parent').val() === auth.uid || auth.uid === 'tDHYraX5Iqes7WDq4Ne474qk30n1' || auth.uid === '8KRkYoGQnTTBbMbl0PYRdneUbqO2'",
+        ".write": "data.child('parent').val() === auth.uid || newData.child('parent').val() === auth.uid"
+      }
+    },
+    "classGroups": {
+      ".read": "true",
+      ".write": "true"
+    },
+    "classes": {
+      ".read": "true",
+      ".write": "true"
+    },
+    "users": {
+      "$uid": {
+        ".read": "$uid === auth.uid || auth.uid === 'tDHYraX5Iqes7WDq4Ne474qk30n1' || auth.uid === '8KRkYoGQnTTBbMbl0PYRdneUbqO2'",
+        ".write": "$uid === auth.uid"
+      }
+    }
+  }
+}
