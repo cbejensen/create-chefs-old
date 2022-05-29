@@ -27,7 +27,8 @@ export default function NavLarge(props) {
   };
   const isAdmin =
     props.uid === 'tDHYraX5Iqes7WDq4Ne474qk30n1' ||
-    props.uid === '8KRkYoGQnTTBbMbl0PYRdneUbqO2';
+    props.uid === '8KRkYoGQnTTBbMbl0PYRdneUbqO2' || 
+    props.uid === 'naTnIcQXtSY3KX8Zr0pbllIh7772';
   if (props.uid) {
     acctLink.text = 'my account';
     acctLink.to = '/my-account';

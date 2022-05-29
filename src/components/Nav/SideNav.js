@@ -9,7 +9,8 @@ class SideNav extends React.Component {
     };
     const isAdmin =
       this.props.uid === 'tDHYraX5Iqes7WDq4Ne474qk30n1' ||
-      this.props.uid === '8KRkYoGQnTTBbMbl0PYRdneUbqO2';
+      this.props.uid === '8KRkYoGQnTTBbMbl0PYRdneUbqO2' ||
+      this.props.uid === 'naTnIcQXtSY3KX8Zr0pbllIh7772';
     if (this.props.uid) {
       acctLink.text = 'my account';
       acctLink.to = '/my-account';

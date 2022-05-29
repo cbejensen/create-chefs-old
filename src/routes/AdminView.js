@@ -21,7 +21,7 @@ class AdminView extends React.Component {
                 content="noindex, nofollow"
               />
             </Helmet>
-            <h2 className="text-center">Welcome, Jodie!</h2>
+            <h2 className="text-center">Welcome!</h2>
             <Admin />
           </Grid>
         </CheckAuth>
