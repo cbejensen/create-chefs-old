@@ -1,5 +1,5 @@
 {
-  "name": "createChefs",
+  "name": "createChefsOld",
   "version": "0.23.2",
   "private": true,
   "devDependencies": {
